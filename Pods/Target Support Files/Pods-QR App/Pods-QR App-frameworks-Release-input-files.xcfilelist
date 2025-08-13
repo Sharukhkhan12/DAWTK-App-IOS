@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-QR App/Pods-QR App-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AEOTPTextField/AEOTPTextField.framework
+${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework
+${BUILT_PRODUCTS_DIR}/Malert/Malert.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
+${BUILT_PRODUCTS_DIR}/pop/pop.framework
