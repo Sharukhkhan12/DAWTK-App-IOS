@@ -67,6 +67,13 @@
 		28540C932DF0672800399270 /* Template8CVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28540C912DF0672800399270 /* Template8CVC.swift */; };
 		28540C942DF0672800399270 /* Template8CVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28540C922DF0672800399270 /* Template8CVC.xib */; };
 		28586C182E0818D60066D056 /* ParentCreatteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586C172E0818D60066D056 /* ParentCreatteCard.swift */; };
+		285CA6162E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CA6142E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift */; };
+		285CA6172E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */; };
+		285CA61B2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CA6192E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift */; };
+		285CA61C2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA61A2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib */; };
+		285CA6222E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CA6202E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift */; };
+		285CA6232E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA6212E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib */; };
+		285DD8B92E4F464E008D7E01 /* InvitationPreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */; };
 		286541AB2DEDA28B001342D9 /* ProgressAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286541A82DEDA28B001342D9 /* ProgressAlertView.swift */; };
 		286541AC2DEDA28B001342D9 /* ProgressAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 286541A92DEDA28B001342D9 /* ProgressAlertView.xib */; };
 		286541AF2DEDA2B9001342D9 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 286541AE2DEDA2B9001342D9 /* NVActivityIndicatorView */; };
@@ -210,6 +217,13 @@
 		28540C912DF0672800399270 /* Template8CVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template8CVC.swift; sourceTree = "<group>"; };
 		28540C922DF0672800399270 /* Template8CVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Template8CVC.xib; sourceTree = "<group>"; };
 		28586C172E0818D60066D056 /* ParentCreatteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCreatteCard.swift; sourceTree = "<group>"; };
+		285CA6142E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC11.swift; sourceTree = "<group>"; };
+		285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC11.xib; sourceTree = "<group>"; };
+		285CA6192E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC12.swift; sourceTree = "<group>"; };
+		285CA61A2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC12.xib; sourceTree = "<group>"; };
+		285CA6202E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC13.swift; sourceTree = "<group>"; };
+		285CA6212E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC13.xib; sourceTree = "<group>"; };
+		285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationPreViewVC.swift; sourceTree = "<group>"; };
 		286541A82DEDA28B001342D9 /* ProgressAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlertView.swift; sourceTree = "<group>"; };
 		286541A92DEDA28B001342D9 /* ProgressAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressAlertView.xib; sourceTree = "<group>"; };
 		286541B32DEDA764001342D9 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -557,6 +571,41 @@
 			path = Template8;
 			sourceTree = "<group>";
 		};
+		285CA6132E4CB777001BB7E8 /* InvitationTemplatesCVC11 */ = {
+			isa = PBXGroup;
+			children = (
+				285CA6142E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift */,
+				285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */,
+			);
+			path = InvitationTemplatesCVC11;
+			sourceTree = "<group>";
+		};
+		285CA6182E4CB7B8001BB7E8 /* InvitationTemplatesCVC12 */ = {
+			isa = PBXGroup;
+			children = (
+				285CA6192E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift */,
+				285CA61A2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib */,
+			);
+			path = InvitationTemplatesCVC12;
+			sourceTree = "<group>";
+		};
+		285CA61F2E4CB7E4001BB7E8 /* InvitationTemplatesCVC13 */ = {
+			isa = PBXGroup;
+			children = (
+				285CA6202E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift */,
+				285CA6212E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib */,
+			);
+			path = InvitationTemplatesCVC13;
+			sourceTree = "<group>";
+		};
+		285DD8B72E4F461A008D7E01 /* InvitationPreViewVC */ = {
+			isa = PBXGroup;
+			children = (
+				285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */,
+			);
+			path = InvitationPreViewVC;
+			sourceTree = "<group>";
+		};
 		2865419E2DED84FC001342D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +799,7 @@
 		28B8B0B02DE9909100157274 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				285DD8B72E4F461A008D7E01 /* InvitationPreViewVC */,
 				D030F9B92E3A2B98001D513F /* StyleVC */,
 				D030F9B62E3A2B5B001D513F /* SuccessVC */,
 				D030F9B32E3A2B03001D513F /* AccountVC */,
@@ -893,6 +943,9 @@
 		28DE341D2E13C2CC002456B9 /* InvitationTemplates */ = {
 			isa = PBXGroup;
 			children = (
+				285CA61F2E4CB7E4001BB7E8 /* InvitationTemplatesCVC13 */,
+				285CA6182E4CB7B8001BB7E8 /* InvitationTemplatesCVC12 */,
+				285CA6132E4CB777001BB7E8 /* InvitationTemplatesCVC11 */,
 				282F16632E1591B200D01113 /* InvitationTemplatesCVC10 */,
 				282F165A2E15914A00D01113 /* InvitationTemplatesCVC9 */,
 				282F16552E15912A00D01113 /* InvitationTemplatesCVC8 */,
@@ -1224,10 +1277,13 @@
 				D030F9CC2E3A2E50001D513F /* UserProfileViews.xib in Resources */,
 				D0FC30A52E38EE95003ED08E /* interoVideo.MP4 in Resources */,
 				28540C622DF0560B00399270 /* HomeViewNib.xib in Resources */,
+				285CA6172E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib in Resources */,
 				28DC23E62E4295020036F0C0 /* pass_1754422629.pkpass in Resources */,
 				28B3B65F2DEC490300FBA89C /* CreatteCardView.xib in Resources */,
 				28540C802DF0665800399270 /* Template4CVC.xib in Resources */,
+				285CA61C2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib in Resources */,
 				28B3B6662DEC6F6A00FBA89C /* newCardTVC.xib in Resources */,
+				285CA6232E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib in Resources */,
 				28DE34792E141743002456B9 /* InvitationTemplatesCVC4.xib in Resources */,
 				28F2B2322E39FF2A0089EBE4 /* PremiumAlert.xib in Resources */,
 				D0FC30A32E38EE8A003ED08E /* data.json in Resources */,
@@ -1312,7 +1368,9 @@
 				2878097E2E1054A7003D5F1D /* InvitationCardVC.swift in Sources */,
 				28B8B1182DEA156800157274 /* ConformVC.swift in Sources */,
 				289A10772E37B98A003133DC /* QRScanVC.swift in Sources */,
+				285DD8B92E4F464E008D7E01 /* InvitationPreViewVC.swift in Sources */,
 				28B3B6672DEC6F6A00FBA89C /* newCardTVC.swift in Sources */,
+				285CA6222E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift in Sources */,
 				28B3B6522DEC38D000FBA89C /* VerifiedEmailVC.swift in Sources */,
 				282F164A2E1590C400D01113 /* InvitationTemplatesCVC6.swift in Sources */,
 				28DE34212E13C323002456B9 /* InvitationTemplatesCVC1.swift in Sources */,
@@ -1336,6 +1394,7 @@
 				288A17E82E40F9BB0071883E /* URL+Extension.swift in Sources */,
 				282B56542E22458800BFCC1B /* IndividualPremiumView.swift in Sources */,
 				28DE34752E1413F4002456B9 /* InvitationTemplatesCVC3.swift in Sources */,
+				285CA6162E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift in Sources */,
 				28B8B1122DE9F07300157274 /* SignUpVC.swift in Sources */,
 				28540C882DF066D000399270 /* Template6CVC.swift in Sources */,
 				28F2B2302E39FF1D0089EBE4 /* PremiumAlert.swift in Sources */,
@@ -1379,6 +1438,7 @@
 				28540C932DF0672800399270 /* Template8CVC.swift in Sources */,
 				282F16582E15913D00D01113 /* InvitationTemplatesCVC8.swift in Sources */,
 				D030F9C22E3A2BEC001D513F /* FontTableViewCell.swift in Sources */,
+				285CA61B2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift in Sources */,
 				282F165D2E15916100D01113 /* InvitationTemplatesCVC9.swift in Sources */,
 				28B8B0C12DE9C0B100157274 /* UIView+Exttensions.swift in Sources */,
 				28540C7A2DF0662E00399270 /* Template3CVC.swift in Sources */,

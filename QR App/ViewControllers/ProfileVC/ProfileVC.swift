@@ -20,6 +20,7 @@ class ProfileVC: UIViewController {
     var firebaseProfileImage: UIImage?
     var sheetVC = SheetVC()
     var imageSelected: UIImage?
+    var userFromInvitation: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,6 @@ class ProfileVC: UIViewController {
             self.placeHolderImage.isHidden = false
             self.profileImage.isHidden = true
         }
-        
-        
         setuUpClickableImages()
         // Do any additional setup after loading the view.
     }
@@ -112,9 +111,14 @@ class ProfileVC: UIViewController {
                 if let url = self.imageURL {
                     userInfo["imageURL"] = url
                 }
-
                 // Correct: send image and optional URL directly, not nested
-                NotificationCenter.default.post(name: .imageSelectedNotification, object: nil, userInfo: userInfo)
+                
+                if self.userFromInvitation! {
+                    NotificationCenter.default.post(name: .userFromInviationCard, object: nil, userInfo: userInfo)
+                } else {
+                    NotificationCenter.default.post(name: .imageSelectedNotification, object: nil, userInfo: userInfo)
+                }
+          
             }
         } else {
             let alert = UIAlertController(

@@ -115,17 +115,18 @@
                                 <rect key="frame" x="10" y="240.33333333333334" width="291" height="340.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3H-oD-fdt" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
-                                        <rect key="frame" x="85.666666666666686" y="77.666666666666657" width="120" height="134"/>
+                                        <rect key="frame" x="85.666666666666686" y="10" width="120" height="120"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyScan" translatesAutoresizingMaskIntoConstraints="NO" id="HvS-on-7ZO">
-                                                <rect key="frame" x="8" y="8" width="104" height="118"/>
+                                                <rect key="frame" x="8" y="7.9999999999999716" width="104" height="104"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="HvS-on-7ZO" secondAttribute="bottom" constant="8" id="JnJ-kg-Lb4"/>
+                                            <constraint firstAttribute="height" constant="120" id="fLI-42-Cdp"/>
                                             <constraint firstItem="HvS-on-7ZO" firstAttribute="top" secondItem="Y3H-oD-fdt" secondAttribute="top" constant="8" id="pfd-C1-tbZ"/>
                                             <constraint firstAttribute="trailing" secondItem="HvS-on-7ZO" secondAttribute="trailing" constant="8" id="qIV-2I-FYI"/>
+                                            <constraint firstAttribute="width" constant="120" id="rrY-Nq-ULb"/>
                                             <constraint firstItem="HvS-on-7ZO" firstAttribute="leading" secondItem="Y3H-oD-fdt" secondAttribute="leading" constant="8" id="z7l-GC-c1D"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -140,6 +141,63 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dGX-QG-O3C">
+                                        <rect key="frame" x="51" y="143.66666666666666" width="189" height="51.333333333333343"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2z-Dk-hA3">
+                                                <rect key="frame" x="0.0" y="0.0" width="189" height="23.333333333333332"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calender" translatesAutoresizingMaskIntoConstraints="NO" id="UkL-MF-g6S">
+                                                        <rect key="frame" x="10" y="4.3333333333333144" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="JBv-Ar-6f5"/>
+                                                            <constraint firstAttribute="width" constant="15" id="SD7-3c-mWz"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Shawwal 1444" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZG-xE-Lsc">
+                                                        <rect key="frame" x="29" y="1.6666666666666856" width="148" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="tZG-xE-Lsc" firstAttribute="leading" secondItem="UkL-MF-g6S" secondAttribute="trailing" constant="4" id="7Jc-ly-QOQ"/>
+                                                    <constraint firstItem="tZG-xE-Lsc" firstAttribute="centerY" secondItem="R2z-Dk-hA3" secondAttribute="centerY" id="Dvf-7k-Lp8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="tZG-xE-Lsc" secondAttribute="trailing" constant="12" id="cJC-oS-jhV"/>
+                                                    <constraint firstItem="UkL-MF-g6S" firstAttribute="leading" secondItem="R2z-Dk-hA3" secondAttribute="leading" constant="10" id="gdQ-Ow-j21"/>
+                                                    <constraint firstItem="UkL-MF-g6S" firstAttribute="centerY" secondItem="R2z-Dk-hA3" secondAttribute="centerY" id="pKo-bh-lma"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Za2-g8-P9i">
+                                                <rect key="frame" x="0.0" y="28.333333333333314" width="189" height="23"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calenderFill" translatesAutoresizingMaskIntoConstraints="NO" id="dR9-7j-Ps6">
+                                                        <rect key="frame" x="10" y="4" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="15" id="Foe-h2-eaE"/>
+                                                            <constraint firstAttribute="height" constant="15" id="f6v-ev-b4l"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 May 2023" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJx-eq-9ZU">
+                                                        <rect key="frame" x="29" y="1.3333333333333712" width="148" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="rJx-eq-9ZU" firstAttribute="leading" secondItem="dR9-7j-Ps6" secondAttribute="trailing" constant="4" id="HaD-vc-e5O"/>
+                                                    <constraint firstItem="dR9-7j-Ps6" firstAttribute="centerY" secondItem="Za2-g8-P9i" secondAttribute="centerY" id="Q8w-Pa-F9R"/>
+                                                    <constraint firstItem="dR9-7j-Ps6" firstAttribute="leading" secondItem="Za2-g8-P9i" secondAttribute="leading" constant="10" id="SMl-Du-ZzD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rJx-eq-9ZU" secondAttribute="trailing" constant="12" id="dxs-SE-Y5r"/>
+                                                    <constraint firstItem="rJx-eq-9ZU" firstAttribute="centerY" secondItem="Za2-g8-P9i" secondAttribute="centerY" id="kLW-oN-SVP"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="E6b-CF-QJB">
                                         <rect key="frame" x="65.333333333333329" y="293.66666666666663" width="160.33333333333337" height="42"/>
                                         <subviews>
@@ -156,65 +214,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4c-bS-7sy">
                                                 <rect key="frame" x="113.66666666666667" y="0.0" width="46.666666666666671" height="42"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="image 199"/>
+                                                <state key="normal" image="children-off"/>
                                             </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7eT-wk-jAd">
-                                        <rect key="frame" x="51" y="15.999999999999968" width="189" height="51.666666666666657"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xl-O6-MYU">
-                                                <rect key="frame" x="0.0" y="0.0" width="189" height="23.333333333333332"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calender" translatesAutoresizingMaskIntoConstraints="NO" id="Urs-Pe-Mx1">
-                                                        <rect key="frame" x="10" y="4.3333333333333712" width="15" height="15"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="15" id="eBR-Ju-8cU"/>
-                                                            <constraint firstAttribute="height" constant="15" id="rwK-PR-jbV"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Shawwal 1444" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAl-Yq-ydF">
-                                                        <rect key="frame" x="29" y="1.6666666666666856" width="148" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="fAl-Yq-ydF" secondAttribute="trailing" constant="12" id="DMD-VX-64L"/>
-                                                    <constraint firstItem="fAl-Yq-ydF" firstAttribute="centerY" secondItem="8xl-O6-MYU" secondAttribute="centerY" id="KaZ-UU-uS3"/>
-                                                    <constraint firstItem="fAl-Yq-ydF" firstAttribute="leading" secondItem="Urs-Pe-Mx1" secondAttribute="trailing" constant="4" id="uGI-ue-wvA"/>
-                                                    <constraint firstItem="Urs-Pe-Mx1" firstAttribute="centerY" secondItem="8xl-O6-MYU" secondAttribute="centerY" id="wKq-RI-Ryw"/>
-                                                    <constraint firstItem="Urs-Pe-Mx1" firstAttribute="leading" secondItem="8xl-O6-MYU" secondAttribute="leading" constant="10" id="zHe-1R-fyf"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izA-5R-Fgu">
-                                                <rect key="frame" x="0.0" y="28.333333333333371" width="189" height="23.333333333333329"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calenderFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHF-iO-020">
-                                                        <rect key="frame" x="10" y="4.3333333333333144" width="15" height="15"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="15" id="JCT-oT-g8Z"/>
-                                                            <constraint firstAttribute="width" constant="15" id="rQa-fc-xcW"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 May 2023" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRx-sp-WDA">
-                                                        <rect key="frame" x="29" y="1.6666666666666288" width="148" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="TRx-sp-WDA" firstAttribute="centerY" secondItem="izA-5R-Fgu" secondAttribute="centerY" id="8bl-eh-MEe"/>
-                                                    <constraint firstItem="SHF-iO-020" firstAttribute="centerY" secondItem="izA-5R-Fgu" secondAttribute="centerY" id="OLy-f8-UPe"/>
-                                                    <constraint firstItem="SHF-iO-020" firstAttribute="leading" secondItem="izA-5R-Fgu" secondAttribute="leading" constant="10" id="Y9M-8L-mZz"/>
-                                                    <constraint firstItem="TRx-sp-WDA" firstAttribute="leading" secondItem="SHF-iO-020" secondAttribute="trailing" constant="4" id="qDs-ql-Lcm"/>
-                                                    <constraint firstAttribute="trailing" secondItem="TRx-sp-WDA" secondAttribute="trailing" constant="12" id="qfu-BG-sTq"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Cxz-JZ-Qim">
@@ -325,19 +326,18 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Cxz-JZ-Qim" firstAttribute="height" secondItem="Nfx-bF-ZbY" secondAttribute="height" multiplier="0.167528" id="41m-JV-MWz"/>
+                                    <constraint firstItem="dGX-QG-O3C" firstAttribute="top" secondItem="Y3H-oD-fdt" secondAttribute="bottom" constant="13.67" id="5yo-QJ-60k"/>
                                     <constraint firstItem="E6b-CF-QJB" firstAttribute="width" secondItem="Nfx-bF-ZbY" secondAttribute="width" multiplier="0.55" id="71R-Jt-kBg"/>
-                                    <constraint firstItem="7eT-wk-jAd" firstAttribute="width" secondItem="Nfx-bF-ZbY" secondAttribute="width" multiplier="0.65" id="AiQ-bv-344"/>
                                     <constraint firstAttribute="bottom" secondItem="E6b-CF-QJB" secondAttribute="bottom" constant="5" id="ES3-6h-hSS"/>
                                     <constraint firstItem="Cxz-JZ-Qim" firstAttribute="centerX" secondItem="Nfx-bF-ZbY" secondAttribute="centerX" id="Ei5-Fd-VIV"/>
                                     <constraint firstItem="Y3H-oD-fdt" firstAttribute="centerX" secondItem="Nfx-bF-ZbY" secondAttribute="centerX" id="Fr3-ed-3C1"/>
-                                    <constraint firstItem="7eT-wk-jAd" firstAttribute="height" secondItem="Nfx-bF-ZbY" secondAttribute="height" multiplier="0.151579" id="GEj-dA-jfP"/>
-                                    <constraint firstItem="Y3H-oD-fdt" firstAttribute="top" secondItem="7eT-wk-jAd" secondAttribute="bottom" constant="10" id="GfG-kO-MKU"/>
+                                    <constraint firstItem="dGX-QG-O3C" firstAttribute="top" secondItem="Y3H-oD-fdt" secondAttribute="bottom" constant="13.67" id="Iak-wG-arL"/>
+                                    <constraint firstItem="Cxz-JZ-Qim" firstAttribute="top" secondItem="dGX-QG-O3C" secondAttribute="bottom" constant="26.670000000000002" id="SeT-C6-1Jr"/>
                                     <constraint firstItem="E6b-CF-QJB" firstAttribute="top" secondItem="Cxz-JZ-Qim" secondAttribute="bottom" constant="15" id="UnI-J6-Icv"/>
-                                    <constraint firstItem="Cxz-JZ-Qim" firstAttribute="top" secondItem="Y3H-oD-fdt" secondAttribute="bottom" constant="10" id="XeP-rI-PiB"/>
+                                    <constraint firstItem="Y3H-oD-fdt" firstAttribute="top" secondItem="Nfx-bF-ZbY" secondAttribute="top" constant="10" id="VE8-Uy-Ggm"/>
+                                    <constraint firstItem="dGX-QG-O3C" firstAttribute="centerX" secondItem="Nfx-bF-ZbY" secondAttribute="centerX" id="WIG-4g-GSE"/>
                                     <constraint firstItem="E6b-CF-QJB" firstAttribute="height" secondItem="Nfx-bF-ZbY" secondAttribute="height" multiplier="0.12333" id="gNU-uH-qTf"/>
-                                    <constraint firstItem="7eT-wk-jAd" firstAttribute="centerX" secondItem="Nfx-bF-ZbY" secondAttribute="centerX" id="gdk-cO-foQ"/>
                                     <constraint firstItem="E6b-CF-QJB" firstAttribute="centerX" secondItem="Nfx-bF-ZbY" secondAttribute="centerX" id="oNC-jl-RQt"/>
-                                    <constraint firstItem="7eT-wk-jAd" firstAttribute="top" secondItem="Nfx-bF-ZbY" secondAttribute="top" constant="16" id="qIl-SD-gbO"/>
                                     <constraint firstItem="Cxz-JZ-Qim" firstAttribute="width" secondItem="Nfx-bF-ZbY" secondAttribute="width" multiplier="0.8" id="sRW-jY-aqs"/>
                                 </constraints>
                             </view>
@@ -396,10 +396,10 @@
         <image name="calender" width="12.666666984558105" height="14"/>
         <image name="calenderFill" width="12.666666984558105" height="14"/>
         <image name="camera-off" width="24" height="24"/>
+        <image name="children-off" width="24" height="24"/>
         <image name="cigarette-off" width="24" height="24"/>
         <image name="clockIcon" width="20" height="20"/>
         <image name="dummyScan" width="104" height="104"/>
-        <image name="image 199" width="24" height="24"/>
         <image name="map-pin" width="18" height="18"/>
         <image name="sampleImagetemplate6" width="92" height="92"/>
         <image name="wifi" catalog="system" width="128" height="90"/>

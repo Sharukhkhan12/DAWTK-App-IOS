@@ -36,6 +36,9 @@ struct InvitationModel {
     var createdDate: String
     var expiryDate: String
 
+    var additionalBgColor: String
+    var additionalFont: String
+
     // Default initializer
     init(
         ownerId: String = "",
@@ -60,7 +63,9 @@ struct InvitationModel {
         googlePay: String = "",
         nft: String = "",
         createdDate: String = "",
-        expiryDate: String = ""
+        expiryDate: String = "",
+        additionalBgColor: String = "",
+        additionalFont: String = ""
     ) {
         self.ownerId = ownerId
         self.qrCode = qrCode
@@ -85,6 +90,8 @@ struct InvitationModel {
         self.nft = nft
         self.createdDate = createdDate
         self.expiryDate = expiryDate
+        self.additionalBgColor = additionalBgColor
+        self.additionalFont = additionalFont
     }
 
     // Firebase dictionary representation
@@ -112,9 +119,12 @@ struct InvitationModel {
             "googlePay": googlePay,
             "nft": nft,
             "createdDate": createdDate,
-            "expiryDate": expiryDate
+            "expiryDate": expiryDate,
+            "additionalBgColor": additionalBgColor,
+            "additionalFont": additionalFont
         ]
     }
 }
+
 
 

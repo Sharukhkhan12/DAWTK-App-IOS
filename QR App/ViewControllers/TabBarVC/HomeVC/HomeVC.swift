@@ -34,7 +34,8 @@ class HomeVC: UIViewController {
         "Template5CVC",
         "Template4CVC",
         "Template3CVC",
-        "Template2CVC"
+        "Template2CVC",
+        "Template1CVC"
     ]
     
     let templateInvitationIdentifiers = [

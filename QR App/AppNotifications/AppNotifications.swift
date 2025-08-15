@@ -20,5 +20,8 @@ extension Notification.Name {
     
     static let userFromMyCardsScreen = Notification.Name("userFromMyCardsScreen")
 
+    static let userFromInviationCard = Notification.Name("userFromInviationCard")
 
+    
+    
 }
