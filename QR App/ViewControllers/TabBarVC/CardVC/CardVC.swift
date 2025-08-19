@@ -284,11 +284,11 @@ extension CardVC: PremiumAlertDelegate {
         case .inviationCard:
             guard let selectedImage = self.selectedInnvitationImage, let selectedCard = selectedInvitationCard else { return }
 
-                // Dismiss Malert first before presenting new VC
-//                self.dismiss(animated: true) { [weak self] in
-////                    self?.navigateToViewCardScreen(image: selectedImage, card: selectedCard)
-//               
-//            }
+              //   Dismiss Malert first before presenting new VC
+                self.dismiss(animated: true) { [weak self] in
+                    self?.navigateToPreVieeScreen(invitationCard: selectedCard)
+               
+            }
         case .BusinessCard:
             
             guard let selectedImage = self.selectedImage, let selectedCard = selectedCard else { return }
@@ -310,9 +310,12 @@ extension CardVC: PremiumAlertDelegate {
         
         
         switch segmeentsSelected {
-            
         case .inviationCard:
-            print("inviationCard")
+            self.dismiss(animated: true) { [weak self] in
+                guard let selectedImage = self!.selectedInnvitationImage, let selectedCard = self!.selectedInvitationCard else { return }
+                self?.navigateToPInvitaionCard(invitationCard: selectedCard)
+                
+            }
         case .BusinessCard:
             self.dismiss(animated: true) { [weak self] in
                 guard let selectedCard = self!.selectedCard else { return }
@@ -368,6 +371,22 @@ extension CardVC: PremiumAlertDelegate {
     }
     
     
+    
+    // MARK: - Navigate TO Invitation PreViee Controller
+    
+    private func navigateToPreVieeScreen(invitationCard: InvitationModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let invitationPreViewVC = storyboard.instantiateViewController(withIdentifier: "InvitationPreViewVC") as? InvitationPreViewVC {
+            invitationPreViewVC.modalTransitionStyle = .crossDissolve
+            invitationPreViewVC.userCard = invitationCard
+            invitationPreViewVC.userFromMyCardsScreen = true
+            
+            invitationPreViewVC.modalPresentationStyle = .fullScreen
+            present(invitationPreViewVC, animated: true)
+        }
+    }
+    
+    
     // MARK: - Navigate to Style Card Screen
     private func navigateToStyleCardScreen(card: UserBusinessCardModel) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -410,6 +429,22 @@ extension CardVC: PremiumAlertDelegate {
             present(parentCreatteCard, animated: true)
         }
     }
+    
+    
+    // MARK: - Navigate To Invitaion Card
+    
+    private func navigateToPInvitaionCard(invitationCard: InvitationModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let invitationCardVC = storyboard.instantiateViewController(withIdentifier: "InvitationCardVC") as? InvitationCardVC {
+            invitationCardVC.updatedModel = invitationCard
+            invitationCardVC.userFromCardScreen = true
+            invitationCardVC.modalPresentationStyle = .fullScreen
+            invitationCardVC.modalTransitionStyle = .crossDissolve
+            present(invitationCardVC, animated: true)
+        }
+    }
+    
+    
     
 }
 

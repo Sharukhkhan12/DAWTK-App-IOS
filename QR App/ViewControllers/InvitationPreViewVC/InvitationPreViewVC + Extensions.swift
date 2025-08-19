@@ -257,7 +257,5 @@ extension InvitationPreViewVC {
            present(tabBarVC, animated: true)
        }
    }
-    
-
-    
+        
 }

@@ -85,6 +85,7 @@
 		286541B42DEDA764001342D9 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286541B32DEDA764001342D9 /* FirebaseManager.swift */; };
 		286B1A022E43DE0100A954F4 /* pass_1754506750.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 286B1A012E43DE0000A954F4 /* pass_1754506750.pkpass */; };
 		286CCFEA2E544688008BFA07 /* InvitationPreViewVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCFE92E544688008BFA07 /* InvitationPreViewVC + Extensions.swift */; };
+		286CCFEC2E5496BB008BFA07 /* InvitationCardVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCFEB2E5496BB008BFA07 /* InvitationCardVC+Extension.swift */; };
 		2878097B2E105269003D5F1D /* InvitationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878097A2E105269003D5F1D /* InvitationModel.swift */; };
 		2878097E2E1054A7003D5F1D /* InvitationCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878097D2E1054A7003D5F1D /* InvitationCardVC.swift */; };
 		287809802E105CD6003D5F1D /* InvitationFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878097F2E105CD6003D5F1D /* InvitationFieldType.swift */; };
@@ -238,6 +239,7 @@
 		286541B32DEDA764001342D9 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		286B1A012E43DE0000A954F4 /* pass_1754506750.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1754506750.pkpass; sourceTree = "<group>"; };
 		286CCFE92E544688008BFA07 /* InvitationPreViewVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvitationPreViewVC + Extensions.swift"; sourceTree = "<group>"; };
+		286CCFEB2E5496BB008BFA07 /* InvitationCardVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvitationCardVC+Extension.swift"; sourceTree = "<group>"; };
 		2878097A2E105269003D5F1D /* InvitationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationModel.swift; sourceTree = "<group>"; };
 		2878097D2E1054A7003D5F1D /* InvitationCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationCardVC.swift; sourceTree = "<group>"; };
 		2878097F2E105CD6003D5F1D /* InvitationFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationFieldType.swift; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 			children = (
 				285DD8BA2E5066B7008D7E01 /* CostumAlert */,
 				2878097D2E1054A7003D5F1D /* InvitationCardVC.swift */,
+				286CCFEB2E5496BB008BFA07 /* InvitationCardVC+Extension.swift */,
 			);
 			path = InvitationCardVC;
 			sourceTree = "<group>";
@@ -1457,6 +1460,7 @@
 				282C372B2DFFF669004E9245 /* AppNotifications.swift in Sources */,
 				285DD8C12E50D9C5008D7E01 /* InvitationTemplatesCVC12.swift in Sources */,
 				282B565E2E22561300BFCC1B /* TeamPremiumView.swift in Sources */,
+				286CCFEC2E5496BB008BFA07 /* InvitationCardVC+Extension.swift in Sources */,
 				282F16502E15910500D01113 /* InvitationTemplatesCVC7.swift in Sources */,
 				282B56592E2255CD00BFCC1B /* TeamPremiumVC.swift in Sources */,
 				D0FC30A72E38EEBB003ED08E /* LogoAnimtions.swift in Sources */,

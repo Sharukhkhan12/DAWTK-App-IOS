@@ -12,6 +12,7 @@ class InvitationCardVC: UIViewController {
     
     // MARK: - @IBOutlet
 
+    @IBOutlet weak var savelbl: UILabel!
     @IBOutlet weak var scrolHeightConst: NSLayoutConstraint!
     @IBOutlet weak var cameraImgView: UIImageView!
     @IBOutlet weak var invitationCardTV: UITableView!
@@ -23,6 +24,10 @@ class InvitationCardVC: UIViewController {
     @IBOutlet weak var selectTheFollwingHeightConst: NSLayoutConstraint!
     // MARK: - @Declarationns
     var selectedTemplateIdentifier: String?
+    var userFromCardScreen = false
+    var updatedModel: InvitationModel!
+    var selectedImageURLFromProfile: URL?
+
     var invitation = InvitationModel(
         ownerId: "",
         qrCode: "",
@@ -53,7 +58,7 @@ class InvitationCardVC: UIViewController {
 
     var profileImage: UIImage?
     var progressAllert = ProgressAlertView()
-    var selectedImageURLFromProfile: URL?
+    var selectedImageURLFromProfileURL: URL?
     var userSelectedProfileTemplate = false
 
     // Track states
@@ -69,7 +74,15 @@ class InvitationCardVC: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
-        self.getSelectedTemplate()
+        
+        if userFromCardScreen {
+            self.savelbl.text = "Save"
+            self.setFormWIthUpdate(templateNo: updatedModel.templateName)
+
+        } else {
+            
+            self.getSelectedTemplate()
+        }
         self.setup()
         self.setNoti()
     }
@@ -268,6 +281,7 @@ class InvitationCardVC: UIViewController {
     
     
     @IBAction func didTapCreate(_ sender: Any) {
+        
         self.updateInvitationFromVisibleCells()
         if validateInvitationForm() {
             print("All fields valid ✅")
@@ -307,6 +321,7 @@ class InvitationCardVC: UIViewController {
             invitationPreViewVC.userCard = invitationCard
             invitationPreViewVC.profileImage = profileImage
             invitationPreViewVC.userSelectedProfileTemplate = userSelectedProfileTemplate
+            invitationPreViewVC.userFromMyCardsScreen = userFromCardScreen
             invitationPreViewVC.modalPresentationStyle = .fullScreen
             present(invitationPreViewVC, animated: true)
         }
@@ -442,7 +457,42 @@ extension InvitationCardVC: UITableViewDataSource, UITableViewDelegate {
             cell.inputTxtField.isUserInteractionEnabled = true
             cell.inputTxtField.backgroundColor = .white
             cell.inputTxtField.textColor = .black
+          
+            
+            // ✅ Set saved value from userCard
+            
+            switch type {
+            case .profileImage:
+                // handled above (profile image row)
+                cell.inputTxtField.text = ""
+                
+            case .groomName:
+                cell.inputTxtField.text = invitation.groomName
+                
+            case .brideName:
+                cell.inputTxtField.text = invitation.brideName
+                
+            case .date:
+                cell.inputTxtField.text = invitation.date
+                
+            case .islamicDate:
+                cell.inputTxtField.text = invitation.islamicDate
+                
+            case .eventTime:
+                cell.inputTxtField.text = invitation.eventTime
+                
+            case .buffetTime:
+                cell.inputTxtField.text = invitation.buffetTime
+                
+            case .venue:
+                cell.inputTxtField.text = invitation.venue
+                
+            case .rsvpDetail:
+                cell.inputTxtField.text = invitation.rsvpDetail
+            }
+
             cell.placeholderLabel.isHidden = !(cell.inputTxtField.text?.isEmpty ?? true)
+            
         }
         
         return cell

@@ -2626,6 +2626,7 @@
                         <outlet property="invitationCardTV" destination="NMj-4I-iOl" id="I3u-99-gFH"/>
                         <outlet property="locationTxtField" destination="Mxj-dV-R5z" id="Wdc-oU-tgE"/>
                         <outlet property="locationView" destination="a6g-zi-1gq" id="gNm-44-27C"/>
+                        <outlet property="savelbl" destination="ls1-fw-gvJ" id="ZO4-Aa-bE8"/>
                         <outlet property="scrolHeightConst" destination="49K-u7-H0o" id="rSH-1P-tYs"/>
                         <outlet property="selectTheFollwingHeightConst" destination="fec-eU-O0j" id="aO4-io-iFC"/>
                         <outlet property="selectedChildrenCamreaCigrateView" destination="fGV-Na-tef" id="kcS-MP-bkG"/>
@@ -3324,7 +3325,7 @@
                                         <constraints>
                                             <constraint firstItem="9xN-PR-SDx" firstAttribute="leading" secondItem="Pa9-JV-FH5" secondAttribute="leading" id="586-eE-Met"/>
                                             <constraint firstItem="arb-Gv-Zxx" firstAttribute="centerX" secondItem="Pa9-JV-FH5" secondAttribute="centerX" id="FOW-Ee-H9e"/>
-                                            <constraint firstItem="arb-Gv-Zxx" firstAttribute="width" secondItem="Pa9-JV-FH5" secondAttribute="height" multiplier="129:59" constant="240.27118644067795" id="NiB-jn-5qm"/>
+                                            <constraint firstItem="arb-Gv-Zxx" firstAttribute="width" secondItem="Pa9-JV-FH5" secondAttribute="height" multiplier="129:59" constant="240.27000000000001" id="NiB-jn-5qm"/>
                                             <constraint firstItem="9xN-PR-SDx" firstAttribute="top" secondItem="Pa9-JV-FH5" secondAttribute="top" id="VVk-SN-Bx6"/>
                                             <constraint firstAttribute="trailing" secondItem="9xN-PR-SDx" secondAttribute="trailing" id="dSt-T8-DCO"/>
                                             <constraint firstAttribute="bottom" secondItem="9xN-PR-SDx" secondAttribute="bottom" id="lfk-oR-2c0"/>
@@ -3379,7 +3380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0M-rz-08v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6802" y="742"/>
+            <point key="canvasLocation" x="6799" y="803"/>
         </scene>
         <!--AccountVC-->
         <scene sceneID="XJL-Ja-bbE">
@@ -4470,7 +4471,6 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="67"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
-                                                            <action selector="didTapPhone:" destination="Dnb-14-jhn" eventType="touchUpInside" id="phZ-6V-Bal"/>
                                                             <action selector="didTapWallet:" destination="RaW-Y3-i42" eventType="touchUpInside" id="MlZ-1k-Sxl"/>
                                                         </connections>
                                                     </button>
@@ -4505,7 +4505,6 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="67"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
-                                                            <action selector="didTapEmail:" destination="Dnb-14-jhn" eventType="touchUpInside" id="tKD-se-LqP"/>
                                                             <action selector="didTapSave:" destination="RaW-Y3-i42" eventType="touchUpInside" id="Zc1-R0-j3U"/>
                                                         </connections>
                                                     </button>
@@ -4533,10 +4532,44 @@
                                         <rect key="frame" x="15" y="158" width="410" height="573.66666666666663"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsK-9U-Zqm" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
+                                        <rect key="frame" x="27" y="771.66666666666663" width="385.33333333333331" height="57.333333333333371"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jY4-Rw-XXY">
+                                                <rect key="frame" x="131.33333333333334" y="18.333333333333371" width="122.66666666666666" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbZ-m7-2jz">
+                                                <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="57.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="didTapUpdateCard:" destination="RaW-Y3-i42" eventType="touchUpInside" id="b0H-vL-teG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.81201225519999998" green="0.99605435129999997" blue="0.294288367" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="jY4-Rw-XXY" firstAttribute="centerY" secondItem="SsK-9U-Zqm" secondAttribute="centerY" id="HY6-Vk-07m"/>
+                                            <constraint firstAttribute="bottom" secondItem="UbZ-m7-2jz" secondAttribute="bottom" id="JG5-3g-gee"/>
+                                            <constraint firstItem="UbZ-m7-2jz" firstAttribute="top" secondItem="SsK-9U-Zqm" secondAttribute="top" id="T65-8u-atI"/>
+                                            <constraint firstItem="jY4-Rw-XXY" firstAttribute="centerX" secondItem="SsK-9U-Zqm" secondAttribute="centerX" id="Ue4-98-hYp"/>
+                                            <constraint firstItem="UbZ-m7-2jz" firstAttribute="leading" secondItem="SsK-9U-Zqm" secondAttribute="leading" id="m9T-nS-UKV"/>
+                                            <constraint firstAttribute="trailing" secondItem="UbZ-m7-2jz" secondAttribute="trailing" id="ucF-lH-Yir"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="iry-9H-0Fe" firstAttribute="top" secondItem="CpV-Nw-8hO" secondAttribute="bottom" constant="60" id="4NB-QO-xIl"/>
                                     <constraint firstAttribute="trailing" secondItem="vqK-ej-HBm" secondAttribute="trailing" id="5Sa-jn-9eA"/>
+                                    <constraint firstItem="SsK-9U-Zqm" firstAttribute="leading" secondItem="KIC-Sd-7Wd" secondAttribute="leading" constant="27" id="9aU-i1-W8M"/>
                                     <constraint firstItem="CpV-Nw-8hO" firstAttribute="height" secondItem="KIC-Sd-7Wd" secondAttribute="height" multiplier="0.6" id="CGJ-yu-lAl"/>
                                     <constraint firstAttribute="trailing" secondItem="CpV-Nw-8hO" secondAttribute="trailing" constant="15" id="HGN-jG-lET"/>
                                     <constraint firstItem="vqK-ej-HBm" firstAttribute="top" secondItem="KIC-Sd-7Wd" secondAttribute="top" id="Hhi-ID-IBK"/>
@@ -4546,6 +4579,9 @@
                                     <constraint firstItem="CpV-Nw-8hO" firstAttribute="top" secondItem="vqK-ej-HBm" secondAttribute="bottom" constant="30" id="YuP-7C-dsK"/>
                                     <constraint firstItem="iry-9H-0Fe" firstAttribute="height" secondItem="KIC-Sd-7Wd" secondAttribute="height" multiplier="0.07" id="Yum-pC-k9I"/>
                                     <constraint firstItem="iry-9H-0Fe" firstAttribute="centerX" secondItem="KIC-Sd-7Wd" secondAttribute="centerX" id="Z8T-Bp-G9Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="SsK-9U-Zqm" secondAttribute="trailing" constant="27.670000000000002" id="d9T-bh-0as"/>
+                                    <constraint firstItem="SsK-9U-Zqm" firstAttribute="top" secondItem="CpV-Nw-8hO" secondAttribute="bottom" constant="40" id="fg1-E0-e25"/>
+                                    <constraint firstItem="SsK-9U-Zqm" firstAttribute="height" secondItem="KIC-Sd-7Wd" secondAttribute="height" multiplier="0.06" id="hAM-NM-zhJ"/>
                                     <constraint firstItem="iry-9H-0Fe" firstAttribute="leading" secondItem="KIC-Sd-7Wd" secondAttribute="leading" constant="20" id="leP-0x-biW"/>
                                     <constraint firstItem="vqK-ej-HBm" firstAttribute="leading" secondItem="KIC-Sd-7Wd" secondAttribute="leading" id="v3W-3A-FbU"/>
                                 </constraints>
@@ -4563,6 +4599,9 @@
                     <connections>
                         <outlet property="previewCardslbl" destination="h3e-DW-T0K" id="J2S-1C-cjK"/>
                         <outlet property="previewInvitation" destination="CpV-Nw-8hO" id="c1p-Yt-n1A"/>
+                        <outlet property="updateView" destination="SsK-9U-Zqm" id="YAT-H9-2hI"/>
+                        <outlet property="updatelbl" destination="jY4-Rw-XXY" id="Zg8-TW-tnQ"/>
+                        <outlet property="waleetShareStack" destination="iry-9H-0Fe" id="HSY-2k-EFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RA5-nU-L2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

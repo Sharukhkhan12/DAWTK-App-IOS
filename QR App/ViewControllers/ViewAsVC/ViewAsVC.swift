@@ -136,8 +136,6 @@ class ViewAsVC: UIViewController {
                             let fileName = "\(dateString)"
                             
                             self.updateCardURLs(cardKey: cardKey)
-                            
-                            
                         case .failure(let error):
                             self.progressAlert.dismiss()
                             print("❌ Logo upload failed: \(error.localizedDescription)")
@@ -315,7 +313,6 @@ class ViewAsVC: UIViewController {
     // MARK: - load The View
     
     func loadTheView() {
-        // Show loader if no subviews yet
         if self.selectedTemplateView.subviews.isEmpty {
             self.progressAlert.show()
         }
@@ -323,10 +320,10 @@ class ViewAsVC: UIViewController {
         loadSelectedCardView(in: self.selectedTemplateView) { [weak self] templateView in
             guard let self = self, let templateView = templateView else { return }
 
-            // Clear previous preview
+            // Remove old content
             self.selectedTemplateView.subviews.forEach { $0.removeFromSuperview() }
 
-            // Embed the templateView with full-edge constraints
+            // Add new template
             templateView.translatesAutoresizingMaskIntoConstraints = false
             self.selectedTemplateView.addSubview(templateView)
             NSLayoutConstraint.activate([
@@ -338,14 +335,14 @@ class ViewAsVC: UIViewController {
 
             self.templateView = templateView
 
-            // Hide loader after template is added
-            self.progressAlert.dismiss()
-
-            // Force layout
-            self.selectedTemplateView.layoutIfNeeded()
-            templateView.layoutIfNeeded()
+            // Dismiss after 3 seconds (so it's actually visible)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                self.progressAlert.dismiss()
+            }
         }
     }
+
+
 
 
    

@@ -9,9 +9,11 @@ import UIKit
 
 class InvitationPreViewVC: UIViewController {
     
+    @IBOutlet weak var updatelbl: UILabel!
+    @IBOutlet weak var waleetShareStack: UIStackView!
     @IBOutlet weak var previewCardslbl: UILabel!
     @IBOutlet weak var previewInvitation: UIView!
-    
+    @IBOutlet weak var updateView: DesignableView!
     var userCard: InvitationModel!
     var profileImage: UIImage?
     var qrCodeTransparentImage: UIImage?
@@ -35,13 +37,24 @@ class InvitationPreViewVC: UIViewController {
     
     var progressAlert = ProgressAlertView()
     var userSelectedProfileTemplate = false
+    var userFromMyCardsScreen = false
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            self.progressAlert.show()
-            self.setCardInitialInFirebase()
+            
+            if self.userFromMyCardsScreen {
+                self.updatelbl.text = "Update"
+                self.updateView.isHidden = false
+                self.waleetShareStack.isHidden = true
+                self.loadTheView()
+            } else {
+                self.updateView.isHidden = true
+                self.waleetShareStack.isHidden = false
+                self.progressAlert.show()
+                self.setCardInitialInFirebase()
+            }
             
         }
         // Do any additional setup after loading the view.
@@ -65,6 +78,20 @@ class InvitationPreViewVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func didTapUpdateCard(_ sender: Any) {
+        if userSelectedProfileTemplate {
+            
+            DispatchQueue.main.async {
+                self.savedCardWithProfile()
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.savedCard()
+            }
+        }
+    }
+    
     
     
     @IBAction func didTapWallet(_ sender: Any) {
@@ -210,107 +237,194 @@ class InvitationPreViewVC: UIViewController {
                 print("tempName: \"1\"")
                 
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC1", owner: nil, options: nil)?.first as? InvitationTemplatesCVC1 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = qrCodeTransparentImage
-                    view = cell
+                    
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = qrCodeTransparentImage
+                        view = cell
+                    }
+                    
+                   
                 }
                 
                 
             case "2":
                 print("tempName: \"2\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC2", owner: nil, options: nil)?.first as? InvitationTemplatesCVC2 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                   
+                    
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
+                    
                 }
                 
                 
             case "3":
                 print("tempName: \"3\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC3", owner: nil, options: nil)?.first as? InvitationTemplatesCVC3 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
+               
                 }
             case "4":
                 print("tempName: \"4\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC4", owner: nil, options: nil)?.first as? InvitationTemplatesCVC4 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    cell.profileImageView.image = profileImage
-                    view = cell
+                    
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        cell.profileImageView.image = profileImage
+                        view = cell
+                    }
+                    
+                 
                 }
                 
             case "5":
                 print("tempName: \"5\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC5", owner: nil, options: nil)?.first as? InvitationTemplatesCVC5 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    cell.profileImageView.image = profileImage
-                    view = cell
+                    
+                    
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        cell.profileImageView.image = profileImage
+                        view = cell
+                    }
+                    
+                  
                 }
                 
             case "6":
                 print("tempName: \"6\"") // skipping CVC6
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC7", owner: nil, options: nil)?.first as? InvitationTemplatesCVC7 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    cell.profileImageView.image = profileImage
-                    view = cell
+                    
+                    
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        cell.profileImageView.image = profileImage
+                        view = cell
+                    }
+                    
+                   
                 }
             case "7":
                 print("tempName: \"7\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC8", owner: nil, options: nil)?.first as? InvitationTemplatesCVC8 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    
+                    if userFromMyCardsScreen {
+                        
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
+                    
+               
                 }
                 
             case "8":
                 print("tempName: \"8\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC9", owner: nil, options: nil)?.first as? InvitationTemplatesCVC9 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
                 }
                 
             case "9":
                 print("tempName: \"9\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC10", owner: nil, options: nil)?.first as? InvitationTemplatesCVC10 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
                 }
                 
             case "10":
                 print("tempName: \"10\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC11", owner: nil, options: nil)?.first as? InvitationTemplatesCVC11 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
                 }
                 
             case "11":
                 print("tempName: \"11\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC12", owner: nil, options: nil)?.first as? InvitationTemplatesCVC12 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
                 }
             case "12":
                 print("tempName: \"12\"")
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC13", owner: nil, options: nil)?.first as? InvitationTemplatesCVC13 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
                 }
             case "13":
                 print("tempName: \"13\"")
                 
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC14", owner: nil, options: nil)?.first as? InvitationTemplatesCVC14 {
-                    cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
-                    view = cell
+                    if userFromMyCardsScreen {
+                        cell.configure(with: self.userCard, userFromViewScreen: userFromMyCardsScreen)
+                        view = cell
+                    } else {
+                        cell.configure(with: self.userCard, userFromViewScreen: false)
+                        cell.qrScanImage.image = self.qrCodeTransparentImage
+                        view = cell
+                    }
                 }
                 
             default:
