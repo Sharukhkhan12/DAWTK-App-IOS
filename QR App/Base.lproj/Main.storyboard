@@ -4529,7 +4529,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpV-Nw-8hO">
-                                        <rect key="frame" x="15" y="158" width="410" height="573.66666666666663"/>
+                                        <rect key="frame" x="20" y="158" width="400" height="573.66666666666663"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsK-9U-Zqm" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
@@ -4571,10 +4571,10 @@
                                     <constraint firstAttribute="trailing" secondItem="vqK-ej-HBm" secondAttribute="trailing" id="5Sa-jn-9eA"/>
                                     <constraint firstItem="SsK-9U-Zqm" firstAttribute="leading" secondItem="KIC-Sd-7Wd" secondAttribute="leading" constant="27" id="9aU-i1-W8M"/>
                                     <constraint firstItem="CpV-Nw-8hO" firstAttribute="height" secondItem="KIC-Sd-7Wd" secondAttribute="height" multiplier="0.6" id="CGJ-yu-lAl"/>
-                                    <constraint firstAttribute="trailing" secondItem="CpV-Nw-8hO" secondAttribute="trailing" constant="15" id="HGN-jG-lET"/>
+                                    <constraint firstAttribute="trailing" secondItem="CpV-Nw-8hO" secondAttribute="trailing" constant="20" id="HGN-jG-lET"/>
                                     <constraint firstItem="vqK-ej-HBm" firstAttribute="top" secondItem="KIC-Sd-7Wd" secondAttribute="top" id="Hhi-ID-IBK"/>
                                     <constraint firstAttribute="trailing" secondItem="iry-9H-0Fe" secondAttribute="trailing" constant="20" id="RiA-tI-ybC"/>
-                                    <constraint firstItem="CpV-Nw-8hO" firstAttribute="leading" secondItem="KIC-Sd-7Wd" secondAttribute="leading" constant="15" id="V6s-Fq-4PT"/>
+                                    <constraint firstItem="CpV-Nw-8hO" firstAttribute="leading" secondItem="KIC-Sd-7Wd" secondAttribute="leading" constant="20" id="V6s-Fq-4PT"/>
                                     <constraint firstItem="vqK-ej-HBm" firstAttribute="height" secondItem="KIC-Sd-7Wd" secondAttribute="height" multiplier="0.133891" id="XI8-6U-mz3"/>
                                     <constraint firstItem="CpV-Nw-8hO" firstAttribute="top" secondItem="vqK-ej-HBm" secondAttribute="bottom" constant="30" id="YuP-7C-dsK"/>
                                     <constraint firstItem="iry-9H-0Fe" firstAttribute="height" secondItem="KIC-Sd-7Wd" secondAttribute="height" multiplier="0.07" id="Yum-pC-k9I"/>

@@ -314,7 +314,6 @@ extension CardVC: PremiumAlertDelegate {
             self.dismiss(animated: true) { [weak self] in
                 guard let selectedImage = self!.selectedInnvitationImage, let selectedCard = self!.selectedInvitationCard else { return }
                 self?.navigateToPInvitaionCard(invitationCard: selectedCard)
-                
             }
         case .BusinessCard:
             self.dismiss(animated: true) { [weak self] in
@@ -349,11 +348,23 @@ extension CardVC: PremiumAlertDelegate {
 
     func didSelectDelete() {
         print("Handled Delete")
-        if let ownerID = selectedCard?.ownerId, let cardKey = selectedCard?.qrCode {
-            self.dismiss(animated: true) { [weak self] in
-                guard let selectedCard = self!.selectedCard else { return }
-                self?.deleteCard(ownerID: ownerID, cardKey: cardKey)
-                
+        
+        switch segmeentsSelected {
+            
+        case .inviationCard:
+            if let ownerID = selectedInvitationCard?.ownerId, let cardKey = selectedInvitationCard?.qrCode {
+                self.dismiss(animated: true) { [weak self] in
+                    self?.deleteCard(ownerID: ownerID, cardKey: cardKey)
+                    
+                }
+            }
+        case .BusinessCard:
+            if let ownerID = selectedCard?.ownerId, let cardKey = selectedCard?.qrCode {
+                self.dismiss(animated: true) { [weak self] in
+                    guard let selectedCard = self!.selectedCard else { return }
+                    self?.deleteCard(ownerID: ownerID, cardKey: cardKey)
+                    
+                }
             }
         }
     }
@@ -400,24 +411,51 @@ extension CardVC: PremiumAlertDelegate {
     
     
     func deleteCard(ownerID: String, cardKey: String) {
-        FirebaseManager.shared.deleteUserBusinessCard(ownerId: ownerID, cardKey: cardKey) { [weak self] result in
-            switch result {
-            case .success:
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Deleted", message: "The business card was successfully deleted.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                        self?.fetchBusinessCards()
-                    }))
-                    self?.present(alert, animated: true)
+        
+        switch segmeentsSelected  {
+            
+        case .inviationCard:
+            FirebaseManager.shared.deletUserInvitationCard(ownerId: ownerID, cardKey: cardKey) { [weak self] result in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Deleted", message: "The business card was successfully deleted.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            self?.fetchInvitaionCards()
+                        }))
+                        self?.present(alert, animated: true)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(alert, animated: true)
+                    }
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-                    self?.present(alert, animated: true)
+            }
+        case .BusinessCard:
+            FirebaseManager.shared.deleteUserBusinessCard(ownerId: ownerID, cardKey: cardKey) { [weak self] result in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Deleted", message: "The business card was successfully deleted.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            self?.fetchBusinessCards()
+                        }))
+                        self?.present(alert, animated: true)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(alert, animated: true)
+                    }
                 }
             }
         }
+        
+        
+       
     }
     
     private func navigateToParentCreatteCard(card: UserBusinessCardModel) {

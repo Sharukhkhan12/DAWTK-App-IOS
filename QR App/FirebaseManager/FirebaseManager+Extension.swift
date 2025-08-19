@@ -193,6 +193,41 @@ extension FirebaseManager {
     }
     
     
+    // MARK: - Delete UserInvitation Card by cardKey and match ownerId
+    
+    func deletUserInvitationCard(ownerId: String, cardKey: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let ref = Database.database().reference().child("UserInvitationCard").child(cardKey)
+
+        // Step 1: Check if cardKey exists
+        ref.observeSingleEvent(of: .value) { snapshot in
+            guard snapshot.exists() else {
+                completion(.failure(NSError(domain: "Firebase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Card not found."])))
+                return
+            }
+
+            // Step 2: Verify ownerId matches
+            guard let value = snapshot.value as? [String: Any],
+                  let fetchedOwnerId = value["ownerId"] as? String else {
+                completion(.failure(NSError(domain: "Firebase", code: 422, userInfo: [NSLocalizedDescriptionKey: "Invalid card data."])))
+                return
+            }
+
+            guard fetchedOwnerId == ownerId else {
+                completion(.failure(NSError(domain: "Firebase", code: 403, userInfo: [NSLocalizedDescriptionKey: "Owner ID mismatch. Not authorized to delete."])))
+                return
+            }
+
+            // Step 3: Delete card
+            ref.removeValue { error, _ in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }
+    }
+    
     
     
 }

@@ -342,10 +342,17 @@ class InvitationCardVC: UIViewController {
             let tag = cardCell.inputTxtField.tag
             let text = cardCell.inputTxtField.text ?? ""
 
-            // Adjust for skipped profile cell if needed
-            let adjustedTag = userSelectedProfileTemplate ? tag - 1 : tag
+            print("Tags---", tag)
+            
+            // Adjust index based on profile cell
+            let fieldIndex = userSelectedProfileTemplate ? tag - 1 : tag
 
-            switch adjustedTag {
+            // Skip if profile cell
+            if userSelectedProfileTemplate && tag == 0 {
+                continue
+            }
+
+            switch fieldIndex {
             case 0: invitation.groomName = text
             case 1: invitation.brideName = text
             case 2: invitation.date = text
@@ -356,7 +363,15 @@ class InvitationCardVC: UIViewController {
             default: break
             }
         }
+
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys] // readable + sorted keys
+        if let jsonData = try? encoder.encode(invitation),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print("📩 Invitation JSON:\n\(jsonString)")
+        }
     }
+
 
 
     

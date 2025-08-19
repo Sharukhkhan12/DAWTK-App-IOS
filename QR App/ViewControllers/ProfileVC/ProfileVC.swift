@@ -20,7 +20,7 @@ class ProfileVC: UIViewController {
     var firebaseProfileImage: UIImage?
     var sheetVC = SheetVC()
     var imageSelected: UIImage?
-    var userFromInvitation: Bool?
+    var userFromInvitation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +113,7 @@ class ProfileVC: UIViewController {
                 }
                 // Correct: send image and optional URL directly, not nested
                 
-                if self.userFromInvitation! {
+                if self.userFromInvitation {
                     NotificationCenter.default.post(name: .userFromInviationCard, object: nil, userInfo: userInfo)
                 } else {
                     NotificationCenter.default.post(name: .imageSelectedNotification, object: nil, userInfo: userInfo)
