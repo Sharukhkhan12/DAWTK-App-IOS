@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InvitationModel {
+struct InvitationModel: Codable {
     var ownerId: String
     var qrCode: String
     var profilePhotoPath: String

@@ -39,8 +39,6 @@ class ViewAsVC: UIViewController {
         super.viewDidLoad()
 
         // Clear any previous content
-        
-        
         if userFromCreateScreen {
             self.userID = UserModel.shared!.userId
             self.updatelbl.text = "Update Card"
@@ -54,8 +52,9 @@ class ViewAsVC: UIViewController {
         }
         
         DispatchQueue.main.async {
+           
             self.loadTheView()
-            
+           
         }
         
         
@@ -316,6 +315,11 @@ class ViewAsVC: UIViewController {
     // MARK: - load The View
     
     func loadTheView() {
+        // Show loader if no subviews yet
+        if self.selectedTemplateView.subviews.isEmpty {
+            self.progressAlert.show()
+        }
+
         loadSelectedCardView(in: self.selectedTemplateView) { [weak self] templateView in
             guard let self = self, let templateView = templateView else { return }
 
@@ -331,14 +335,18 @@ class ViewAsVC: UIViewController {
                 templateView.leadingAnchor.constraint(equalTo: self.selectedTemplateView.leadingAnchor),
                 templateView.trailingAnchor.constraint(equalTo: self.selectedTemplateView.trailingAnchor)
             ])
-            
+
             self.templateView = templateView
 
-            // Force layout if needed
+            // Hide loader after template is added
+            self.progressAlert.dismiss()
+
+            // Force layout
             self.selectedTemplateView.layoutIfNeeded()
             templateView.layoutIfNeeded()
         }
     }
+
 
    
     
@@ -360,7 +368,6 @@ class ViewAsVC: UIViewController {
         }
 
         // 🔄 Add activity indicator to container view
-        progressAlert.show()
 
         let group = DispatchGroup()
         var logoImage: UIImage?
@@ -386,7 +393,6 @@ class ViewAsVC: UIViewController {
         }.resume()
 
         group.notify(queue: .main) {
-            self.progressAlert.dismiss()
 
             var view: UIView?
 

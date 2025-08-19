@@ -34,7 +34,8 @@ class InvitationPreViewVC: UIViewController {
     ]
     
     var progressAlert = ProgressAlertView()
-    
+    var userSelectedProfileTemplate = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,16 @@ class InvitationPreViewVC: UIViewController {
     
     
     @IBAction func didTapSave(_ sender: Any) {
-        
+        if userSelectedProfileTemplate {
+            
+            DispatchQueue.main.async {
+                self.savedCardWithProfile()
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.savedCard()
+            }
+        }
     }
     
     
@@ -66,6 +76,7 @@ class InvitationPreViewVC: UIViewController {
         
         if let currentUser = UserModel.shared?.userId {
             userID = currentUser
+            userCard.ownerId = userID
             print("✅ UserID \(userID)")
         }
         

@@ -19,11 +19,20 @@ class CardVC: UIViewController {
     var segmeentsSelected: SegmentsSelected = .BusinessCard
     var progressAllert = ProgressAlertView()
     var fetchedCards: [UserBusinessCardModel] = []
+    
+    var fetchedInvitationCards: [InvitationModel] = []
+
 
     var selectedImage: UIImage?
     var businessCardImageURLs: [String] = []
+    var invitationCardImageURLs: [String] = []
+    var selectedInnvitationImage: UIImage?
     var imagesStored: [UIImage] = []
+    var invitationsImagesStored: [UIImage] = []
+
     var selectedCard: UserBusinessCardModel?
+    var selectedInvitationCard: InvitationModel?
+
     var userFromCardVC = false
 
     override func viewDidLoad() {
@@ -64,29 +73,83 @@ class CardVC: UIViewController {
             }
         }
     }
+    
+    
+    
+    
+    func fetchInvitaionCards() {
+        progressAllert.show()
+        guard let ownerId = Auth.auth().currentUser?.uid else {
+            print("❌ No logged-in user")
+            progressAllert.dismiss()
+            return
+        }
+
+        FirebaseManager.shared.fetchInvitationCardsByOwnerID(ownerId: ownerId) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let cards):
+                self.invitationCardImageURLs = cards.map { $0.mainCardFilePath }
+                self.preloadImagesAndReload()
+
+                self.fetchedInvitationCards = cards
+            case .failure(let error):
+                print("❌ Error fetching cards: \(error.localizedDescription)")
+                self.progressAllert.dismiss()
+            }
+        }
+    }
+    
 
     private func preloadImagesAndReload() {
-        let urls = businessCardImageURLs.compactMap { URL(string: $0) }
-        imagesStored = Array(repeating: UIImage(), count: urls.count)
+        
+        switch segmeentsSelected {
+        case .inviationCard:
+            let urls = invitationCardImageURLs.compactMap { URL(string: $0) }
+            invitationsImagesStored = Array(repeating: UIImage(), count: urls.count)
+            let group = DispatchGroup()
 
-        let group = DispatchGroup()
+            for (index, url) in urls.enumerated() {
+                group.enter()
+                URLSession.shared.dataTask(with: url) { data, _, _ in
+                    defer { group.leave() }
 
-        for (index, url) in urls.enumerated() {
-            group.enter()
-            URLSession.shared.dataTask(with: url) { data, _, _ in
-                defer { group.leave() }
+                    if let data = data, let image = UIImage(data: data) {
+                        self.invitationsImagesStored[index] = image
+                    }
+                }.resume()
+            }
 
-                if let data = data, let image = UIImage(data: data) {
-                    self.imagesStored[index] = image
-                }
-            }.resume()
+            group.notify(queue: .main) {
+                self.progressAllert.dismiss()
+                self.kalodaView.resetCurrentCardIndex()
+                self.kalodaView.reloadData()
+            }
+            
+        case .BusinessCard:
+            let urls = businessCardImageURLs.compactMap { URL(string: $0) }
+            imagesStored = Array(repeating: UIImage(), count: urls.count)
+            let group = DispatchGroup()
+
+            for (index, url) in urls.enumerated() {
+                group.enter()
+                URLSession.shared.dataTask(with: url) { data, _, _ in
+                    defer { group.leave() }
+
+                    if let data = data, let image = UIImage(data: data) {
+                        self.imagesStored[index] = image
+                    }
+                }.resume()
+            }
+
+            group.notify(queue: .main) {
+                self.progressAllert.dismiss()
+                self.kalodaView.resetCurrentCardIndex()
+                self.kalodaView.reloadData()
+            }
         }
-
-        group.notify(queue: .main) {
-            self.progressAllert.dismiss()
-            self.kalodaView.resetCurrentCardIndex()
-            self.kalodaView.reloadData()
-        }
+      
     }
 
     // MARK: - Actions
@@ -99,7 +162,7 @@ class CardVC: UIViewController {
     @IBAction func didTapWedding(_ sender: Any) {
         segmeentsSelected = .inviationCard
         animateSelection(selected: weddingView, deselected: buisnessView)
-        // Implement fetch for invitation cards if needed
+        fetchInvitaionCards()
     }
 
     @IBAction func didTapBuisness(_ sender: Any) {
@@ -139,7 +202,14 @@ extension CardVC: KolodaViewDataSource, KolodaViewDelegate {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .clear
-        imageView.image = imagesStored[index]
+        
+        switch  segmeentsSelected {
+            
+        case .inviationCard:
+            imageView.image = invitationsImagesStored[index]
+        case .BusinessCard:
+            imageView.image = imagesStored[index]
+        }
         imageView.isUserInteractionEnabled = true // Enable tap interaction
         
         // Add tap gesture with index
@@ -151,15 +221,33 @@ extension CardVC: KolodaViewDataSource, KolodaViewDelegate {
     }
 
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-        return imagesStored.count
+        
+        switch  segmeentsSelected {
+            
+        case .inviationCard:
+            return invitationsImagesStored.count
+        case .BusinessCard:
+            return imagesStored.count
+        }
+        
+      
+        
     }
     
     @objc func handleCardTap(_ sender: UITapGestureRecognizer) {
         if let indexString = sender.name, let index = Int(indexString) {
             print("🔘 Card tapped at index: \(index)")
-            self.selectedImage = imagesStored[index]
-            self.selectedCard = fetchedCards[index]
-            print("👀Card By Server: ", selectedCard?.profilePhotoPath)
+            switch segmeentsSelected {
+                
+            case .inviationCard:
+                
+                self.selectedInnvitationImage = invitationsImagesStored[index]
+                self.selectedInvitationCard = fetchedInvitationCards[index]
+            case .BusinessCard:
+                
+                self.selectedImage = imagesStored[index]
+                self.selectedCard = fetchedCards[index]
+            }
             self.showCostumAlert()
             // Optional: Handle navigation, alert, or custom logic
             // showCardDetail(at: index)
@@ -189,13 +277,31 @@ extension CardVC: PremiumAlertDelegate {
 
     func didSelectView() {
         print("Handled View tap in VC")
-        guard let selectedImage = self.selectedImage, let selectedCard = selectedCard else { return }
+     
+        
+        switch segmeentsSelected {
+            
+        case .inviationCard:
+            guard let selectedImage = self.selectedInnvitationImage, let selectedCard = selectedInvitationCard else { return }
 
-            // Dismiss Malert first before presenting new VC
-            self.dismiss(animated: true) { [weak self] in
-                self?.navigateToViewCardScreen(image: selectedImage, card: selectedCard)
-           
+                // Dismiss Malert first before presenting new VC
+//                self.dismiss(animated: true) { [weak self] in
+////                    self?.navigateToViewCardScreen(image: selectedImage, card: selectedCard)
+//               
+//            }
+        case .BusinessCard:
+            
+            guard let selectedImage = self.selectedImage, let selectedCard = selectedCard else { return }
+
+                // Dismiss Malert first before presenting new VC
+                self.dismiss(animated: true) { [weak self] in
+                    self?.navigateToViewCardScreen(image: selectedImage, card: selectedCard)
+               
+            }
         }
+        
+        
+        
         // Perform View logic
     }
 
@@ -203,13 +309,17 @@ extension CardVC: PremiumAlertDelegate {
         print("Handled Edit Card")
         
         
-        self.dismiss(animated: true) { [weak self] in
-            guard let selectedCard = self!.selectedCard else { return }
-            self?.navigateToParentCreatteCard(card: selectedCard)
-    }
+        switch segmeentsSelected {
+            
+        case .inviationCard:
+            print("inviationCard")
+        case .BusinessCard:
+            self.dismiss(animated: true) { [weak self] in
+                guard let selectedCard = self!.selectedCard else { return }
+                self?.navigateToParentCreatteCard(card: selectedCard)
+            }
+        }
         
-      
-       
     }
 
     func didSelectRedesign() {

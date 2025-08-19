@@ -4531,10 +4531,9 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpV-Nw-8hO">
                                         <rect key="frame" x="15" y="158" width="410" height="573.66666666666663"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstItem="iry-9H-0Fe" firstAttribute="top" secondItem="CpV-Nw-8hO" secondAttribute="bottom" constant="60" id="4NB-QO-xIl"/>
                                     <constraint firstAttribute="trailing" secondItem="vqK-ej-HBm" secondAttribute="trailing" id="5Sa-jn-9eA"/>
@@ -4595,9 +4594,6 @@
         <image name="user" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

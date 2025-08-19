@@ -216,7 +216,7 @@ class FirebaseManager {
 
 
 
-        private func testHTTPSConnection() {
+         func testHTTPSConnection() {
             guard let testURL = URL(string: "https://firebasestorage.googleapis.com") else { return }
 
             URLSession.shared.dataTask(with: testURL) { _, response, error in

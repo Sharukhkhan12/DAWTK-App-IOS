@@ -66,9 +66,18 @@ class InvitationCardVC: UIViewController {
         super.viewDidLoad()
         locationTxtField.isHidden = true
         locationTxtField.isUserInteractionEnabled = false
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
         self.getSelectedTemplate()
         self.setup()
         self.setNoti()
+    }
+    
+    
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     
@@ -297,6 +306,7 @@ class InvitationCardVC: UIViewController {
             invitationPreViewVC.modalTransitionStyle = .crossDissolve
             invitationPreViewVC.userCard = invitationCard
             invitationPreViewVC.profileImage = profileImage
+            invitationPreViewVC.userSelectedProfileTemplate = userSelectedProfileTemplate
             invitationPreViewVC.modalPresentationStyle = .fullScreen
             present(invitationPreViewVC, animated: true)
         }

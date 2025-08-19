@@ -130,7 +130,68 @@ extension FirebaseManager {
         }
     }
 
+    // MARK: - Upload Image to Firebase Storage with Retry Logic
+    func uploadImageToStorageWithInnvitation(image: UIImage, cardKey: String, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
+        self.testHTTPSConnection()
 
+        // Convert to PNG data
+        guard let imageData = image.pngData() else {
+            completion(.failure(NSError(domain: "ImageError", code: 1001, userInfo: [NSLocalizedDescriptionKey: "Image conversion to PNG failed."])))
+            return
+        }
+
+        let path = "UserCard/\(cardKey)/\(fileName).png"
+        let ref = Storage.storage().reference().child(path)
+
+        // Set metadata for PNG (optional but good practice)
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
+
+        ref.putData(imageData, metadata: metadata) { _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            ref.downloadURL { url, error in
+                if let error = error {
+                    completion(.failure(error))
+                } else if let url = url {
+                    completion(.success(url.absoluteString))
+                }
+            }
+        }
+    }
+    
+    
+    // MARK: - Fetch Invitation Cards by Owner ID
+    func fetchInvitationCardsByOwnerID(ownerId: String, completion: @escaping (Result<[InvitationModel], Error>) -> Void) {
+        let ref = Database.database().reference().child("UserInvitationCard")
+        
+        ref.observeSingleEvent(of: .value) { snapshot in
+            var matchedCards: [InvitationModel] = []
+            
+            for child in snapshot.children {
+                if let snap = child as? DataSnapshot,
+                   let dict = snap.value as? [String: Any],
+                   let currentOwnerId = dict["ownerId"] as? String,
+                   currentOwnerId == ownerId {
+                    
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: dict)
+                        let card = try JSONDecoder().decode(InvitationModel.self, from: jsonData)
+                        matchedCards.append(card)
+                    } catch {
+                        completion(.failure(error))
+                        return
+                    }
+                }
+            }
+            
+            completion(.success(matchedCards))
+        }
+    }
+    
     
     
     
