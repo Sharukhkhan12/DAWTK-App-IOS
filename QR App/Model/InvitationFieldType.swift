@@ -15,7 +15,7 @@ enum InvitationFieldType: Int, CaseIterable {
     case eventTime         // 5
     case buffetTime        // 6
     case venue             // 7
-    case locationLink      // 8
+//    case locationLink      // 8
     case rsvpDetail        // 9
 
     var placeholder: String {
@@ -28,7 +28,7 @@ enum InvitationFieldType: Int, CaseIterable {
         case .eventTime: return "Enter Event Time"
         case .buffetTime: return "Enter Buffet Time"
         case .venue: return "Enter Venue"
-        case .locationLink: return "Enter Location Link"
+//        case .locationLink: return "Enter Location Link"
         case .rsvpDetail: return "Enter RSVP Details"
         }
     }

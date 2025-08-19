@@ -69,11 +69,15 @@
 		28586C182E0818D60066D056 /* ParentCreatteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586C172E0818D60066D056 /* ParentCreatteCard.swift */; };
 		285CA6162E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CA6142E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift */; };
 		285CA6172E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */; };
-		285CA61B2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CA6192E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift */; };
-		285CA61C2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA61A2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib */; };
-		285CA6222E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CA6202E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift */; };
-		285CA6232E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA6212E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib */; };
 		285DD8B92E4F464E008D7E01 /* InvitationPreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */; };
+		285DD8BC2E5066E0008D7E01 /* CostumAlertForLocationn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8BB2E5066E0008D7E01 /* CostumAlertForLocationn.swift */; };
+		285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285DD8BD2E5066ED008D7E01 /* CostumAlertForLocationn.xib */; };
+		285DD8C12E50D9C5008D7E01 /* InvitationTemplatesCVC12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8BF2E50D9C5008D7E01 /* InvitationTemplatesCVC12.swift */; };
+		285DD8C22E50D9C5008D7E01 /* InvitationTemplatesCVC12.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285DD8C02E50D9C5008D7E01 /* InvitationTemplatesCVC12.xib */; };
+		285DD8C52E50D9D2008D7E01 /* InvitationTemplatesCVC13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8C32E50D9D2008D7E01 /* InvitationTemplatesCVC13.swift */; };
+		285DD8C62E50D9D2008D7E01 /* InvitationTemplatesCVC13.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285DD8C42E50D9D2008D7E01 /* InvitationTemplatesCVC13.xib */; };
+		285DD8CA2E50DA0A008D7E01 /* InvitationTemplatesCVC14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8C82E50DA0A008D7E01 /* InvitationTemplatesCVC14.swift */; };
+		285DD8CB2E50DA0A008D7E01 /* InvitationTemplatesCVC14.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285DD8C92E50DA0A008D7E01 /* InvitationTemplatesCVC14.xib */; };
 		286541AB2DEDA28B001342D9 /* ProgressAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286541A82DEDA28B001342D9 /* ProgressAlertView.swift */; };
 		286541AC2DEDA28B001342D9 /* ProgressAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 286541A92DEDA28B001342D9 /* ProgressAlertView.xib */; };
 		286541AF2DEDA2B9001342D9 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 286541AE2DEDA2B9001342D9 /* NVActivityIndicatorView */; };
@@ -219,11 +223,15 @@
 		28586C172E0818D60066D056 /* ParentCreatteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCreatteCard.swift; sourceTree = "<group>"; };
 		285CA6142E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC11.swift; sourceTree = "<group>"; };
 		285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC11.xib; sourceTree = "<group>"; };
-		285CA6192E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC12.swift; sourceTree = "<group>"; };
-		285CA61A2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC12.xib; sourceTree = "<group>"; };
-		285CA6202E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC13.swift; sourceTree = "<group>"; };
-		285CA6212E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC13.xib; sourceTree = "<group>"; };
 		285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationPreViewVC.swift; sourceTree = "<group>"; };
+		285DD8BB2E5066E0008D7E01 /* CostumAlertForLocationn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumAlertForLocationn.swift; sourceTree = "<group>"; };
+		285DD8BD2E5066ED008D7E01 /* CostumAlertForLocationn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostumAlertForLocationn.xib; sourceTree = "<group>"; };
+		285DD8BF2E50D9C5008D7E01 /* InvitationTemplatesCVC12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC12.swift; sourceTree = "<group>"; };
+		285DD8C02E50D9C5008D7E01 /* InvitationTemplatesCVC12.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC12.xib; sourceTree = "<group>"; };
+		285DD8C32E50D9D2008D7E01 /* InvitationTemplatesCVC13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC13.swift; sourceTree = "<group>"; };
+		285DD8C42E50D9D2008D7E01 /* InvitationTemplatesCVC13.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC13.xib; sourceTree = "<group>"; };
+		285DD8C82E50DA0A008D7E01 /* InvitationTemplatesCVC14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC14.swift; sourceTree = "<group>"; };
+		285DD8C92E50DA0A008D7E01 /* InvitationTemplatesCVC14.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC14.xib; sourceTree = "<group>"; };
 		286541A82DEDA28B001342D9 /* ProgressAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlertView.swift; sourceTree = "<group>"; };
 		286541A92DEDA28B001342D9 /* ProgressAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressAlertView.xib; sourceTree = "<group>"; };
 		286541B32DEDA764001342D9 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -583,8 +591,8 @@
 		285CA6182E4CB7B8001BB7E8 /* InvitationTemplatesCVC12 */ = {
 			isa = PBXGroup;
 			children = (
-				285CA6192E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift */,
-				285CA61A2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib */,
+				285DD8BF2E50D9C5008D7E01 /* InvitationTemplatesCVC12.swift */,
+				285DD8C02E50D9C5008D7E01 /* InvitationTemplatesCVC12.xib */,
 			);
 			path = InvitationTemplatesCVC12;
 			sourceTree = "<group>";
@@ -592,8 +600,8 @@
 		285CA61F2E4CB7E4001BB7E8 /* InvitationTemplatesCVC13 */ = {
 			isa = PBXGroup;
 			children = (
-				285CA6202E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift */,
-				285CA6212E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib */,
+				285DD8C32E50D9D2008D7E01 /* InvitationTemplatesCVC13.swift */,
+				285DD8C42E50D9D2008D7E01 /* InvitationTemplatesCVC13.xib */,
 			);
 			path = InvitationTemplatesCVC13;
 			sourceTree = "<group>";
@@ -604,6 +612,24 @@
 				285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */,
 			);
 			path = InvitationPreViewVC;
+			sourceTree = "<group>";
+		};
+		285DD8BA2E5066B7008D7E01 /* CostumAlert */ = {
+			isa = PBXGroup;
+			children = (
+				285DD8BB2E5066E0008D7E01 /* CostumAlertForLocationn.swift */,
+				285DD8BD2E5066ED008D7E01 /* CostumAlertForLocationn.xib */,
+			);
+			path = CostumAlert;
+			sourceTree = "<group>";
+		};
+		285DD8C72E50D9DC008D7E01 /* InvitationTemplatesCVC14 */ = {
+			isa = PBXGroup;
+			children = (
+				285DD8C82E50DA0A008D7E01 /* InvitationTemplatesCVC14.swift */,
+				285DD8C92E50DA0A008D7E01 /* InvitationTemplatesCVC14.xib */,
+			);
+			path = InvitationTemplatesCVC14;
 			sourceTree = "<group>";
 		};
 		2865419E2DED84FC001342D9 /* Resources */ = {
@@ -646,6 +672,7 @@
 		2878097C2E105488003D5F1D /* InvitationCardVC */ = {
 			isa = PBXGroup;
 			children = (
+				285DD8BA2E5066B7008D7E01 /* CostumAlert */,
 				2878097D2E1054A7003D5F1D /* InvitationCardVC.swift */,
 			);
 			path = InvitationCardVC;
@@ -943,6 +970,7 @@
 		28DE341D2E13C2CC002456B9 /* InvitationTemplates */ = {
 			isa = PBXGroup;
 			children = (
+				285DD8C72E50D9DC008D7E01 /* InvitationTemplatesCVC14 */,
 				285CA61F2E4CB7E4001BB7E8 /* InvitationTemplatesCVC13 */,
 				285CA6182E4CB7B8001BB7E8 /* InvitationTemplatesCVC12 */,
 				285CA6132E4CB777001BB7E8 /* InvitationTemplatesCVC11 */,
@@ -1248,6 +1276,8 @@
 			files = (
 				28B8B0CA2DE9C1D800157274 /* EmailView.xib in Resources */,
 				28DC23E82E429F3E0036F0C0 /* pass_1754422629 2.pkpass in Resources */,
+				285DD8CB2E50DA0A008D7E01 /* InvitationTemplatesCVC14.xib in Resources */,
+				285DD8C22E50D9C5008D7E01 /* InvitationTemplatesCVC12.xib in Resources */,
 				28540C7B2DF0662E00399270 /* Template3CVC.xib in Resources */,
 				28DC23E22E42909E0036F0C0 /* pass_1233333331754421489.pkpass in Resources */,
 				28B8B0AC2DE98A8F00157274 /* Assets.xcassets in Resources */,
@@ -1261,6 +1291,7 @@
 				28DE34202E13C323002456B9 /* InvitationTemplatesCVC1.xib in Resources */,
 				28B8B0AE2DE98A8F00157274 /* LaunchScreen.storyboard in Resources */,
 				28B8B0AF2DE98A8F00157274 /* Main.storyboard in Resources */,
+				285DD8C62E50D9D2008D7E01 /* InvitationTemplatesCVC13.xib in Resources */,
 				282B565C2E22560000BFCC1B /* TeamPremiumView.xib in Resources */,
 				28DE347E2E141ACB002456B9 /* InvitationTemplatesCVC5.xib in Resources */,
 				28B8B0BA2DE9C01C00157274 /* PhoneView.xib in Resources */,
@@ -1281,14 +1312,13 @@
 				28DC23E62E4295020036F0C0 /* pass_1754422629.pkpass in Resources */,
 				28B3B65F2DEC490300FBA89C /* CreatteCardView.xib in Resources */,
 				28540C802DF0665800399270 /* Template4CVC.xib in Resources */,
-				285CA61C2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.xib in Resources */,
 				28B3B6662DEC6F6A00FBA89C /* newCardTVC.xib in Resources */,
-				285CA6232E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.xib in Resources */,
 				28DE34792E141743002456B9 /* InvitationTemplatesCVC4.xib in Resources */,
 				28F2B2322E39FF2A0089EBE4 /* PremiumAlert.xib in Resources */,
 				D0FC30A32E38EE8A003ED08E /* data.json in Resources */,
 				282B56562E2245E900BFCC1B /* IndividualPremiumView.xib in Resources */,
 				286B1A022E43DE0100A954F4 /* pass_1754506750.pkpass in Resources */,
+				285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */,
 				28540C762DF0660C00399270 /* Template2CVC.xib in Resources */,
 				28540C852DF0667300399270 /* Template5CVC.xib in Resources */,
 				289A10752E37B87D003133DC /* QRScanViewNib.xib in Resources */,
@@ -1370,7 +1400,6 @@
 				289A10772E37B98A003133DC /* QRScanVC.swift in Sources */,
 				285DD8B92E4F464E008D7E01 /* InvitationPreViewVC.swift in Sources */,
 				28B3B6672DEC6F6A00FBA89C /* newCardTVC.swift in Sources */,
-				285CA6222E4CB7F3001BB7E8 /* InvitationTemplatesCVC13.swift in Sources */,
 				28B3B6522DEC38D000FBA89C /* VerifiedEmailVC.swift in Sources */,
 				282F164A2E1590C400D01113 /* InvitationTemplatesCVC6.swift in Sources */,
 				28DE34212E13C323002456B9 /* InvitationTemplatesCVC1.swift in Sources */,
@@ -1389,6 +1418,7 @@
 				28F2B2372E3A01090089EBE4 /* OptionsTVC.swift in Sources */,
 				D02481752E3793B400B4FF73 /* PreViewVC+Extensions.swift in Sources */,
 				28B3B66A2DEC75F800FBA89C /* CardInfo.swift in Sources */,
+				285DD8BC2E5066E0008D7E01 /* CostumAlertForLocationn.swift in Sources */,
 				28B8B0BE2DE9C04A00157274 /* PhoneView.swift in Sources */,
 				28B8B0C82DE9C1CF00157274 /* EmailView.swift in Sources */,
 				288A17E82E40F9BB0071883E /* URL+Extension.swift in Sources */,
@@ -1398,6 +1428,8 @@
 				28B8B1122DE9F07300157274 /* SignUpVC.swift in Sources */,
 				28540C882DF066D000399270 /* Template6CVC.swift in Sources */,
 				28F2B2302E39FF1D0089EBE4 /* PremiumAlert.swift in Sources */,
+				285DD8CA2E50DA0A008D7E01 /* InvitationTemplatesCVC14.swift in Sources */,
+				285DD8C52E50D9D2008D7E01 /* InvitationTemplatesCVC13.swift in Sources */,
 				D01EE6AC2E3B9FF300E2FC7E /* FirebaseManager+Extension.swift in Sources */,
 				28B3B6622DEC493900FBA89C /* CreatteCardView.swift in Sources */,
 				28B8B0A92DE98A8F00157274 /* AppDelegate.swift in Sources */,
@@ -1420,6 +1452,7 @@
 				28EB51FE2DFF116500D583CF /* SocialLinkType.swift in Sources */,
 				282B564E2E22452100BFCC1B /* PremiumVC.swift in Sources */,
 				282C372B2DFFF669004E9245 /* AppNotifications.swift in Sources */,
+				285DD8C12E50D9C5008D7E01 /* InvitationTemplatesCVC12.swift in Sources */,
 				282B565E2E22561300BFCC1B /* TeamPremiumView.swift in Sources */,
 				282F16502E15910500D01113 /* InvitationTemplatesCVC7.swift in Sources */,
 				282B56592E2255CD00BFCC1B /* TeamPremiumVC.swift in Sources */,
@@ -1438,7 +1471,6 @@
 				28540C932DF0672800399270 /* Template8CVC.swift in Sources */,
 				282F16582E15913D00D01113 /* InvitationTemplatesCVC8.swift in Sources */,
 				D030F9C22E3A2BEC001D513F /* FontTableViewCell.swift in Sources */,
-				285CA61B2E4CB7C7001BB7E8 /* InvitationTemplatesCVC12.swift in Sources */,
 				282F165D2E15916100D01113 /* InvitationTemplatesCVC9.swift in Sources */,
 				28B8B0C12DE9C0B100157274 /* UIView+Exttensions.swift in Sources */,
 				28540C7A2DF0662E00399270 /* Template3CVC.swift in Sources */,

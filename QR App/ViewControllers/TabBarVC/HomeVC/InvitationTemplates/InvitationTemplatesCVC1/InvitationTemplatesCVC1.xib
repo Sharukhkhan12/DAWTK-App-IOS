@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="321" height="602"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hm-y4-nrz">
-                        <rect key="frame" x="5" y="5" width="311" height="592"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hm-y4-nrz">
+                        <rect key="frame" x="5" y="5" width="311" height="601"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYZ-dY-MYw">
                                 <rect key="frame" x="10" y="5" width="291" height="41.333333333333336"/>
@@ -315,7 +315,21 @@
                 <constraint firstItem="0hm-y4-nrz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="nBK-4G-qf0"/>
             </constraints>
             <connections>
+                <outlet property="brideFamilylbl" destination="Q26-ih-OWm" id="rQv-RX-tRA"/>
+                <outlet property="cameraBtn" destination="RVq-su-rdB" id="kgW-il-KVi"/>
                 <outlet property="cardView" destination="0hm-y4-nrz" id="up9-75-9TJ"/>
+                <outlet property="childesBtnn" destination="3w8-eg-AHY" id="K4E-mH-oTO"/>
+                <outlet property="dinnerTime" destination="tsk-cK-ALm" id="jsL-Ie-Hqc"/>
+                <outlet property="dinnerTimebtn" destination="gXn-jd-y3l" id="uTd-Ah-3Us"/>
+                <outlet property="englishDatelbl" destination="GlM-fb-lth" id="goT-nV-Poj"/>
+                <outlet property="groomsFamilylbl" destination="u45-IK-W5F" id="UeW-6U-c05"/>
+                <outlet property="locationBtn" destination="WJL-Xe-4bz" id="Zu0-dV-VN1"/>
+                <outlet property="locationlbl" destination="oGS-cb-FKh" id="S6k-3e-ye2"/>
+                <outlet property="qrScanImage" destination="KkU-Jk-qbH" id="pY8-Nc-uou"/>
+                <outlet property="shawalDatelbl" destination="qjs-ge-6Kc" id="cia-IF-2qy"/>
+                <outlet property="smokingBtn" destination="GcT-up-RyJ" id="MI8-13-QIg"/>
+                <outlet property="weddingTimeBtn" destination="CI6-2g-fGx" id="7cv-Ul-Gpm"/>
+                <outlet property="weddingTimelbl" destination="ch8-gF-Ra0" id="N4N-RL-SIM"/>
             </connections>
             <point key="canvasLocation" x="95.419847328244273" y="-32.394366197183103"/>
         </collectionViewCell>

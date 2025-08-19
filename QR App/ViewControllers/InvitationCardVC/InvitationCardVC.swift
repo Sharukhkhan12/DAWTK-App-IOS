@@ -6,15 +6,23 @@
 //
 
 import UIKit
-
+import Malert
 class InvitationCardVC: UIViewController {
+    
+    
+    // MARK: - @IBOutlet
 
+    @IBOutlet weak var scrolHeightConst: NSLayoutConstraint!
     @IBOutlet weak var cameraImgView: UIImageView!
     @IBOutlet weak var invitationCardTV: UITableView!
     @IBOutlet weak var childrenImgView: UIImageView!
     @IBOutlet weak var smokeImgView: UIImageView!
-    
-    
+    @IBOutlet weak var locationView: DesignableView!
+    @IBOutlet weak var locationTxtField: UILabel!
+    @IBOutlet weak var selectedChildrenCamreaCigrateView: DesignableView!
+    @IBOutlet weak var selectTheFollwingHeightConst: NSLayoutConstraint!
+    // MARK: - @Declarationns
+    var selectedTemplateIdentifier: String?
     var invitation = InvitationModel(
         ownerId: "",
         qrCode: "",
@@ -46,6 +54,7 @@ class InvitationCardVC: UIViewController {
     var profileImage: UIImage?
     var progressAllert = ProgressAlertView()
     var selectedImageURLFromProfile: URL?
+    var userSelectedProfileTemplate = false
 
     // Track states
     var isCameraOn = false
@@ -55,17 +64,152 @@ class InvitationCardVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationTxtField.isHidden = true
+        locationTxtField.isUserInteractionEnabled = false
+        self.getSelectedTemplate()
         self.setup()
         self.setNoti()
     }
     
     
+    func getSelectedTemplate() {
+        if let selected = selectedTemplateIdentifier {
+            switch selected {
+            case "InvitationTemplatesCVC1":
+                print("tempName: \"1\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                invitation.templateName = "1"
+            case "InvitationTemplatesCVC2":
+                print("tempName: \"2\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                invitation.templateName = "2"
+            case "InvitationTemplatesCVC3":
+                print("tempName: \"3\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                invitation.templateName = "3"
+            case "InvitationTemplatesCVC4":
+                print("tempName: \"4\"")
+                self.scrolHeightConst.constant = 940
+                invitation.templateName = "4"
+                
+                userSelectedProfileTemplate = true
+            case "InvitationTemplatesCVC5":
+                print("tempName: \"5\"")
+                self.scrolHeightConst.constant = 940
+                userSelectedProfileTemplate = true
+                invitation.templateName = "5"
+            case "InvitationTemplatesCVC7":
+                self.scrolHeightConst.constant = 940
+                print("tempName: \"6\"") // skipping CVC6
+                
+                userSelectedProfileTemplate = true
+                invitation.templateName = "6"
+            case "InvitationTemplatesCVC8":
+                print("tempName: \"7\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                invitation.templateName = "7"
+            case "InvitationTemplatesCVC9":
+                print("tempName: \"8\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                invitation.templateName = "8"
+            case "InvitationTemplatesCVC10":
+                print("tempName: \"9\"")
+                userSelectedProfileTemplate = true
+                self.scrolHeightConst.constant = 910
+                self.updateUIForm()
+                invitation.templateName = "9"
+            case "InvitationTemplatesCVC11":
+                print("tempName: \"10\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                self.updateUIForm()
+                invitation.templateName = "10"
+            case "InvitationTemplatesCVC12":
+                print("tempName: \"11\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                self.updateUIForm()
+                invitation.templateName = "11"
+            case "InvitationTemplatesCVC13":
+                print("tempName: \"12\"")
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                self.updateUIForm()
+                invitation.templateName = "12"
+            case "InvitationTemplatesCVC14":
+                self.scrolHeightConst.constant = 830
+                userSelectedProfileTemplate = false
+                print("tempName: \"13\"")
+                self.updateUIForm()
+                invitation.templateName = "13"
+            default:
+                print("Unknown template")
+                invitation.templateName = ""
+            }
+        }
+        invitationCardTV.reloadData()
+    }
+    
+    func updateUIForm() {
+        self.selectTheFollwingHeightConst.constant = 0
+        self.selectedChildrenCamreaCigrateView.isHidden = true
+    }
+    
+    
+
+    
     // MARK: - Set Notifications
     func setNoti() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleImageSelected(_:)), name: .userFromInviationCard, object: nil)
         
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(locationViewTapped))
+          locationView.isUserInteractionEnabled = true  // make sure it accepts touches
+          locationView.addGestureRecognizer(tapGesture)
     }
+    
+    
+    @objc private func locationViewTapped() {
+        print("Location view tapped!")
+        showCostumAlert()
+    }
+
+    func showCostumAlert() {
+        let customAlert = CostumAlertForLocationn.instantiateFromNib()
+        
+        // Wrap the alert in Malert
+        let malert = Malert(customView: customAlert)
+        
+        // Configure closure actions
+        customAlert.pasteAction = { [weak self] in
+            guard let self = self else { return }
+            if let clipboard = UIPasteboard.general.string {
+                customAlert.editLinkTxtView.text = clipboard
+            }
+        }
+        
+        customAlert.verifyAction = { [weak self] link in
+            guard let self = self else { return }
+            print("User wants to verify: \(link)")
+            
+            // ✅ Dismiss after verify
+            self.dismiss(animated: true) {
+                self.locationTxtField.isHidden = false
+                self.locationTxtField.text = customAlert.editLinkTxtView.text
+                self.invitation.locationLink = customAlert.editLinkTxtView.text
+            }
+        }
+        
+        // Present the alert
+        present(malert, animated: true)
+    }
+
+    
+    
         
     @objc private func handleImageSelected(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
@@ -80,6 +224,7 @@ class InvitationCardVC: UIViewController {
             // URL was provided by sender
             print("Received image file URL: \(imageURL)")
             self.selectedImageURLFromProfile = imageURL
+            
         } else {
             // Fallback: serialize the UIImage to temp location and keep that URL
             do {
@@ -117,7 +262,7 @@ class InvitationCardVC: UIViewController {
         self.updateInvitationFromVisibleCells()
         if validateInvitationForm() {
             print("All fields valid ✅")
-//            self.navigateToPreVieeScreen(buisnessCard: userCard)
+            self.navigateToPreVieeScreen(invitationCard: invitation)
         }
     }
     
@@ -144,22 +289,38 @@ class InvitationCardVC: UIViewController {
     }
 
     
+    // MARK: - Navigate TO Invitation PreViee Controller
+    
+    private func navigateToPreVieeScreen(invitationCard: InvitationModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let invitationPreViewVC = storyboard.instantiateViewController(withIdentifier: "InvitationPreViewVC") as? InvitationPreViewVC {
+            invitationPreViewVC.modalTransitionStyle = .crossDissolve
+            invitationPreViewVC.userCard = invitationCard
+            invitationPreViewVC.profileImage = profileImage
+            invitationPreViewVC.modalPresentationStyle = .fullScreen
+            present(invitationPreViewVC, animated: true)
+        }
+    }
+    
+    
+    
     func setup() {
         invitationCardTV.delegate = self
         invitationCardTV.dataSource = self
         invitationCardTV.register(UINib(nibName: "newCardTVC", bundle: nil), forCellReuseIdentifier: "newCardTVC")
-        invitationCardTV.reloadData()
     }
     
     
     private func updateInvitationFromVisibleCells() {
-        // 🟠 Example: For your invitation info tableView
         for cell in invitationCardTV.visibleCells {
             guard let cardCell = cell as? newCardTVC else { continue }
             let tag = cardCell.inputTxtField.tag
             let text = cardCell.inputTxtField.text ?? ""
 
-            switch tag {
+            // Adjust for skipped profile cell if needed
+            let adjustedTag = userSelectedProfileTemplate ? tag - 1 : tag
+
+            switch adjustedTag {
             case 0: invitation.groomName = text
             case 1: invitation.brideName = text
             case 2: invitation.date = text
@@ -167,12 +328,11 @@ class InvitationCardVC: UIViewController {
             case 4: invitation.eventTime = text
             case 5: invitation.buffetTime = text
             case 6: invitation.venue = text
-            case 7: invitation.locationLink = text
-            case 8: invitation.rsvpDetail = text
             default: break
             }
         }
     }
+
 
     
     private func validateInvitationForm() -> Bool {
@@ -216,17 +376,7 @@ class InvitationCardVC: UIViewController {
             return false
         }
 
-        if invitation.rsvpDetail.isEmpty {
-            showAlert(title: "Missing Field", message: "Please enter the RSVP details.")
-            return false
-        }
-
-        if invitation.mainCardFilePath.isEmpty {
-            showAlert(title: "Missing Field", message: "Please upload the main invitation card image.")
-            return false
-        }
-
-        if invitation.profilePhotoPath.isEmpty {
+        if profileImage == nil && userSelectedProfileTemplate == true {
             showAlert(title: "Missing Field", message: "Please upload the profile photo.")
             return false
         }
@@ -248,56 +398,59 @@ class InvitationCardVC: UIViewController {
 
 extension InvitationCardVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9 // Profile Image, Groom, Bride, Date, Event Time, Buffet Time, Venue, RSVP
+        return userSelectedProfileTemplate ? 8 : 7
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newCardTVC", for: indexPath) as! newCardTVC
-
         
-        guard let type = InvitationFieldType(rawValue: indexPath.row) else { return cell }
+        let adjustedRow = userSelectedProfileTemplate ? indexPath.row  : indexPath.row + 1
         
-        if tableView == invitationCardTV {
-            cell.configurePlaceholder(type.placeholder)
-            cell.uploadIcon.isHidden = !type.showsUploadIcon
-            cell.inputTxtField.delegate = self
-            cell.inputTxtField.tag = indexPath.row
+        guard let type = InvitationFieldType(rawValue: adjustedRow) else { return cell }
+        
+        cell.configurePlaceholder(type.placeholder)
+        cell.uploadIcon.isHidden = !type.showsUploadIcon
+        cell.inputTxtField.delegate = self
+        cell.inputTxtField.tag = adjustedRow
+        
+        if userSelectedProfileTemplate == true && adjustedRow == 0 {
+            // Profile image row
+            cell.inputTxtField.isUserInteractionEnabled = false
+            cell.inputTxtField.text = ""
+            cell.placeholderLabel.isHidden = false
+            cell.inputTxtField.backgroundColor = .clear
+            cell.inputTxtField.textColor = .black
             
-            if indexPath.row == 0 {
-                cell.inputTxtField.isUserInteractionEnabled = false
-                cell.inputTxtField.text = "" // ensure text is empty so placeholder appears
-                cell.placeholderLabel.isHidden = false
-                cell.inputTxtField.backgroundColor = .clear
-                cell.inputTxtField.textColor = .black
-                // Set correct image based on row
-                if indexPath.row == 0, let selectedImage = self.profileImage {
-                    cell.uploadIcon.image = selectedImage
-                    cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
-                    cell.uploadIcon.clipsToBounds = true
-                    cell.uploadIcon.contentMode = .scaleAspectFill
-                }
-            } else {
-                cell.inputTxtField.isUserInteractionEnabled = true
-                cell.inputTxtField.backgroundColor = .white
-                cell.inputTxtField.textColor = .black
-                cell.placeholderLabel.isHidden = !(cell.inputTxtField.text?.isEmpty ?? true)
+            if let selectedImage = self.profileImage {
+                cell.uploadIcon.image = selectedImage
+                cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
+                cell.uploadIcon.clipsToBounds = true
+                cell.uploadIcon.contentMode = .scaleAspectFill
             }
+        } else {
+            // Regular text field rows
+            cell.inputTxtField.isUserInteractionEnabled = true
+            cell.inputTxtField.backgroundColor = .white
+            cell.inputTxtField.textColor = .black
+            cell.placeholderLabel.isHidden = !(cell.inputTxtField.text?.isEmpty ?? true)
         }
         
-
         return cell
     }
 
 
 
+
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
-            // Navigate to image picker
+        
+        if userSelectedProfileTemplate == true && indexPath.row == 0 {
+            // Only open picker if profile image is part of template
             self.navigateToProfileScreen()
-            // Call your image picker logic here
         }
     }
+
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 63
@@ -334,7 +487,6 @@ extension InvitationCardVC: UITextFieldDelegate {
         case .eventTime: invitation.eventTime = text
         case .buffetTime: invitation.buffetTime = text
         case .venue: invitation.venue = text
-        case .locationLink: invitation.locationLink = text
         case .rsvpDetail: invitation.rsvpDetail = text
         default: break
         }

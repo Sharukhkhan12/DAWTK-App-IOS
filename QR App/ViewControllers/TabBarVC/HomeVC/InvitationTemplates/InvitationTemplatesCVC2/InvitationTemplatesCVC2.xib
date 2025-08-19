@@ -408,7 +408,23 @@
                 <constraint firstItem="VR6-5Z-8Ht" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="rUs-jH-Q9T"/>
             </constraints>
             <connections>
+                <outlet property="brideFamilylbl" destination="l1j-Wg-vdE" id="o9a-ie-iqV"/>
+                <outlet property="cameraBtn" destination="5jh-xl-ihm" id="oQ9-Km-3OW"/>
                 <outlet property="cardView" destination="VR6-5Z-8Ht" id="EiJ-r3-Krh"/>
+                <outlet property="childesBtnn" destination="PO0-qH-dxX" id="TiZ-YO-13X"/>
+                <outlet property="dinnerTime" destination="wKY-Rb-z4E" id="ExV-GQ-1Tn"/>
+                <outlet property="dinnerTimebtn" destination="fQw-Ch-lhV" id="DTU-ob-pry"/>
+                <outlet property="englishDateWithMonths" destination="e4p-Ky-VQJ" id="yrr-Ew-25R"/>
+                <outlet property="englishDatelblWithNumbers" destination="e4p-Ky-VQJ" id="FkK-As-dFE"/>
+                <outlet property="groomsFamilylbl" destination="O2R-r4-G7d" id="uFQ-Hw-SJ1"/>
+                <outlet property="locationBtn" destination="NWZ-aZ-NnT" id="kqV-G5-DUb"/>
+                <outlet property="locationlbl" destination="7V6-hb-UTN" id="Gim-OH-z2k"/>
+                <outlet property="qrScanImage" destination="8hf-h3-FM2" id="EKC-F4-8wB"/>
+                <outlet property="shahiwalDateWithMonths" destination="Ga0-w6-zMB" id="lFv-2J-hOm"/>
+                <outlet property="shawalDatelblWIthNNumbers" destination="fmI-qV-DNB" id="9Jk-of-Orb"/>
+                <outlet property="smokingBtn" destination="i0U-2R-X9l" id="OKM-H9-QB7"/>
+                <outlet property="weddingTimeBtn" destination="Amm-EZ-Dh0" id="1ND-yK-RtC"/>
+                <outlet property="weddingTimelbl" destination="IMo-Gk-rkU" id="7qS-M1-QFp"/>
             </connections>
             <point key="canvasLocation" x="95.419847328244273" y="-32.04225352112676"/>
         </collectionViewCell>

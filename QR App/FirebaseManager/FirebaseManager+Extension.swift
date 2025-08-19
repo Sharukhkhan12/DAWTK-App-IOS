@@ -110,6 +110,27 @@ extension FirebaseManager {
     }
 
     
+    // MARK: - Save User Invitation Card
+    func saveUserInvitationCard(card: InvitationModel, completion: @escaping (Result<String, Error>) -> Void) {
+        // Generate Firebase auto ID
+        let autoId = Database.database().reference().child("UserInvitationCard").childByAutoId().key ?? UUID().uuidString
+        let cardKey = "INV_\(autoId)" // prepend INV_
+
+        let ref = Database.database().reference().child("UserInvitationCard").child(cardKey)
+
+        var updatedCard = card
+        updatedCard.ownerId = cardKey
+
+        ref.setValue(updatedCard.toDictionary()) { error, _ in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(cardKey))
+            }
+        }
+    }
+
+
     
     
     

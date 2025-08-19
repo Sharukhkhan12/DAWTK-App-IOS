@@ -37,15 +37,27 @@ class HomeVC: UIViewController {
         "Template2CVC",
         "Template1CVC"
     ]
+   
     
     let templateInvitationIdentifiers = [
-        "InvitationTemplatesCVC6",
-        "InvitationTemplatesCVC5",
-        "InvitationTemplatesCVC4",
-        "InvitationTemplatesCVC3",
+        "InvitationTemplatesCVC1",
         "InvitationTemplatesCVC2",
-        "InvitationTemplatesCVC1"
+        "InvitationTemplatesCVC3",
+        "InvitationTemplatesCVC4",
+        "InvitationTemplatesCVC5",
+        "InvitationTemplatesCVC7",
+        "InvitationTemplatesCVC8",
+        "InvitationTemplatesCVC9",
+        "InvitationTemplatesCVC10",
+        "InvitationTemplatesCVC11",
+        "InvitationTemplatesCVC12",
+        "InvitationTemplatesCVC13",
+        "InvitationTemplatesCVC14"
     ]
+    
+    
+    
+    
     
     var currentTemplateIdentifiers: [String] {
         switch segmeentsSelected {
@@ -79,24 +91,37 @@ class HomeVC: UIViewController {
        
         
         if segmeentsSelected == .inviationCard {
-            navigateToPInvitaionCard()
+            
+            if let selectedIndex = getCurrentIndex() {
+                navigateToPInvitaionCard(currentIndex: selectedIndex)
+            }
         } else {
-            let visibleCenterPosition = templatesCV.contentOffset.x + (templatesCV.bounds.width * 0.5)
-              if let layout = templatesCV.collectionViewLayout as? UICollectionViewFlowLayout {
-                  let itemWidth = templatesCV.bounds.width * 0.9
-                  let currentIndex = Int((visibleCenterPosition - templatesCV.frame.width * 0.05) / itemWidth)
-
-                  print("Currently selected template index: \(currentIndex)")
-                  
-                  // Optionally, you can get the identifier too
-                  if currentIndex >= 0 && currentIndex < currentTemplateIdentifiers.count {
-                      let selectedIdentifier = currentTemplateIdentifiers[currentIndex]
-                      print("Selected cell identifier: \(selectedIdentifier)")
-                      navigateToParentCreatteCard(currentIndex: currentIndex)
-                  }
-              }
+            if let selectedIndex = getCurrentIndex() {
+                navigateToParentCreatteCard(currentIndex: selectedIndex)
+            }
         }
        
+    }
+    
+    
+    // MARK: - get Current Index
+    
+    func getCurrentIndex() -> Int? {
+        let visibleCenterPosition = templatesCV.contentOffset.x + (templatesCV.bounds.width * 0.5)
+          if let layout = templatesCV.collectionViewLayout as? UICollectionViewFlowLayout {
+              let itemWidth = templatesCV.bounds.width * 0.9
+              let currentIndex = Int((visibleCenterPosition - templatesCV.frame.width * 0.05) / itemWidth)
+
+              print("Currently selected template index: \(currentIndex)")
+              
+              // Optionally, you can get the identifier too
+              if currentIndex >= 0 && currentIndex < currentTemplateIdentifiers.count {
+                  let selectedIdentifier = currentTemplateIdentifiers[currentIndex]
+                  print("Selected cell identifier: \(selectedIdentifier)")
+                  return currentIndex
+              }
+          }
+        return 0
     }
     
     
@@ -125,9 +150,10 @@ class HomeVC: UIViewController {
     
     // MARK: - Navigate To Invitaion Card
     
-    private func navigateToPInvitaionCard() {
+    private func navigateToPInvitaionCard(currentIndex: Int) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let invitationCardVC = storyboard.instantiateViewController(withIdentifier: "InvitationCardVC") as? InvitationCardVC {
+            invitationCardVC.selectedTemplateIdentifier = currentTemplateIdentifiers[currentIndex]
             invitationCardVC.modalPresentationStyle = .fullScreen
             invitationCardVC.modalTransitionStyle = .crossDissolve
             present(invitationCardVC, animated: true)

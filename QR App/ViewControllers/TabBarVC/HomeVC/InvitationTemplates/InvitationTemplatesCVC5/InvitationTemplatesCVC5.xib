@@ -366,7 +366,22 @@
                 <constraint firstItem="jpx-Ni-fi7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="nXU-jT-2nx"/>
             </constraints>
             <connections>
+                <outlet property="brideFamilylbl" destination="4Bh-Ze-0U0" id="kVM-6l-aq5"/>
+                <outlet property="cameraBtn" destination="Qxh-dQ-Shs" id="c38-bC-AoC"/>
                 <outlet property="cardView" destination="jpx-Ni-fi7" id="nh9-sn-hD4"/>
+                <outlet property="childesBtnn" destination="dg3-eg-qe9" id="17V-vu-hiv"/>
+                <outlet property="dinnerTime" destination="wfT-uK-IWk" id="xdg-eo-K1k"/>
+                <outlet property="dinnerTimebtn" destination="IvL-76-UOr" id="21u-yM-JcY"/>
+                <outlet property="englishDatelbl" destination="5A0-Rr-OKG" id="Ruj-hx-eHu"/>
+                <outlet property="groomsFamilylbl" destination="dBS-ib-ruZ" id="oyd-ss-VJi"/>
+                <outlet property="locationBtn" destination="hKF-ma-51x" id="DXv-ER-CoN"/>
+                <outlet property="locationlbl" destination="WPG-ex-nM5" id="6Va-8R-JQc"/>
+                <outlet property="profileImageView" destination="1pp-mK-ZUZ" id="4wQ-ZD-vt3"/>
+                <outlet property="qrScanImage" destination="9MG-Lh-GF0" id="KNP-GE-diH"/>
+                <outlet property="shawalDatelbl" destination="IuT-kV-dHj" id="9fi-hx-7fj"/>
+                <outlet property="smokingBtn" destination="dRV-hE-ipY" id="tKV-b3-dWa"/>
+                <outlet property="weddingTimeBtn" destination="dy0-XV-eSt" id="iaN-z1-Hh9"/>
+                <outlet property="weddingTimelbl" destination="Gtv-IQ-jhj" id="1rV-ed-QQC"/>
             </connections>
             <point key="canvasLocation" x="96" y="-32"/>
         </collectionViewCell>

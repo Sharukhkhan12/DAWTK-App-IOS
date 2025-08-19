@@ -28,16 +28,18 @@ class PreViewVC: UIViewController {
         "Template2CVC"
     ]
     var selectedIndexPath: IndexPath?
-    var userCard: UserBusinessCardModel!
-    var progressAllert = ProgressAlertView()
+
     var profileImage: UIImage?
     var logoImage: UIImage?
     var qrCodeTransparentImage: UIImage?
     var qrCodeWithWhiteBackgroundImage: UIImage?
-
+    var templateView: UIView?
+    
+    
     var userID = ""
     var cardKey = ""
-    
+    var userCard: UserBusinessCardModel!
+    var progressAllert = ProgressAlertView()
     override func viewDidLoad() {
         super.viewDidLoad()
         templatesCV.delegate = self
