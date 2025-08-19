@@ -40,7 +40,6 @@ class InvitationPreViewVC: UIViewController {
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.progressAlert.show()
-            self.loadTheView()
             self.setCardInitialInFirebase()
             
         }
@@ -54,6 +53,7 @@ class InvitationPreViewVC: UIViewController {
     
     
     @IBAction func didTapSave(_ sender: Any) {
+        
     }
     
     
@@ -80,6 +80,7 @@ class InvitationPreViewVC: UIViewController {
                             
                         }
                         self.qrCodeTransparentImage = qrImage
+                        self.loadTheView()
                     }
                     self.progressAlert.dismiss()
                     // Step 2: Upload profile image
@@ -199,7 +200,7 @@ class InvitationPreViewVC: UIViewController {
                 
                 if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC1", owner: nil, options: nil)?.first as? InvitationTemplatesCVC1 {
                     cell.configure(with: self.userCard, userFromViewScreen: false)
-                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    cell.qrScanImage.image = qrCodeTransparentImage
                     view = cell
                 }
                 
@@ -222,30 +223,84 @@ class InvitationPreViewVC: UIViewController {
                 }
             case "4":
                 print("tempName: \"4\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC4", owner: nil, options: nil)?.first as? InvitationTemplatesCVC4 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    cell.profileImageView.image = profileImage
+                    view = cell
+                }
                 
             case "5":
                 print("tempName: \"5\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC5", owner: nil, options: nil)?.first as? InvitationTemplatesCVC5 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    cell.profileImageView.image = profileImage
+                    view = cell
+                }
                 
             case "6":
                 print("tempName: \"6\"") // skipping CVC6
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC7", owner: nil, options: nil)?.first as? InvitationTemplatesCVC7 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    cell.profileImageView.image = profileImage
+                    view = cell
+                }
             case "7":
                 print("tempName: \"7\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC8", owner: nil, options: nil)?.first as? InvitationTemplatesCVC8 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    view = cell
+                }
                 
             case "8":
                 print("tempName: \"8\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC9", owner: nil, options: nil)?.first as? InvitationTemplatesCVC9 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    view = cell
+                }
                 
             case "9":
                 print("tempName: \"9\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC10", owner: nil, options: nil)?.first as? InvitationTemplatesCVC10 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    view = cell
+                }
                 
             case "10":
                 print("tempName: \"10\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC11", owner: nil, options: nil)?.first as? InvitationTemplatesCVC11 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    view = cell
+                }
                 
             case "11":
                 print("tempName: \"11\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC12", owner: nil, options: nil)?.first as? InvitationTemplatesCVC12 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    view = cell
+                }
             case "12":
                 print("tempName: \"12\"")
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC13", owner: nil, options: nil)?.first as? InvitationTemplatesCVC13 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    view = cell
+                }
             case "13":
                 print("tempName: \"13\"")
+                
+                if let cell = Bundle.main.loadNibNamed("InvitationTemplatesCVC14", owner: nil, options: nil)?.first as? InvitationTemplatesCVC14 {
+                    cell.configure(with: self.userCard, userFromViewScreen: false)
+                    cell.qrScanImage.image = self.qrCodeTransparentImage
+                    view = cell
+                }
                 
             default:
                 print("Unknown template")
@@ -255,100 +310,5 @@ class InvitationPreViewVC: UIViewController {
         }
         
     }
-    
-    
-    
-    // MARK: - load Selected Card View
-    //    func loadSelectedCardView(in container: UIView, completion: @escaping (UIView?) -> Void) {
-    //        guard let templateName = userCard?.templateName else {
-    //            print("❌ No template name in cardInfo")
-    //            completion(nil)
-    //            return
-    //        }
-    //
-    //        guard let profileURL = URL(string: userCard?.profilePhotoPath ?? "") else {
-    //            print("❌ Invalid image URLs")
-    //            completion(nil)
-    //            return
-    //        }
-    //
-    //        // 🔄 Add activity indicator to container view
-    //        progressAlert.show()
-    //
-    //        let group = DispatchGroup()
-    //        var logoImage: UIImage?
-    //        var profileImage: UIImage?
-    //        var qrCodeFilePath: UIImage?
-    //
-    //        group.enter()
-    //
-    //        URLSession.shared.dataTask(with: profileURL) { data, _, _ in
-    //            if let data = data { profileImage = UIImage(data: data) }
-    //            group.leave()
-    //        }.resume()
-    //
-    //        group.notify(queue: .main) {
-    //            self.progressAlert.dismiss()
-    //
-    //            var view: UIView?
-    //
-    //            switch templateName {
-    //            case "1":
-    //                if let cell = Bundle.main.loadNibNamed("Template8CVC", owner: nil, options: nil)?.first as? Template8CVC {
-    //                    cell.configure(with: self.cardInfo!)
-    //                    cell.buismesslogo.image = logoImage
-    //                    cell.profileImage.image = profileImage
-    //                    cell.qrimageofCard.image = qrCodeFilePath
-    //                    view = cell
-    //                }
-    //            case "2":
-    //                if let cell = Bundle.main.loadNibNamed("Template7CVC", owner: nil, options: nil)?.first as? Template7CVC {
-    //                    cell.configure(with: self.cardInfo!)
-    //                    cell.buismesslogo.image = logoImage
-    //                    cell.profileImage.image = profileImage
-    //                    cell.qrimageofCard.image = qrCodeFilePath
-    //                    view = cell
-    //                }
-    //            case "3":
-    //                if let cell = Bundle.main.loadNibNamed("Template6CVC", owner: nil, options: nil)?.first as? Template6CVC {
-    //                    cell.configure(with: self.cardInfo!)
-    //                    cell.buismesslogo.image = logoImage
-    //                    cell.profileImage.image = profileImage
-    //                    cell.qrimageofCard.image = qrCodeFilePath
-    //                    view = cell
-    //                }
-    //            case "4":
-    //                if let cell = Bundle.main.loadNibNamed("Template5CVC", owner: nil, options: nil)?.first as? Template5CVC {
-    //                    cell.configure(with: self.cardInfo!)
-    //                    cell.buismesslogo.image = logoImage
-    //                    cell.profileImage.image = profileImage
-    //                    cell.qrimageofCard.image = qrCodeFilePath
-    //                    view = cell
-    //                }
-    //            case "5":
-    //                if let cell = Bundle.main.loadNibNamed("Template4CVC", owner: nil, options: nil)?.first as? Template4CVC {
-    //                    cell.configure(with: self.cardInfo!)
-    //                    cell.buismesslogo.image = logoImage
-    //                    cell.profileImage.image = profileImage
-    //                    cell.qrimageofCard.image = qrCodeFilePath
-    //                    view = cell
-    //                }
-    //            case "6":
-    //                if let cell = Bundle.main.loadNibNamed("Template3CVC", owner: nil, options: nil)?.first as? Template3CVC {
-    //                    cell.configure(with: self.cardInfo!)
-    //                    view = cell
-    //                }
-    //            case "7":
-    //                if let cell = Bundle.main.loadNibNamed("Template2CVC", owner: nil, options: nil)?.first as? Template2CVC {
-    //                    cell.configure(with: self.cardInfo!)
-    //                    view = cell
-    //                }
-    //            default:
-    //                print("⚠️ Unknown template identifier: \(templateName)")
-    //            }
-    //
-    //            completion(view)
-    //        }
-    //    }
     
 
