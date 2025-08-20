@@ -417,7 +417,7 @@ extension CardVC: PremiumAlertDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let styleVC = storyboard.instantiateViewController(withIdentifier: "StyleVC") as? StyleVC {
             styleVC.cardInfo = card
-            styleVC.segmeentsSelected = .inviationCard
+            styleVC.segmeentsSelected = .BusinessCard
             styleVC.modalTransitionStyle = .crossDissolve
             styleVC.modalPresentationStyle = .fullScreen
             present(styleVC, animated: true)

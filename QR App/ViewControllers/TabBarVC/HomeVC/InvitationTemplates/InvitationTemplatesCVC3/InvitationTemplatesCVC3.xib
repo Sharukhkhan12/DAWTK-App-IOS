@@ -40,7 +40,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="6p7-J5-FPQ" firstAttribute="top" secondItem="F4C-TQ-EuZ" secondAttribute="top" constant="15" id="1If-6b-XAL"/>
                                     <constraint firstItem="wNF-re-d0T" firstAttribute="leading" secondItem="F4C-TQ-EuZ" secondAttribute="leading" constant="10" id="C40-B6-Yk4"/>
@@ -53,7 +53,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTH-PX-Vo7">
                                 <rect key="frame" x="20" y="46.333333333333336" width="271" height="6"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPP-4F-4Nc">
                                 <rect key="frame" x="0.0" y="52.333333333333343" width="311" height="59"/>
@@ -82,7 +82,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="rvR-OP-J6X" secondAttribute="bottom" constant="4" id="pPb-Tb-Jzr"/>
                                     <constraint firstItem="rvR-OP-J6X" firstAttribute="leading" secondItem="QPP-4F-4Nc" secondAttribute="leading" constant="16" id="y9a-XP-dtf"/>
@@ -243,7 +243,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="291" height="70.333333333333329"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="wGs-G4-shI" secondAttribute="trailing" id="4Mw-bA-J7w"/>
                                             <constraint firstItem="wGs-G4-shI" firstAttribute="top" secondItem="OkU-01-3PX" secondAttribute="top" id="PwD-dl-cBi"/>
@@ -252,7 +252,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="2pc-mQ-U5B" firstAttribute="centerX" secondItem="hhx-WV-gT2" secondAttribute="centerX" id="5Bu-Uh-hxv"/>
                                     <constraint firstItem="OkU-01-3PX" firstAttribute="leading" secondItem="hhx-WV-gT2" secondAttribute="leading" id="9Es-65-RTM"/>

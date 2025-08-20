@@ -43,7 +43,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="bW4-0B-HIr" firstAttribute="leading" secondItem="Uqm-uh-gOM" secondAttribute="leading" id="2zG-2q-POI"/>
                                     <constraint firstAttribute="trailing" secondItem="bW4-0B-HIr" secondAttribute="trailing" id="K0o-2i-wGr"/>
@@ -112,7 +112,7 @@
                                                 <rect key="frame" x="30" y="30" width="110" height="110"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="170" id="49H-X4-Z1c"/>
                                             <constraint firstAttribute="width" constant="170" id="A24-8n-Ccp"/>
@@ -238,7 +238,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="S0l-zh-CdG" firstAttribute="centerX" secondItem="BE2-r7-C25" secondAttribute="centerX" id="5hw-un-kAL"/>
                                     <constraint firstItem="1JM-YF-nRY" firstAttribute="centerX" secondItem="BE2-r7-C25" secondAttribute="centerX" id="XUQ-kU-y9t"/>

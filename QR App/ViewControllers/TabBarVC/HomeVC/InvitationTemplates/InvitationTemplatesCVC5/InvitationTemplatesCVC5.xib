@@ -40,7 +40,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="xYr-oH-Frr" firstAttribute="top" secondItem="M0o-mB-cUz" secondAttribute="top" constant="15" id="9vq-dB-8TL"/>
                                     <constraint firstItem="lk6-6P-BFl" firstAttribute="top" secondItem="M0o-mB-cUz" secondAttribute="top" constant="6" id="G0A-fN-wQV"/>
@@ -70,7 +70,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="1fH-Sm-FEF" firstAttribute="centerX" secondItem="D7E-Ni-f88" secondAttribute="centerX" id="dRA-VD-zpO"/>
                                     <constraint firstItem="1fH-Sm-FEF" firstAttribute="centerY" secondItem="D7E-Ni-f88" secondAttribute="centerY" id="xsA-VW-KLY"/>
@@ -157,7 +157,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="IuT-kV-dHj" firstAttribute="centerY" secondItem="Win-qH-o5x" secondAttribute="centerY" id="2iZ-zu-BOC"/>
                                                     <constraint firstItem="g7A-mj-0U1" firstAttribute="leading" secondItem="Win-qH-o5x" secondAttribute="leading" constant="15" id="7hB-WE-5Mo"/>
@@ -183,7 +183,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="5A0-Rr-OKG" secondAttribute="trailing" constant="12" id="Inr-jv-zE0"/>
                                                     <constraint firstItem="jzl-NT-FC2" firstAttribute="leading" secondItem="Zi1-nW-zZo" secondAttribute="leading" constant="15" id="bki-AA-O8n"/>
@@ -299,7 +299,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="l0h-nU-M9A" firstAttribute="centerX" secondItem="bCq-nq-W89" secondAttribute="centerX" id="35h-Rn-QSX"/>
                                     <constraint firstItem="0IK-bB-UZD" firstAttribute="top" secondItem="l0h-nU-M9A" secondAttribute="bottom" constant="15" id="Bh1-MM-cJX"/>

@@ -34,7 +34,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="7f1-ob-byG" firstAttribute="leading" secondItem="2gk-up-gfE" secondAttribute="leading" id="0zE-hI-rj5"/>
                                     <constraint firstItem="FDO-Cl-zBn" firstAttribute="leading" secondItem="2gk-up-gfE" secondAttribute="leading" constant="10" id="5gL-Uo-7Cq"/>
@@ -82,7 +82,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Tat-hA-8Vb" firstAttribute="leading" secondItem="pIF-Ui-352" secondAttribute="leading" id="IVH-ia-jKI"/>
                                     <constraint firstItem="Tat-hA-8Vb" firstAttribute="top" secondItem="pIF-Ui-352" secondAttribute="top" constant="5.3300000000000001" id="UkX-jL-5OB"/>
@@ -115,7 +115,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="pis-zh-J3n" firstAttribute="top" secondItem="gb5-Hz-2mP" secondAttribute="top" constant="1" id="3fp-03-tCb"/>
                                             <constraint firstItem="pis-zh-J3n" firstAttribute="leading" secondItem="gb5-Hz-2mP" secondAttribute="leading" constant="1" id="4E0-SR-pZq"/>
@@ -234,7 +234,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="JaP-6B-u04" secondAttribute="bottom" constant="0.33000000000000002" id="7Lt-zX-uat"/>
                                     <constraint firstItem="JaP-6B-u04" firstAttribute="height" secondItem="gMA-i2-7ic" secondAttribute="height" multiplier="0.2" id="ETc-2T-gzh"/>
@@ -263,7 +263,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="2oo-gJ-cjc" firstAttribute="centerY" secondItem="17e-ya-BRY" secondAttribute="centerY" id="AMG-N7-Uzb"/>
                                             <constraint firstAttribute="trailing" secondItem="fex-pQ-zyG" secondAttribute="trailing" constant="12" id="GAH-4s-Cz0"/>

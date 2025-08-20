@@ -40,7 +40,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="qVs-dO-sfj" firstAttribute="top" secondItem="tbh-fq-SFH" secondAttribute="top" constant="6" id="4HW-LA-jTV"/>
                                     <constraint firstItem="k3q-Fn-H6v" firstAttribute="top" secondItem="tbh-fq-SFH" secondAttribute="top" constant="15" id="8p8-JB-a1g"/>
@@ -61,7 +61,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="80.333333333333329"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="zAG-Fg-KUh" secondAttribute="bottom" id="1yb-8a-z39"/>
                                             <constraint firstItem="zAG-Fg-KUh" firstAttribute="top" secondItem="Kqq-n1-040" secondAttribute="top" id="OsZ-Hr-nZF"/>
@@ -115,7 +115,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Sxo-D2-2Se" firstAttribute="height" secondItem="thx-WJ-roK" secondAttribute="height" multiplier="0.915493" id="eFz-Gz-gaM"/>
                                     <constraint firstAttribute="bottom" secondItem="Sxo-D2-2Se" secondAttribute="bottom" id="ecu-5b-Nwe"/>
@@ -253,7 +253,7 @@
                                                 <rect key="frame" x="10" y="10" width="70" height="109"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Yte-Lo-FD9" firstAttribute="leading" secondItem="V2M-RB-WDp" secondAttribute="leading" constant="10" id="70k-6D-Mc3"/>
                                             <constraint firstAttribute="width" constant="90" id="8wE-wX-Uwo"/>
@@ -280,7 +280,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="V2M-RB-WDp" firstAttribute="top" secondItem="3S1-Ee-opw" secondAttribute="bottom" constant="20" id="AuT-wI-A7L"/>
                                     <constraint firstItem="ad7-tX-2cu" firstAttribute="top" secondItem="V2M-RB-WDp" secondAttribute="bottom" constant="41.670000000000002" id="NIX-DF-jbI"/>
