@@ -222,7 +222,7 @@ class InvitationPreViewVC: UIViewController {
 
         
         
-        // MARK: - loa dSelected Card View
+        // MARK: - loadSelected Card View
         func loadSelectedCardView(in container: UIView, completion: @escaping (UIView?) -> Void) {
             guard let templateName = userCard?.templateName else {
                 print("❌ No template name in cardInfo")

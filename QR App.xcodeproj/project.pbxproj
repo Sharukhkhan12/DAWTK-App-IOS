@@ -97,6 +97,8 @@
 		289A10722E37B856003133DC /* QRScanViewNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A10712E37B856003133DC /* QRScanViewNib.swift */; };
 		289A10752E37B87D003133DC /* QRScanViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289A10742E37B87D003133DC /* QRScanViewNib.xib */; };
 		289A10772E37B98A003133DC /* QRScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A10762E37B98A003133DC /* QRScanVC.swift */; };
+		28A630CE2E558E870069FC89 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A630CD2E558E870069FC89 /* Protocols.swift */; };
+		28A630D02E558F790069FC89 /* StyleVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A630CF2E558F790069FC89 /* StyleVC+Extension.swift */; };
 		28B3B6522DEC38D000FBA89C /* VerifiedEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6512DEC38D000FBA89C /* VerifiedEmailVC.swift */; };
 		28B3B6552DEC3A2300FBA89C /* CardSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6542DEC3A2300FBA89C /* CardSelectedVC.swift */; };
 		28B3B6572DEC3E5A00FBA89C /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6562DEC3E5A00FBA89C /* CircularView.swift */; };
@@ -252,6 +254,8 @@
 		289A10712E37B856003133DC /* QRScanViewNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewNib.swift; sourceTree = "<group>"; };
 		289A10742E37B87D003133DC /* QRScanViewNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScanViewNib.xib; sourceTree = "<group>"; };
 		289A10762E37B98A003133DC /* QRScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanVC.swift; sourceTree = "<group>"; };
+		28A630CD2E558E870069FC89 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		28A630CF2E558F790069FC89 /* StyleVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StyleVC+Extension.swift"; sourceTree = "<group>"; };
 		28B3B6512DEC38D000FBA89C /* VerifiedEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedEmailVC.swift; sourceTree = "<group>"; };
 		28B3B6542DEC3A2300FBA89C /* CardSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectedVC.swift; sourceTree = "<group>"; };
 		28B3B6562DEC3E5A00FBA89C /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
@@ -719,6 +723,14 @@
 			path = NibViews;
 			sourceTree = "<group>";
 		};
+		28A630CC2E558E530069FC89 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				28A630CD2E558E870069FC89 /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		28B3B6502DEC38B500FBA89C /* VerifiedEmailVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,6 +825,7 @@
 			isa = PBXGroup;
 			children = (
 				285352692DFB255700105F1D /* QR App.entitlements */,
+				28A630CC2E558E530069FC89 /* Protocols */,
 				288A17E32E40F8830071883E /* Networking */,
 				282C37272DFFF5CC004E9245 /* AppNotifications */,
 				D0FC30A12E38EE76003ED08E /* Animations */,
@@ -1162,6 +1175,7 @@
 			children = (
 				D030F9BE2E3A2BD8001D513F /* Cell */,
 				D030F9BC2E3A2BC8001D513F /* StyleVC.swift */,
+				28A630CF2E558F790069FC89 /* StyleVC+Extension.swift */,
 			);
 			path = StyleVC;
 			sourceTree = "<group>";
@@ -1456,6 +1470,7 @@
 				D0FC30AE2E38F973003ED08E /* InteroVC.swift in Sources */,
 				28F322042DECDD5900544477 /* CreateLogoVC.swift in Sources */,
 				28EB51FE2DFF116500D583CF /* SocialLinkType.swift in Sources */,
+				28A630D02E558F790069FC89 /* StyleVC+Extension.swift in Sources */,
 				282B564E2E22452100BFCC1B /* PremiumVC.swift in Sources */,
 				282C372B2DFFF669004E9245 /* AppNotifications.swift in Sources */,
 				285DD8C12E50D9C5008D7E01 /* InvitationTemplatesCVC12.swift in Sources */,
@@ -1473,6 +1488,7 @@
 				28B8B1152DEA109600157274 /* ForgetVC.swift in Sources */,
 				28B8B0CE2DE9CD0C00157274 /* CardView.swift in Sources */,
 				28DE347A2E141743002456B9 /* InvitationTemplatesCVC4.swift in Sources */,
+				28A630CE2E558E870069FC89 /* Protocols.swift in Sources */,
 				287A88DD2DFD9F3800EBAEA1 /* UserModel.swift in Sources */,
 				282F16612E1591AA00D01113 /* InvitationTemplatesCVC10.swift in Sources */,
 				28540C932DF0672800399270 /* Template8CVC.swift in Sources */,

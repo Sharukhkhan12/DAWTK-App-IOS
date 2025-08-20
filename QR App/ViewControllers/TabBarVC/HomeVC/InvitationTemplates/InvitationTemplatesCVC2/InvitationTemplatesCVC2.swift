@@ -108,6 +108,22 @@ extension InvitationTemplatesCVC2 {
     
     func configure(with invitation: InvitationModel, userFromViewScreen: Bool) {
         // 🎉 Basic Info
+        
+        if !invitation.additionalBgColor.isEmpty {
+            if let bgColor = UIColor(hex: invitation.additionalBgColor) {
+                self.cardView.backgroundColor = bgColor
+            }
+        }
+        
+        if !invitation.additionalFont.isEmpty {
+            weddingTimelbl.font = UIFont(name: invitation.additionalFont, size: weddingTimelbl.font.pointSize)
+            dinnerTime.font = UIFont(name: invitation.additionalFont, size: dinnerTime.font.pointSize)
+            englishDatelblWithNumbers.font = UIFont(name: invitation.additionalFont, size: englishDatelblWithNumbers.font.pointSize)
+            shawalDatelblWIthNNumbers.font = UIFont(name: invitation.additionalFont, size: shawalDatelblWIthNNumbers.font.pointSize)
+            brideFamilylbl.font = UIFont(name: invitation.additionalFont, size: brideFamilylbl.font.pointSize)
+            groomsFamilylbl.font = UIFont(name: invitation.additionalFont, size: groomsFamilylbl.font.pointSize)
+        }
+        
         groomsFamilylbl.text = invitation.groomName
         brideFamilylbl.text = invitation.brideName
         englishDatelblWithNumbers.text = invitation.date
@@ -136,5 +152,54 @@ extension InvitationTemplatesCVC2 {
                 imageView.image = image
             }
         }.resume()
+    }
+}
+extension InvitationTemplatesCVC2: InvitationScalableCardView {
+    
+    var cardContentView: UIView? {
+        return cardView
+        
+    }
+    
+    func scaleToFit(in container: UIView) {
+        layoutIfNeeded()
+
+        let templateSize = self.bounds.size
+        let containerSize = container.bounds.size
+
+        guard templateSize.width > 0 && templateSize.height > 0 else {
+            print("❌ Template size invalid")
+            return
+        }
+
+        // 👇 Use widthScale instead of min(width, height) to fill horizontally
+        let widthScale = containerSize.width / templateSize.width
+        let heightScale = containerSize.height / templateSize.height
+        let scale = widthScale // ← favor width coverage
+
+        // Apply transform
+        self.transform = CGAffineTransform(scaleX: scale, y: scale)
+
+        let scaledWidth = templateSize.width * scale
+        let scaledHeight = templateSize.height * scale
+
+        // ✅ Center vertically only (x = 0 to stretch full width)
+        let xOffset: CGFloat = 0
+        let yOffset = (containerSize.height - scaledHeight) / 2
+
+        self.frame = CGRect(x: xOffset, y: yOffset, width: scaledWidth, height: scaledHeight)
+    }
+}
+extension InvitationTemplatesCVC2: InvitationFontCustomizable {
+    func applyFont(_ fontName: String) {
+        // If the font is not valid, just return
+        guard let _ = UIFont(name: fontName, size: 16) else { return }
+        // Newly added ones ⬇️
+        weddingTimelbl.font = UIFont(name: fontName, size: weddingTimelbl.font.pointSize)
+        dinnerTime.font = UIFont(name: fontName, size: dinnerTime.font.pointSize)
+        englishDatelblWithNumbers.font = UIFont(name: fontName, size: englishDatelblWithNumbers.font.pointSize)
+        shawalDatelblWIthNNumbers.font = UIFont(name: fontName, size: shawalDatelblWIthNNumbers.font.pointSize)
+        brideFamilylbl.font = UIFont(name: fontName, size: brideFamilylbl.font.pointSize)
+        groomsFamilylbl.font = UIFont(name: fontName, size: groomsFamilylbl.font.pointSize)
     }
 }

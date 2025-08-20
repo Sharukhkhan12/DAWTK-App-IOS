@@ -9,12 +9,6 @@ import UIKit
 
 import UIKit
 
-protocol ScalableCardView {
-    func scaleToFit(in container: UIView)
-    var cardContentView: UIView? { get } // 👈 Add this
-
-}
-
 
 
 class Template7CVC: UICollectionViewCell {
@@ -55,6 +49,20 @@ class Template7CVC: UICollectionViewCell {
     }
     
     func configure(with card: UserBusinessCardModel) {
+        
+        if !card.additionalBgColor.isEmpty {
+            if let bgColor = UIColor(hex: card.additionalBgColor) {
+                self.cardView.backgroundColor = bgColor
+            }
+        }
+        if !card.additionalFont.isEmpty {
+            profilelbl.font = UIFont(name: card.additionalFont, size: profilelbl.font.pointSize)
+            buianesslbl.font = UIFont(name: card.additionalFont, size: buianesslbl.font.pointSize)
+            websitelbl.font = UIFont(name: card.additionalFont, size: websitelbl.font.pointSize)
+            locationlbl.font = UIFont(name: card.additionalFont, size: locationlbl.font.pointSize)
+            phonenlbl.font = UIFont(name: card.additionalFont, size: phonenlbl.font.pointSize)
+            emailllbl.font = UIFont(name: card.additionalFont, size: emailllbl.font.pointSize)
+        }
         profilelbl.text = card.fullName
         buianesslbl.text = card.companyName
         websitelbl.text = card.websiteUrl
@@ -146,5 +154,17 @@ extension Template7CVC: ScalableCardView {
         let yOffset = (containerSize.height - scaledHeight) / 2
 
         self.frame = CGRect(x: xOffset, y: yOffset, width: scaledWidth, height: scaledHeight)
+    }
+}
+extension Template7CVC: FontCustomizable {
+    func applyFont(_ fontName: String) {
+        guard let customFont = UIFont(name: fontName, size: 16) else { return }
+        
+        profilelbl.font = UIFont(name: fontName, size: profilelbl.font.pointSize)
+        buianesslbl.font = UIFont(name: fontName, size: buianesslbl.font.pointSize)
+        websitelbl.font = UIFont(name: fontName, size: websitelbl.font.pointSize)
+        locationlbl.font = UIFont(name: fontName, size: locationlbl.font.pointSize)
+        phonenlbl.font = UIFont(name: fontName, size: phonenlbl.font.pointSize)
+        emailllbl.font = UIFont(name: fontName, size: emailllbl.font.pointSize)
     }
 }

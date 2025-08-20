@@ -326,11 +326,25 @@ extension CardVC: PremiumAlertDelegate {
 
     func didSelectRedesign() {
         print("Handled Re-design")
-        self.dismiss(animated: true) { [weak self] in
-            guard let selectedCard = self!.selectedCard else { return }
-            self?.navigateToStyleCardScreen(card: selectedCard)
-       
-    }
+        
+        
+        switch segmeentsSelected {
+        case .inviationCard:
+            self.dismiss(animated: true) { [weak self] in
+                guard let selectedCard = self!.selectedInvitationCard else { return }
+                self?.navigateToStyleCardScreen(card: selectedCard)
+            }
+        case .BusinessCard:
+            self.dismiss(animated: true) { [weak self] in
+                guard let selectedCard = self!.selectedCard else { return }
+                self?.navigateToStyleCardScreen(card: selectedCard)
+                
+                
+            }
+        }
+        
+        
+      
        
     }
 
@@ -403,11 +417,25 @@ extension CardVC: PremiumAlertDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let styleVC = storyboard.instantiateViewController(withIdentifier: "StyleVC") as? StyleVC {
             styleVC.cardInfo = card
+            styleVC.segmeentsSelected = .inviationCard
             styleVC.modalTransitionStyle = .crossDissolve
             styleVC.modalPresentationStyle = .fullScreen
             present(styleVC, animated: true)
         }
     }
+    
+    
+    private func navigateToStyleCardScreen(card: InvitationModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let styleVC = storyboard.instantiateViewController(withIdentifier: "StyleVC") as? StyleVC {
+            styleVC.userCard = card
+            styleVC.segmeentsSelected = .inviationCard
+            styleVC.modalTransitionStyle = .crossDissolve
+            styleVC.modalPresentationStyle = .fullScreen
+            present(styleVC, animated: true)
+        }
+    }
+    
     
     
     func deleteCard(ownerID: String, cardKey: String) {

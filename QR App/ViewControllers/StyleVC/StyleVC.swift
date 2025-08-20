@@ -25,6 +25,10 @@ class StyleVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var selectedIdentifier = ""
     var progressAlert = ProgressAlertView()
     var selectedTemplateView: UIView?
+    var selectedColor = ""
+    var selectedFontName: String = ""   // simple string variable
+    var segmeentsSelected: SegmentsSelected = .BusinessCard
+    var userCard: InvitationModel!
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -77,10 +81,90 @@ class StyleVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         tableView.delegate = self
        
         DispatchQueue.main.async {
-            self.loadTheView()
+            
+            
+            switch self.segmeentsSelected {
+            case .inviationCard:
+                self.loadTheInvitationView()
+            case .BusinessCard:
+                self.loadTheView()
+            }
         }
         
     }
+    
+    @IBAction func didTapUpdate(_ sender: Any) {
+        // 🔹 Update only if user selected a color
+        
+        
+        
+        switch segmeentsSelected {
+        case .inviationCard:
+            if !selectedColor.isEmpty {
+                userCard?.additionalBgColor = selectedColor
+            }
+
+            // 🔹 Update only if user selected a font
+            if !selectedFontName.isEmpty {
+                userCard?.additionalFont = selectedFontName
+            }
+
+            // 🔹 Navigate only if at least one change made
+            if !selectedColor.isEmpty || !selectedFontName.isEmpty {
+                if let card = cardInfo {
+                    self.navigateToPreVieeScreen(invitationCard: userCard)
+                }
+            } else {
+                // Optional: Show alert if nothing was changed
+                let alert = UIAlertController(title: "No Changes",
+                                              message: "Please select a color or font to update.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+            }
+        case .BusinessCard:
+            if !selectedColor.isEmpty {
+                cardInfo?.additionalBgColor = selectedColor
+            }
+
+            // 🔹 Update only if user selected a font
+            if !selectedFontName.isEmpty {
+                cardInfo?.additionalFont = selectedFontName
+            }
+
+            // 🔹 Navigate only if at least one change made
+            if !selectedColor.isEmpty || !selectedFontName.isEmpty {
+                if let card = cardInfo {
+                    self.navigateToViewCardScreen(card: card)
+                }
+            } else {
+                // Optional: Show alert if nothing was changed
+                let alert = UIAlertController(title: "No Changes",
+                                              message: "Please select a color or font to update.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+            }
+        }
+        
+       
+    }
+
+    
+    // MARK: - Navigate to View Card Screen
+    private func navigateToViewCardScreen(card: UserBusinessCardModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewAsVC = storyboard.instantiateViewController(withIdentifier: "ViewAsVC") as? ViewAsVC {
+        
+            
+            viewAsVC.cardInfo = card
+            viewAsVC.userFromCreateScreen = true
+            viewAsVC.modalTransitionStyle = .crossDissolve
+            viewAsVC.modalPresentationStyle = .fullScreen
+            present(viewAsVC, animated: true)
+        }
+    }
+    
     
     
     
@@ -318,13 +402,31 @@ class StyleVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         // Get selected color
         let selectedColor = colors[indexPath.item]
         
+        
+        let colorHex = selectedColor.toHexString()
+        print("🎨 Selected Color HEX: \(colorHex)")
+        self.selectedColor = colorHex
+        
         // Set selected color to views
         SelectedView.backgroundColor = selectedColor
 //        ViewScreen.backgroundColor = selectedColor
-        if let scalable = selectedTemplateView as? ScalableCardView,
-           let cardView = scalable.cardContentView {
-            cardView.backgroundColor = selectedColor
+        
+        switch self.segmeentsSelected {
+        case .inviationCard:
+            if let scalable = selectedTemplateView as? InvitationScalableCardView,
+               let cardView = scalable.cardContentView {
+                cardView.backgroundColor = selectedColor
+            }
+        case .BusinessCard:
+            if let scalable = selectedTemplateView as? ScalableCardView,
+               let cardView = scalable.cardContentView {
+                cardView.backgroundColor = selectedColor
+            }
         }
+    
+        
+        
+     
         // 👇 CURSOR ADDITION 👇
 
         // Remove previous cursor
@@ -389,6 +491,24 @@ class StyleVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         // Set selected font to text field
         TextFielsFont.text = selectedFont
+        // ✅ Save to string variable
+        
+        
+        switch self.segmeentsSelected {
+        case .inviationCard:
+            selectedFontName = selectedFont
+            if let customizable = selectedTemplateView as? InvitationFontCustomizable {
+                customizable.applyFont(selectedFontName) // 👈 or user selected font string
+            }
+        case .BusinessCard:
+            selectedFontName = selectedFont
+            if let customizable = selectedTemplateView as? FontCustomizable {
+                customizable.applyFont(selectedFontName) // 👈 or user selected font string
+            }
+        }
+        
+        
+      
         TextFielsFont.font = UIFont(name: selectedFont, size: 18)
         
         // Hide the table view after selection
@@ -398,3 +518,37 @@ class StyleVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
 
    }
     
+extension UIColor {
+    func toHexString() -> String {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        let r = Int(red * 255)
+        let g = Int(green * 255)
+        let b = Int(blue * 255)
+
+        return String(format: "#%02X%02X%02X", r, g, b)
+    }
+}
+extension UIColor {
+    convenience init?(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if hexSanitized.hasPrefix("#") {
+            hexSanitized.remove(at: hexSanitized.startIndex)
+        }
+        
+        var rgb: UInt64 = 0
+        guard Scanner(string: hexSanitized).scanHexInt64(&rgb) else { return nil }
+        
+        let r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+        let g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+        let b = CGFloat(rgb & 0x0000FF) / 255.0
+        
+        self.init(red: r, green: g, blue: b, alpha: 1.0)
+    }
+}
