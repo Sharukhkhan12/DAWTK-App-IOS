@@ -8,38 +8,38 @@
 import Foundation
 
 struct InvitationModel: Codable {
-    var ownerId: String
-    var qrCode: String
-    var profilePhotoPath: String
-    var mainCardFilePath: String
-    var qrCodeFilePath: String
+    var ownerId: String = ""
+    var qrCode: String = ""
+    var profilePhotoPath: String = ""
+    var mainCardFilePath: String = ""
+    var qrCodeFilePath: String = ""
 
-    var groomName: String
-    var brideName: String
-    var date: String
-    var islamicDate: String
-    var eventTime: String
-    var buffetTime: String
-    var venue: String
-    var locationLink: String
-    var rsvpDetail: String
+    var groomName: String = ""
+    var brideName: String = ""
+    var date: String = ""
+    var islamicDate: String = ""
+    var eventTime: String = ""
+    var buffetTime: String = ""
+    var venue: String = ""
+    var locationLink: String = ""
+    var rsvpDetail: String = ""
 
-    var templateName: String
-    var children: Bool
-    var photography: Bool
-    var smoking: Bool
+    var templateName: String = ""
+    var children: Bool = false
+    var photography: Bool = false
+    var smoking: Bool = false
 
-    var applePay: String
-    var googlePay: String
-    var nft: String
+    var applePay: String = ""
+    var googlePay: String = ""
+    var nft: String = ""
 
-    var createdDate: String
-    var expiryDate: String
+    var createdDate: String = ""
+    var expiryDate: String = ""
 
-    var additionalBgColor: String
-    var additionalFont: String
+    var additionalBgColor: String = ""
+    var additionalFont: String = ""
 
-    // Default initializer
+    // ✅ Default initializer (keeps previous usage intact)
     init(
         ownerId: String = "",
         qrCode: String = "",
@@ -94,7 +94,38 @@ struct InvitationModel: Codable {
         self.additionalFont = additionalFont
     }
 
-    // Firebase dictionary representation
+    // ✅ Safe decoding from Firebase
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.ownerId = try container.decodeIfPresent(String.self, forKey: .ownerId) ?? ""
+        self.qrCode = try container.decodeIfPresent(String.self, forKey: .qrCode) ?? ""
+        self.profilePhotoPath = try container.decodeIfPresent(String.self, forKey: .profilePhotoPath) ?? ""
+        self.mainCardFilePath = try container.decodeIfPresent(String.self, forKey: .mainCardFilePath) ?? ""
+        self.qrCodeFilePath = try container.decodeIfPresent(String.self, forKey: .qrCodeFilePath) ?? ""
+        self.groomName = try container.decodeIfPresent(String.self, forKey: .groomName) ?? ""
+        self.brideName = try container.decodeIfPresent(String.self, forKey: .brideName) ?? ""
+        self.date = try container.decodeIfPresent(String.self, forKey: .date) ?? ""
+        self.islamicDate = try container.decodeIfPresent(String.self, forKey: .islamicDate) ?? ""
+        self.eventTime = try container.decodeIfPresent(String.self, forKey: .eventTime) ?? ""
+        self.buffetTime = try container.decodeIfPresent(String.self, forKey: .buffetTime) ?? ""
+        self.venue = try container.decodeIfPresent(String.self, forKey: .venue) ?? ""
+        self.locationLink = try container.decodeIfPresent(String.self, forKey: .locationLink) ?? ""
+        self.rsvpDetail = try container.decodeIfPresent(String.self, forKey: .rsvpDetail) ?? ""
+        self.templateName = try container.decodeIfPresent(String.self, forKey: .templateName) ?? ""
+        self.children = try container.decodeIfPresent(Bool.self, forKey: .children) ?? false
+        self.photography = try container.decodeIfPresent(Bool.self, forKey: .photography) ?? false
+        self.smoking = try container.decodeIfPresent(Bool.self, forKey: .smoking) ?? false
+        self.applePay = try container.decodeIfPresent(String.self, forKey: .applePay) ?? ""
+        self.googlePay = try container.decodeIfPresent(String.self, forKey: .googlePay) ?? ""
+        self.nft = try container.decodeIfPresent(String.self, forKey: .nft) ?? ""
+        self.createdDate = try container.decodeIfPresent(String.self, forKey: .createdDate) ?? ""
+        self.expiryDate = try container.decodeIfPresent(String.self, forKey: .expiryDate) ?? ""
+        self.additionalBgColor = try container.decodeIfPresent(String.self, forKey: .additionalBgColor) ?? ""
+        self.additionalFont = try container.decodeIfPresent(String.self, forKey: .additionalFont) ?? ""
+    }
+
+    // ✅ Firebase dictionary representation stays unchanged
     func toDictionary() -> [String: Any] {
         return [
             "ownerId": ownerId,
@@ -125,6 +156,5 @@ struct InvitationModel: Codable {
         ]
     }
 }
-
 
 

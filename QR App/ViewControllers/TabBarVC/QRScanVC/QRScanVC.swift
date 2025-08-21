@@ -183,21 +183,27 @@ class QRScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImag
             print("QR Code: \(qrValue)")
             captureSession.stopRunning()
             self.progressAlertv.show()
-            FirebaseManager.shared.fetchUserBusinessCard(cardKey: qrValue) { result in
+            FirebaseManager.shared.fetchCard(cardKey: qrValue) { result in
                 switch result {
-                case .success(let card):
-                    self.progressAlertv.dismiss()
-                    print(" ✅ Business Card fetched:", card)
-                    self.navigateToViewCardScreen(card: card)
+                case .success(let model):
+                    if let invitationCard = model as? InvitationModel {
+                        print("🎉 Found Invitation Card: \(invitationCard)")
+                        self.navigateToPreVieeScreen(invitationCard: invitationCard)
+                    } else if let businessCard = model as? UserBusinessCardModel {
+                        print(" ✅ Business Card fetched:", businessCard)
+                        self.dismiss(animated: true) {
+                            self.navigateToViewCardScreen(card: businessCard)
+                        }
+                        print("🎉 Found Business Card: \(businessCard)")
+                    }
                 case .failure(let error):
                     self.progressAlertv.dismiss()
                     self.showAlert(message: "Invalid QR") {
                         self.captureSession.startRunning()
                     }
-                    print("Error fetching card:", error.localizedDescription)
+                    print("❌ Error: \(error.localizedDescription)")
                 }
             }
-
         }
     }
     
@@ -208,12 +214,27 @@ class QRScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImag
         if let viewAsVC = storyboard.instantiateViewController(withIdentifier: "ViewAsVC") as? ViewAsVC {
             print()
             viewAsVC.cardInfo = card
+            viewAsVC.checkUSerScanVC = true
             viewAsVC.modalTransitionStyle = .crossDissolve
             viewAsVC.modalPresentationStyle = .fullScreen
             present(viewAsVC, animated: true)
         }
     }
     
+    
+    // MARK: - Navigate TO Invitation PreViee Controller
+    
+    private func navigateToPreVieeScreen(invitationCard: InvitationModel) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let invitationPreViewVC = storyboard.instantiateViewController(withIdentifier: "InvitationPreViewVC") as? InvitationPreViewVC {
+            invitationPreViewVC.modalTransitionStyle = .crossDissolve
+            invitationPreViewVC.userCard = invitationCard
+            invitationPreViewVC.checkUSerScanVC = true
+            
+            invitationPreViewVC.modalPresentationStyle = .fullScreen
+            present(invitationPreViewVC, animated: true)
+        }
+    }
     
     
     // MARK: - Alert helper

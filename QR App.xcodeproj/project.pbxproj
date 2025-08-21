@@ -99,6 +99,9 @@
 		289A10772E37B98A003133DC /* QRScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A10762E37B98A003133DC /* QRScanVC.swift */; };
 		28A630CE2E558E870069FC89 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A630CD2E558E870069FC89 /* Protocols.swift */; };
 		28A630D02E558F790069FC89 /* StyleVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A630CF2E558F790069FC89 /* StyleVC+Extension.swift */; };
+		28A630D52E55B16D0069FC89 /* ViewAnalysisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A630D42E55B16D0069FC89 /* ViewAnalysisVC.swift */; };
+		28A630D72E55B1840069FC89 /* ViewAnalysisViewNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A630D62E55B1840069FC89 /* ViewAnalysisViewNib.swift */; };
+		28A630D92E55B1920069FC89 /* ViewAnalysisViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A630D82E55B1920069FC89 /* ViewAnalysisViewNib.xib */; };
 		28B3B6522DEC38D000FBA89C /* VerifiedEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6512DEC38D000FBA89C /* VerifiedEmailVC.swift */; };
 		28B3B6552DEC3A2300FBA89C /* CardSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6542DEC3A2300FBA89C /* CardSelectedVC.swift */; };
 		28B3B6572DEC3E5A00FBA89C /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6562DEC3E5A00FBA89C /* CircularView.swift */; };
@@ -128,6 +131,7 @@
 		28B8B1122DE9F07300157274 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B1112DE9F07300157274 /* SignUpVC.swift */; };
 		28B8B1152DEA109600157274 /* ForgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B1142DEA109600157274 /* ForgetVC.swift */; };
 		28B8B1182DEA156800157274 /* ConformVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B1172DEA156800157274 /* ConformVC.swift */; };
+		28BBCA312E5708DF00FDA651 /* NewPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BBCA302E5708DF00FDA651 /* NewPassVC.swift */; };
 		28BD298A2E0E7C3B0096DB5F /* PreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD29892E0E7C3B0096DB5F /* PreViewVC.swift */; };
 		28DC23E22E42909E0036F0C0 /* pass_1233333331754421489.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 28DC23E12E42909E0036F0C0 /* pass_1233333331754421489.pkpass */; };
 		28DC23E42E4293EE0036F0C0 /* pass_1754422358.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 28DC23E32E4293EE0036F0C0 /* pass_1754422358.pkpass */; };
@@ -256,6 +260,9 @@
 		289A10762E37B98A003133DC /* QRScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanVC.swift; sourceTree = "<group>"; };
 		28A630CD2E558E870069FC89 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		28A630CF2E558F790069FC89 /* StyleVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StyleVC+Extension.swift"; sourceTree = "<group>"; };
+		28A630D42E55B16D0069FC89 /* ViewAnalysisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnalysisVC.swift; sourceTree = "<group>"; };
+		28A630D62E55B1840069FC89 /* ViewAnalysisViewNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnalysisViewNib.swift; sourceTree = "<group>"; };
+		28A630D82E55B1920069FC89 /* ViewAnalysisViewNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewAnalysisViewNib.xib; sourceTree = "<group>"; };
 		28B3B6512DEC38D000FBA89C /* VerifiedEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedEmailVC.swift; sourceTree = "<group>"; };
 		28B3B6542DEC3A2300FBA89C /* CardSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectedVC.swift; sourceTree = "<group>"; };
 		28B3B6562DEC3E5A00FBA89C /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
@@ -286,6 +293,7 @@
 		28B8B1112DE9F07300157274 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		28B8B1142DEA109600157274 /* ForgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetVC.swift; sourceTree = "<group>"; };
 		28B8B1172DEA156800157274 /* ConformVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConformVC.swift; sourceTree = "<group>"; };
+		28BBCA302E5708DF00FDA651 /* NewPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassVC.swift; sourceTree = "<group>"; };
 		28BD29892E0E7C3B0096DB5F /* PreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewVC.swift; sourceTree = "<group>"; };
 		28DC23E12E42909E0036F0C0 /* pass_1233333331754421489.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1233333331754421489.pkpass; sourceTree = "<group>"; };
 		28DC23E32E4293EE0036F0C0 /* pass_1754422358.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1754422358.pkpass; sourceTree = "<group>"; };
@@ -731,6 +739,24 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		28A630D12E55B1350069FC89 /* ViewAnalysisVC */ = {
+			isa = PBXGroup;
+			children = (
+				28A630D22E55B1460069FC89 /* ViewAnalysisViews */,
+				28A630D42E55B16D0069FC89 /* ViewAnalysisVC.swift */,
+			);
+			path = ViewAnalysisVC;
+			sourceTree = "<group>";
+		};
+		28A630D22E55B1460069FC89 /* ViewAnalysisViews */ = {
+			isa = PBXGroup;
+			children = (
+				28A630D62E55B1840069FC89 /* ViewAnalysisViewNib.swift */,
+				28A630D82E55B1920069FC89 /* ViewAnalysisViewNib.xib */,
+			);
+			path = ViewAnalysisViews;
+			sourceTree = "<group>";
+		};
 		28B3B6502DEC38B500FBA89C /* VerifiedEmailVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +776,7 @@
 		28B3B6582DEC458700FBA89C /* TabBarVC */ = {
 			isa = PBXGroup;
 			children = (
+				28A630D12E55B1350069FC89 /* ViewAnalysisVC */,
 				D030F9C82E3A2E1C001D513F /* UserProfileVC */,
 				289A10702E37B834003133DC /* QRScanVC */,
 				28F577C62E2B863900BEC5AB /* CardVC */,
@@ -845,6 +872,7 @@
 		28B8B0B02DE9909100157274 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				28BBCA2F2E5708CA00FDA651 /* NewPassVC */,
 				285DD8B72E4F461A008D7E01 /* InvitationPreViewVC */,
 				D030F9B92E3A2B98001D513F /* StyleVC */,
 				D030F9B62E3A2B5B001D513F /* SuccessVC */,
@@ -975,6 +1003,14 @@
 				28B8B1172DEA156800157274 /* ConformVC.swift */,
 			);
 			path = ConformVC;
+			sourceTree = "<group>";
+		};
+		28BBCA2F2E5708CA00FDA651 /* NewPassVC */ = {
+			isa = PBXGroup;
+			children = (
+				28BBCA302E5708DF00FDA651 /* NewPassVC.swift */,
+			);
+			path = NewPassVC;
 			sourceTree = "<group>";
 		};
 		28BD29882E0E7BA90096DB5F /* PreViewVC */ = {
@@ -1337,6 +1373,7 @@
 				28F2B2322E39FF2A0089EBE4 /* PremiumAlert.xib in Resources */,
 				D0FC30A32E38EE8A003ED08E /* data.json in Resources */,
 				282B56562E2245E900BFCC1B /* IndividualPremiumView.xib in Resources */,
+				28A630D92E55B1920069FC89 /* ViewAnalysisViewNib.xib in Resources */,
 				286B1A022E43DE0100A954F4 /* pass_1754506750.pkpass in Resources */,
 				285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */,
 				28540C762DF0660C00399270 /* Template2CVC.xib in Resources */,
@@ -1360,13 +1397,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QR App/Pods-QR App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QR App/Pods-QR App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1421,6 +1454,7 @@
 				285DD8B92E4F464E008D7E01 /* InvitationPreViewVC.swift in Sources */,
 				28B3B6672DEC6F6A00FBA89C /* newCardTVC.swift in Sources */,
 				28B3B6522DEC38D000FBA89C /* VerifiedEmailVC.swift in Sources */,
+				28A630D52E55B16D0069FC89 /* ViewAnalysisVC.swift in Sources */,
 				282F164A2E1590C400D01113 /* InvitationTemplatesCVC6.swift in Sources */,
 				28DE34212E13C323002456B9 /* InvitationTemplatesCVC1.swift in Sources */,
 				287809802E105CD6003D5F1D /* InvitationFieldType.swift in Sources */,
@@ -1434,6 +1468,7 @@
 				28540C5E2DF055E400399270 /* HomeViewNib.swift in Sources */,
 				28B3B65A2DEC459A00FBA89C /* TabBarVC.swift in Sources */,
 				28DE347F2E141ACB002456B9 /* InvitationTemplatesCVC5.swift in Sources */,
+				28BBCA312E5708DF00FDA651 /* NewPassVC.swift in Sources */,
 				28B3B6572DEC3E5A00FBA89C /* CircularView.swift in Sources */,
 				28F2B2372E3A01090089EBE4 /* OptionsTVC.swift in Sources */,
 				D02481752E3793B400B4FF73 /* PreViewVC+Extensions.swift in Sources */,
@@ -1490,6 +1525,7 @@
 				28DE347A2E141743002456B9 /* InvitationTemplatesCVC4.swift in Sources */,
 				28A630CE2E558E870069FC89 /* Protocols.swift in Sources */,
 				287A88DD2DFD9F3800EBAEA1 /* UserModel.swift in Sources */,
+				28A630D72E55B1840069FC89 /* ViewAnalysisViewNib.swift in Sources */,
 				282F16612E1591AA00D01113 /* InvitationTemplatesCVC10.swift in Sources */,
 				28540C932DF0672800399270 /* Template8CVC.swift in Sources */,
 				282F16582E15913D00D01113 /* InvitationTemplatesCVC8.swift in Sources */,

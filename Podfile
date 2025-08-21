@@ -10,6 +10,7 @@ target 'QR App' do
     pod 'AEOTPTextField'
     pod 'lottie-ios'
     pod 'Malert'
+    pod 'DGCharts'
 
 
 end

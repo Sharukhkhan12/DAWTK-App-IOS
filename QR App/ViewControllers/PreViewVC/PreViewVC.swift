@@ -65,26 +65,17 @@ class PreViewVC: UIViewController {
     
     
     @IBAction func didTapAddWallet(_ sender: Any) {
-        guard let passURL = Bundle.main.url(forResource: "test_pass", withExtension: "pkpass") else {
-               print("Pass file not found")
-               return
-           }
-           
-           do {
-               let passData = try Data(contentsOf: passURL)
-               let pass = try PKPass(data: passData)
-               let passVC = PKAddPassesViewController(pass: pass)
-               
-               if let vc = passVC {
-                   self.present(vc, animated: true, completion: nil)
-               } else {
-                   print("Unable to create PassKit view controller")
-               }
-           } catch {
-               print("Error loading pass: \(error)")
-           }
+        self.goToPass()
     }
    
+    func goToPass() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let userVC = storyboard.instantiateViewController(withIdentifier: "NewPassVC") as? NewPassVC {
+            userVC.modalPresentationStyle = .overCurrentContext
+            userVC.modalTransitionStyle = .crossDissolve
+            present(userVC, animated: true, completion: nil)
+        }
+    }
     
     
     

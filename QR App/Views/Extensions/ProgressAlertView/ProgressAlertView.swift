@@ -64,8 +64,7 @@ class ProgressAlertView: UIView {
         let frame = CGRect(x: x, y: y, width: size.width, height: size.height)
 
         // Create and configure the activity indicator
-        let activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .ballRotate)
-        activityIndicatorView.color = #colorLiteral(red: 1, green: 0.3490196078, blue: 0.7058823529, alpha: 0.7036564626) // Customize the color if needed
+        let activityIndicatorView = NVActivityIndicatorView(frame: frame, type: .circleStrokeSpin)
         activityIndicatorView.startAnimating()
         
         print("activityIndicatorView")

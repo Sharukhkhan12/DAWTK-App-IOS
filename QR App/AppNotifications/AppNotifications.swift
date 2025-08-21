@@ -22,6 +22,7 @@ extension Notification.Name {
 
     static let userFromInviationCard = Notification.Name("userFromInviationCard")
 
-    
+    static let reloadViewAnalysisData = Notification.Name("reloadViewAnalysisData")
+
     
 }

@@ -14,11 +14,20 @@ class InvitationPreViewVC: UIViewController {
     @IBOutlet weak var previewCardslbl: UILabel!
     @IBOutlet weak var previewInvitation: UIView!
     @IBOutlet weak var updateView: DesignableView!
+    
+    @IBOutlet weak var rejectedlbl: UILabel!
+    @IBOutlet weak var accpetedlbl: UILabel!
+    @IBOutlet weak var addToWalletView: DesignableView!
+    
+    
     var userCard: InvitationModel!
     var profileImage: UIImage?
     var qrCodeTransparentImage: UIImage?
     var userID = ""
     var cardKey = ""
+    
+    var checkUSerScanVC = false
+
     let templateInvitationIdentifiers = [
         "InvitationTemplatesCVC1",
         "InvitationTemplatesCVC2",
@@ -56,8 +65,31 @@ class InvitationPreViewVC: UIViewController {
                 self.setCardInitialInFirebase()
             }
             
+            if self.checkUSerScanVC {
+                self.addToWalletView.isHidden = false
+                self.accpetedlbl.text = "Accpted"
+                self.rejectedlbl.text = "Rejected"
+            }
+            
+            
+            
+            
         }
         // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    @IBAction func didTapWallet(_ sender: Any) {
+        
+        if checkUSerScanVC {
+            FirebaseManager.shared.addStatusToCard(cardKey: userCard!.qrCode, ownerId: userCard!.ownerId, status: "Accpted")
+            navigateToTabBarScreen()
+        } else {
+            self.goToPass()
+        }
+        
+        
     }
     
     
@@ -67,16 +99,25 @@ class InvitationPreViewVC: UIViewController {
     
     
     @IBAction func didTapSave(_ sender: Any) {
-        if userSelectedProfileTemplate {
+        
+        if checkUSerScanVC {
             
-            DispatchQueue.main.async {
-                self.savedCardWithProfile()
-            }
+            FirebaseManager.shared.addStatusToCard(cardKey: userCard!.qrCode, ownerId: userCard!.ownerId, status: "Rejected")
+            navigateToTabBarScreen()
+            
         } else {
-            DispatchQueue.main.async {
-                self.savedCard()
+            if userSelectedProfileTemplate {
+                
+                DispatchQueue.main.async {
+                    self.savedCardWithProfile()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.savedCard()
+                }
             }
         }
+       
     }
     
     @IBAction func didTapUpdateCard(_ sender: Any) {
@@ -94,7 +135,19 @@ class InvitationPreViewVC: UIViewController {
     
     
     
-    @IBAction func didTapWallet(_ sender: Any) {
+    @IBAction func didTapWalletAfterScanScreen(_ sender: Any) {
+        self.goToPass()
+    }
+    
+    
+    
+    func goToPass() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let userVC = storyboard.instantiateViewController(withIdentifier: "NewPassVC") as? NewPassVC {
+            userVC.modalPresentationStyle = .overCurrentContext
+            userVC.modalTransitionStyle = .crossDissolve
+            present(userVC, animated: true, completion: nil)
+        }
     }
     
     

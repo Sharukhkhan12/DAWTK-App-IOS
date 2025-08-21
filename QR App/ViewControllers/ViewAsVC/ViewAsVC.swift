@@ -23,6 +23,9 @@ class ViewAsVC: UIViewController {
     @IBOutlet weak var toplbl: UILabel!
     @IBOutlet weak var updateAndShareStackView: UIStackView!
     
+    @IBOutlet weak var rejectedlbl: UILabel!
+    @IBOutlet weak var accpetedlbl: UILabel!
+    @IBOutlet weak var addToWalletView: DesignableView!
     // MARK: - Declartations
     var cardInfo: UserBusinessCardModel?
     var progressAlert = ProgressAlertView()
@@ -31,6 +34,7 @@ class ViewAsVC: UIViewController {
     var logoImage: UIImage?
     var userID = ""
     var checkUserUpdateAnyImage = false
+    var checkUSerScanVC = false
     var checkImage: CheckImagee = .bothImages
     
     var templateView: UIView?
@@ -44,12 +48,21 @@ class ViewAsVC: UIViewController {
             self.updatelbl.text = "Update Card"
             self.updateAndShareStackView.isHidden = true
             self.updateView.isHidden = false
+            self.addToWalletView.isHidden = true
 
         } else {
             self.updateAndShareStackView.isHidden = false
             self.updateView.isHidden = true
+            self.addToWalletView.isHidden = true
 
         }
+        
+        if checkUSerScanVC {
+            self.addToWalletView.isHidden = false
+            self.accpetedlbl.text = "Accpted"
+            self.rejectedlbl.text = "Rejected"
+        }
+        
         
         DispatchQueue.main.async {
            
@@ -59,6 +72,21 @@ class ViewAsVC: UIViewController {
         
         
        
+    }
+    
+    
+    
+    @IBAction func didTapAddWallet(_ sender: Any) {
+        self.goToPass()
+    }
+    
+    func goToPass() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let userVC = storyboard.instantiateViewController(withIdentifier: "NewPassVC") as? NewPassVC {
+            userVC.modalPresentationStyle = .overCurrentContext
+            userVC.modalTransitionStyle = .crossDissolve
+            present(userVC, animated: true, completion: nil)
+        }
     }
     
     
@@ -466,124 +494,22 @@ class ViewAsVC: UIViewController {
     @IBAction func didTapAddtoWallet(_ sender: Any) {
         if let imageUrl = cardInfo?.mainCardFilePath{
             
-            // Start loading the Wallet Pass
-//            NetworkManager.shared.generateWalletPass(stripImageUrl: imageUrl) { [weak self] result in
-//                guard let self = self else { return }
-//                
-//                switch result {
-//                case .success(let result):
-//                    print("✅ Wallet pass generated: \(result.passData)")
-//                    NetworkManager.shared.presentPass(data: result.passData, from: self)
-//                    
-//                case .failure(let error):
-//                    print("❌ Error generating Wallet pass: \(error.localizedDescription)")
-//                }
-//            }
-            
-            
-            // Step 1: Get the path of .pkpass in app bundle
-               guard let passURL = Bundle.main.url(forResource: "pass_1754506750", withExtension: "pkpass") else {
-                   print("❌ Pass file not found in bundle")
-                   return
-               }
-
-               // Step 2: Load pass data
-               do {
-                   let passData = try Data(contentsOf: passURL)
-                   let pass = try PKPass(data: passData)
-
-                   // Step 3: Create Wallet view controller
-                   if let addPassVC = PKAddPassesViewController(pass: pass) {
-                       self.present(addPassVC, animated: true, completion: nil)
-                   } else {
-                       print("❌ Failed to create Wallet view controller")
-                   }
-               } catch {
-                   print("❌ Error loading pass:", error.localizedDescription)
-               }
-            
-            
-            
+            if checkUSerScanVC {
+                FirebaseManager.shared.addStatusToCard(cardKey: cardInfo!.qrCode, ownerId: cardInfo!.ownerId, status: "Accepted")
+                navigateToTabBarScreen()
+            } else {
+                self.goToPass()
+            }
         }
         
-        
-//        DispatchQueue.main.async {
-//            if let imageUrl = self.cardInfo?.mainCardFilePath{
-//                
-//                
-//                self.progressAlert.show()
-//                
-//                print("ImageURL")
-//                // Start loading the Wallet Pass
-//                // Step 1: Prepare the image URL
-//                let imageUrlString = imageUrl
-//                
-//                // Step 2: Setup form-data
-//                let boundary = "Boundary-\(UUID().uuidString)"
-//                var request = URLRequest(url: URL(string: "https://googlewalletapi.onrender.com/apple/wallet-pass")!)
-//                request.httpMethod = "POST"
-//                request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-//                
-//                var body = Data()
-//                body.append("--\(boundary)\r\n".data(using: .utf8)!)
-//                body.append("Content-Disposition: form-data; name=\"strip_image_url\"\r\n\r\n".data(using: .utf8)!)
-//                body.append("https://firebasestorage.googleapis.com/v0/b/qr-card-ff7bc.firebasestorage.app/o/UserCard%2F-OWnsobBoaddktl3GuRC%2F-OWnsobBoaddktl3GuRC_mainCard.png?alt=media&token=bc3a7073-34c6-4cb0-b189-2322203cb705\r\n".data(using: .utf8)!)
-//                body.append("--\(boundary)--\r\n".data(using: .utf8)!)
-//                request.httpBody = body
-//                
-//                // Step 3: Call API
-//                URLSession.shared.dataTask(with: request) { data, response, error in
-//                    guard let data = data, error == nil else {
-//                        print("Upload error:", error?.localizedDescription ?? "Unknown")
-//                        return
-//                    }
-//                    
-//                    // Step 4: Parse JSON
-//                    if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-//                       let fileUrlStr = json["file"] as? String,
-//                       let fileUrl = URL(string: fileUrlStr) {
-//                        print("PKPASS URL:", fileUrl)
-//                        
-//                        // Step 5: Download .pkpass file
-//                        URLSession.shared.dataTask(with: fileUrl) { pkpassData, _, downloadError in
-//                            guard let pkpassData = pkpassData, downloadError == nil else {
-//                                
-//                                self.progressAlert.dismiss()
-//                                
-//                                print("Download error:", downloadError?.localizedDescription ?? "Unknown")
-//                                return
-//                            }
-//                            
-//                            DispatchQueue.main.async {
-//                                do {
-//                                    let pass = try PKPass(data: data)
-//                                    let addPassVC = PKAddPassesViewController(pass: pass)
-//                                    self.progressAlert.dismiss()
-//                                    DispatchQueue.main.async {
-//                                        self.present(addPassVC!, animated: true)
-//                                    }
-//                                } catch {
-//                                    self.progressAlert.dismiss()
-//                                    
-//                                    print("❌ Failed to create Apple Wallet pass: \(error)")
-//                                }
-//                            }
-//                        }.resume()
-//                    } else {
-//                        print("Invalid response from backend")
-//                    }
-//                }.resume()
-//                
-//            }
-//            
-//        }
-        
-        
     }
-    
-
-    
     @IBAction func didTapShareCard(_ sender: Any) {
+        if checkUSerScanVC {
+            FirebaseManager.shared.addStatusToCard(cardKey: cardInfo!.qrCode, ownerId: cardInfo!.ownerId, status: "Rejected")
+            navigateToTabBarScreen()
+        } else {
+            
+        }
     }
     
 

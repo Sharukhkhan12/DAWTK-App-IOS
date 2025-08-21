@@ -1,5 +1,8 @@
 PODS:
   - AEOTPTextField (1.2.6)
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - lottie-ios (4.5.2)
@@ -8,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - AEOTPTextField
+  - DGCharts
   - Koloda
   - lottie-ios
   - Malert
@@ -15,6 +19,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AEOTPTextField
+    - DGCharts
     - Koloda
     - lottie-ios
     - Malert
@@ -22,11 +27,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AEOTPTextField: a275823fde05601c5da7f8fb66aaecb41289b370
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   lottie-ios: 96784afc26ea031d3e2b6cae342a4b8915072489
   Malert: 4327c2aab8aab459824ebf647195cfb6b5cd06a4
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: 5fb9c810dabc81910677649a2d71ae7f5a4f6e62
+PODFILE CHECKSUM: 474d145064c01091733ef314a6120595c1b10827
 
 COCOAPODS: 1.16.2

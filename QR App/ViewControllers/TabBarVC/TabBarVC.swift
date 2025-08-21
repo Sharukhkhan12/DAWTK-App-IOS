@@ -41,6 +41,11 @@ class TabBarVC: UIViewController {
     }()
     
     
+    private lazy var viewAnalysisVC: ViewAnalysisVC = {
+        let userProfileVC = ViewAnalysisVC(nibName: "ViewAnalysisViewNib", bundle: nil)
+        return userProfileVC
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +75,11 @@ class TabBarVC: UIViewController {
     
     
     @IBAction func didTapViewAnalyze(_ sender: Any) {
+        self.addChildViewController(child: viewAnalysisVC)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            NotificationCenter.default.post(name: .reloadViewAnalysisData, object: nil)
+          }
+        
     }
     
     @IBAction func didTapProfile(_ sender: Any) {
