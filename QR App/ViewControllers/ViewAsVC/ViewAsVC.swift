@@ -508,7 +508,18 @@ class ViewAsVC: UIViewController {
             FirebaseManager.shared.addStatusToCard(cardKey: cardInfo!.qrCode, ownerId: cardInfo!.ownerId, status: "Rejected")
             navigateToTabBarScreen()
         } else {
-            
+            guard let key = cardInfo?.qrCode else { return }
+               let shareURL = "https://hamzaoffi.github.io/QR-Card/index.html?key=\(key)"
+               
+               let activityVC = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
+               
+               // for iPad support
+               if let popoverController = activityVC.popoverPresentationController {
+                   popoverController.sourceView = self.view
+                   popoverController.sourceRect = (sender as? UIView)?.bounds ?? .zero
+               }
+               
+               self.present(activityVC, animated: true, completion: nil)
         }
     }
     

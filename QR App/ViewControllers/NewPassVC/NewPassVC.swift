@@ -8,22 +8,26 @@
 import UIKit
 
 class NewPassVC: UIViewController {
+    @IBOutlet var bottomViewSheet: UIView!
 
+    @IBOutlet var parentView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        parentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    @IBAction func dismissScren(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.20, animations: {
+               // Dono ko same transform apply kar rahe hain
+               self.bottomViewSheet.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
+              
+           }) { _ in
+               self.dismiss(animated: false)
+           }
+            }
+   
 
 }

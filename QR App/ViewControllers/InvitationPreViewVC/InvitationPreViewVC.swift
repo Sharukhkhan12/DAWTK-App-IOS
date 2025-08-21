@@ -47,6 +47,7 @@ class InvitationPreViewVC: UIViewController {
     var progressAlert = ProgressAlertView()
     var userSelectedProfileTemplate = false
     var userFromMyCardsScreen = false
+    var userfromViewAs = false
 
     
     override func viewDidLoad() {
@@ -69,9 +70,17 @@ class InvitationPreViewVC: UIViewController {
                 self.addToWalletView.isHidden = false
                 self.accpetedlbl.text = "Accpted"
                 self.rejectedlbl.text = "Rejected"
+            }  else {
+                self.addToWalletView.isHidden = true
+                self.rejectedlbl.text = "Save"
             }
             
-            
+            if self.userfromViewAs == true {
+                self.accpetedlbl.text = "Share"
+                self.updateView.isHidden = true
+                self.waleetShareStack.isHidden = false
+                self.loadTheView()
+            }
             
             
         }
@@ -116,6 +125,21 @@ class InvitationPreViewVC: UIViewController {
                     self.savedCard()
                 }
             }
+        }
+        
+        if userfromViewAs == true {
+            guard let key = userCard?.qrCode else { return }
+               let shareURL = "https://hamzaoffi.github.io/QR-Card/index.html?key=\(key)"
+               
+               let activityVC = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
+               
+               // for iPad support
+               if let popoverController = activityVC.popoverPresentationController {
+                   popoverController.sourceView = self.view
+                   popoverController.sourceRect = (sender as? UIView)?.bounds ?? .zero
+               }
+               
+               self.present(activityVC, animated: true, completion: nil)
         }
        
     }
@@ -184,6 +208,9 @@ class InvitationPreViewVC: UIViewController {
             }
         }
     }
+    
+    
+    
     
     
     // MARK: - Generate QR Code
