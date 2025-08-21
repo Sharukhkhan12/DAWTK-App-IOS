@@ -83,7 +83,6 @@
 		286541AF2DEDA2B9001342D9 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 286541AE2DEDA2B9001342D9 /* NVActivityIndicatorView */; };
 		286541B12DEDA2B9001342D9 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 286541B02DEDA2B9001342D9 /* NVActivityIndicatorViewExtended */; };
 		286541B42DEDA764001342D9 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286541B32DEDA764001342D9 /* FirebaseManager.swift */; };
-		286B1A022E43DE0100A954F4 /* pass_1754506750.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 286B1A012E43DE0000A954F4 /* pass_1754506750.pkpass */; };
 		286CCFEA2E544688008BFA07 /* InvitationPreViewVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCFE92E544688008BFA07 /* InvitationPreViewVC + Extensions.swift */; };
 		286CCFEC2E5496BB008BFA07 /* InvitationCardVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCFEB2E5496BB008BFA07 /* InvitationCardVC+Extension.swift */; };
 		2878097B2E105269003D5F1D /* InvitationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878097A2E105269003D5F1D /* InvitationModel.swift */; };
@@ -92,8 +91,6 @@
 		287A88DD2DFD9F3800EBAEA1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A88DC2DFD9F3800EBAEA1 /* UserModel.swift */; };
 		288A17E62E40F8C10071883E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A17E52E40F8C10071883E /* NetworkManager.swift */; };
 		288A17E82E40F9BB0071883E /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A17E72E40F9BB0071883E /* URL+Extension.swift */; };
-		288A17EC2E4100680071883E /* pass_with_icon_images_and_logo_images-2.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 288A17EB2E4100680071883E /* pass_with_icon_images_and_logo_images-2.pkpass */; };
-		288A17EE2E410CE70071883E /* pass_with_icon_images_and_logo_images-2 2.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 288A17ED2E410CE70071883E /* pass_with_icon_images_and_logo_images-2 2.pkpass */; };
 		289A10722E37B856003133DC /* QRScanViewNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A10712E37B856003133DC /* QRScanViewNib.swift */; };
 		289A10752E37B87D003133DC /* QRScanViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289A10742E37B87D003133DC /* QRScanViewNib.xib */; };
 		289A10772E37B98A003133DC /* QRScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A10762E37B98A003133DC /* QRScanVC.swift */; };
@@ -133,11 +130,6 @@
 		28B8B1182DEA156800157274 /* ConformVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B1172DEA156800157274 /* ConformVC.swift */; };
 		28BBCA312E5708DF00FDA651 /* NewPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BBCA302E5708DF00FDA651 /* NewPassVC.swift */; };
 		28BD298A2E0E7C3B0096DB5F /* PreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD29892E0E7C3B0096DB5F /* PreViewVC.swift */; };
-		28DC23E22E42909E0036F0C0 /* pass_1233333331754421489.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 28DC23E12E42909E0036F0C0 /* pass_1233333331754421489.pkpass */; };
-		28DC23E42E4293EE0036F0C0 /* pass_1754422358.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 28DC23E32E4293EE0036F0C0 /* pass_1754422358.pkpass */; };
-		28DC23E62E4295020036F0C0 /* pass_1754422629.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 28DC23E52E4295020036F0C0 /* pass_1754422629.pkpass */; };
-		28DC23E82E429F3E0036F0C0 /* pass_1754422629 2.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 28DC23E72E429F3E0036F0C0 /* pass_1754422629 2.pkpass */; };
-		28DC23EA2E429F470036F0C0 /* pass_1754425253.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 28DC23E92E429F470036F0C0 /* pass_1754425253.pkpass */; };
 		28DE34202E13C323002456B9 /* InvitationTemplatesCVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DE341F2E13C323002456B9 /* InvitationTemplatesCVC1.xib */; };
 		28DE34212E13C323002456B9 /* InvitationTemplatesCVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DE341E2E13C323002456B9 /* InvitationTemplatesCVC1.swift */; };
 		28DE34262E13E5A4002456B9 /* InvitationTemplatesCVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DE34252E13E5A4002456B9 /* InvitationTemplatesCVC2.xib */; };
@@ -243,7 +235,6 @@
 		286541A82DEDA28B001342D9 /* ProgressAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlertView.swift; sourceTree = "<group>"; };
 		286541A92DEDA28B001342D9 /* ProgressAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressAlertView.xib; sourceTree = "<group>"; };
 		286541B32DEDA764001342D9 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		286B1A012E43DE0000A954F4 /* pass_1754506750.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1754506750.pkpass; sourceTree = "<group>"; };
 		286CCFE92E544688008BFA07 /* InvitationPreViewVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvitationPreViewVC + Extensions.swift"; sourceTree = "<group>"; };
 		286CCFEB2E5496BB008BFA07 /* InvitationCardVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvitationCardVC+Extension.swift"; sourceTree = "<group>"; };
 		2878097A2E105269003D5F1D /* InvitationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationModel.swift; sourceTree = "<group>"; };
@@ -253,8 +244,6 @@
 		288112A32E40EC3600DA49E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/swiftdevelopergmail.com/Desktop/Upwook Clients App/Saudi Clints/QR App 5/QR App/Resources/Info.plist"; sourceTree = "<absolute>"; };
 		288A17E52E40F8C10071883E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		288A17E72E40F9BB0071883E /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
-		288A17EB2E4100680071883E /* pass_with_icon_images_and_logo_images-2.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pass_with_icon_images_and_logo_images-2.pkpass"; sourceTree = "<group>"; };
-		288A17ED2E410CE70071883E /* pass_with_icon_images_and_logo_images-2 2.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pass_with_icon_images_and_logo_images-2 2.pkpass"; sourceTree = "<group>"; };
 		289A10712E37B856003133DC /* QRScanViewNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewNib.swift; sourceTree = "<group>"; };
 		289A10742E37B87D003133DC /* QRScanViewNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScanViewNib.xib; sourceTree = "<group>"; };
 		289A10762E37B98A003133DC /* QRScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanVC.swift; sourceTree = "<group>"; };
@@ -295,11 +284,6 @@
 		28B8B1172DEA156800157274 /* ConformVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConformVC.swift; sourceTree = "<group>"; };
 		28BBCA302E5708DF00FDA651 /* NewPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassVC.swift; sourceTree = "<group>"; };
 		28BD29892E0E7C3B0096DB5F /* PreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewVC.swift; sourceTree = "<group>"; };
-		28DC23E12E42909E0036F0C0 /* pass_1233333331754421489.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1233333331754421489.pkpass; sourceTree = "<group>"; };
-		28DC23E32E4293EE0036F0C0 /* pass_1754422358.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1754422358.pkpass; sourceTree = "<group>"; };
-		28DC23E52E4295020036F0C0 /* pass_1754422629.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1754422629.pkpass; sourceTree = "<group>"; };
-		28DC23E72E429F3E0036F0C0 /* pass_1754422629 2.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pass_1754422629 2.pkpass"; sourceTree = "<group>"; };
-		28DC23E92E429F470036F0C0 /* pass_1754425253.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1754425253.pkpass; sourceTree = "<group>"; };
 		28DE341E2E13C323002456B9 /* InvitationTemplatesCVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC1.swift; sourceTree = "<group>"; };
 		28DE341F2E13C323002456B9 /* InvitationTemplatesCVC1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC1.xib; sourceTree = "<group>"; };
 		28DE34242E13E5A4002456B9 /* InvitationTemplatesCVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC2.swift; sourceTree = "<group>"; };
@@ -699,14 +683,6 @@
 		288A17E32E40F8830071883E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				28DC23E12E42909E0036F0C0 /* pass_1233333331754421489.pkpass */,
-				28DC23E52E4295020036F0C0 /* pass_1754422629.pkpass */,
-				288A17ED2E410CE70071883E /* pass_with_icon_images_and_logo_images-2 2.pkpass */,
-				288A17EB2E4100680071883E /* pass_with_icon_images_and_logo_images-2.pkpass */,
-				28DC23E32E4293EE0036F0C0 /* pass_1754422358.pkpass */,
-				28DC23E92E429F470036F0C0 /* pass_1754425253.pkpass */,
-				286B1A012E43DE0000A954F4 /* pass_1754506750.pkpass */,
-				28DC23E72E429F3E0036F0C0 /* pass_1754422629 2.pkpass */,
 				288A17E72E40F9BB0071883E /* URL+Extension.swift */,
 				288A17E52E40F8C10071883E /* NetworkManager.swift */,
 			);
@@ -1331,13 +1307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28B8B0CA2DE9C1D800157274 /* EmailView.xib in Resources */,
-				28DC23E82E429F3E0036F0C0 /* pass_1754422629 2.pkpass in Resources */,
 				285DD8CB2E50DA0A008D7E01 /* InvitationTemplatesCVC14.xib in Resources */,
 				285DD8C22E50D9C5008D7E01 /* InvitationTemplatesCVC12.xib in Resources */,
 				28540C7B2DF0662E00399270 /* Template3CVC.xib in Resources */,
-				28DC23E22E42909E0036F0C0 /* pass_1233333331754421489.pkpass in Resources */,
 				28B8B0AC2DE98A8F00157274 /* Assets.xcassets in Resources */,
-				28DC23E42E4293EE0036F0C0 /* pass_1754422358.pkpass in Resources */,
 				28DE34262E13E5A4002456B9 /* InvitationTemplatesCVC2.xib in Resources */,
 				D030F9C12E3A2BEC001D513F /* FontTableViewCell.xib in Resources */,
 				286541AC2DEDA28B001342D9 /* ProgressAlertView.xib in Resources */,
@@ -1358,14 +1331,12 @@
 				282F164F2E15910500D01113 /* InvitationTemplatesCVC7.xib in Resources */,
 				282F16622E1591AA00D01113 /* InvitationTemplatesCVC10.xib in Resources */,
 				282F165E2E15916100D01113 /* InvitationTemplatesCVC9.xib in Resources */,
-				288A17EC2E4100680071883E /* pass_with_icon_images_and_logo_images-2.pkpass in Resources */,
 				28F2B2382E3A01090089EBE4 /* OptionsTVC.xib in Resources */,
 				28540C8F2DF066FF00399270 /* Template7CVC.xib in Resources */,
 				D030F9CC2E3A2E50001D513F /* UserProfileViews.xib in Resources */,
 				D0FC30A52E38EE95003ED08E /* interoVideo.MP4 in Resources */,
 				28540C622DF0560B00399270 /* HomeViewNib.xib in Resources */,
 				285CA6172E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib in Resources */,
-				28DC23E62E4295020036F0C0 /* pass_1754422629.pkpass in Resources */,
 				28B3B65F2DEC490300FBA89C /* CreatteCardView.xib in Resources */,
 				28540C802DF0665800399270 /* Template4CVC.xib in Resources */,
 				28B3B6662DEC6F6A00FBA89C /* newCardTVC.xib in Resources */,
@@ -1374,15 +1345,12 @@
 				D0FC30A32E38EE8A003ED08E /* data.json in Resources */,
 				282B56562E2245E900BFCC1B /* IndividualPremiumView.xib in Resources */,
 				28A630D92E55B1920069FC89 /* ViewAnalysisViewNib.xib in Resources */,
-				286B1A022E43DE0100A954F4 /* pass_1754506750.pkpass in Resources */,
 				285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */,
 				28540C762DF0660C00399270 /* Template2CVC.xib in Resources */,
 				28540C852DF0667300399270 /* Template5CVC.xib in Resources */,
 				289A10752E37B87D003133DC /* QRScanViewNib.xib in Resources */,
-				28DC23EA2E429F470036F0C0 /* pass_1754425253.pkpass in Resources */,
 				28540C892DF066D000399270 /* Template6CVC.xib in Resources */,
 				28540C942DF0672800399270 /* Template8CVC.xib in Resources */,
-				288A17EE2E410CE70071883E /* pass_with_icon_images_and_logo_images-2 2.pkpass in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
