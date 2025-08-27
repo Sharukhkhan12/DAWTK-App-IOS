@@ -69,6 +69,9 @@
 		28586C182E0818D60066D056 /* ParentCreatteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586C172E0818D60066D056 /* ParentCreatteCard.swift */; };
 		285CA6162E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CA6142E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift */; };
 		285CA6172E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */; };
+		285D0DBE2E5B3DE90067D383 /* WalletPassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D0DBD2E5B3DE90067D383 /* WalletPassRequest.swift */; };
+		285D0DC02E5B47B80067D383 /* WalletResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D0DBF2E5B47B80067D383 /* WalletResponse.swift */; };
+		285D0DDC2E5B9C190067D383 /* pass_1756062840.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 285D0DDB2E5B9C190067D383 /* pass_1756062840.pkpass */; };
 		285DD8B92E4F464E008D7E01 /* InvitationPreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */; };
 		285DD8BC2E5066E0008D7E01 /* CostumAlertForLocationn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8BB2E5066E0008D7E01 /* CostumAlertForLocationn.swift */; };
 		285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285DD8BD2E5066ED008D7E01 /* CostumAlertForLocationn.xib */; };
@@ -89,7 +92,6 @@
 		2878097E2E1054A7003D5F1D /* InvitationCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878097D2E1054A7003D5F1D /* InvitationCardVC.swift */; };
 		287809802E105CD6003D5F1D /* InvitationFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878097F2E105CD6003D5F1D /* InvitationFieldType.swift */; };
 		287A88DD2DFD9F3800EBAEA1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A88DC2DFD9F3800EBAEA1 /* UserModel.swift */; };
-		288A17E62E40F8C10071883E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A17E52E40F8C10071883E /* NetworkManager.swift */; };
 		288A17E82E40F9BB0071883E /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A17E72E40F9BB0071883E /* URL+Extension.swift */; };
 		289A10722E37B856003133DC /* QRScanViewNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A10712E37B856003133DC /* QRScanViewNib.swift */; };
 		289A10752E37B87D003133DC /* QRScanViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289A10742E37B87D003133DC /* QRScanViewNib.xib */; };
@@ -109,6 +111,8 @@
 		28B3B6662DEC6F6A00FBA89C /* newCardTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B3B6652DEC6F6A00FBA89C /* newCardTVC.xib */; };
 		28B3B6672DEC6F6A00FBA89C /* newCardTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6642DEC6F6A00FBA89C /* newCardTVC.swift */; };
 		28B3B66A2DEC75F800FBA89C /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6692DEC75F800FBA89C /* CardInfo.swift */; };
+		28B67ACD2E5EEA6200C0D6B4 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67ACC2E5EEA6200C0D6B4 /* WalletManager.swift */; };
+		28B67ACF2E5EF16400C0D6B4 /* CouponField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67ACE2E5EF16400C0D6B4 /* CouponField.swift */; };
 		28B8B0A92DE98A8F00157274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B09F2DE98A8F00157274 /* AppDelegate.swift */; };
 		28B8B0AA2DE98A8F00157274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B0A62DE98A8F00157274 /* SceneDelegate.swift */; };
 		28B8B0AB2DE98A8F00157274 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B0A72DE98A8F00157274 /* SplashVC.swift */; };
@@ -223,6 +227,9 @@
 		28586C172E0818D60066D056 /* ParentCreatteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCreatteCard.swift; sourceTree = "<group>"; };
 		285CA6142E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTemplatesCVC11.swift; sourceTree = "<group>"; };
 		285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC11.xib; sourceTree = "<group>"; };
+		285D0DBD2E5B3DE90067D383 /* WalletPassRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPassRequest.swift; sourceTree = "<group>"; };
+		285D0DBF2E5B47B80067D383 /* WalletResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletResponse.swift; sourceTree = "<group>"; };
+		285D0DDB2E5B9C190067D383 /* pass_1756062840.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1756062840.pkpass; sourceTree = "<group>"; };
 		285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationPreViewVC.swift; sourceTree = "<group>"; };
 		285DD8BB2E5066E0008D7E01 /* CostumAlertForLocationn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumAlertForLocationn.swift; sourceTree = "<group>"; };
 		285DD8BD2E5066ED008D7E01 /* CostumAlertForLocationn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostumAlertForLocationn.xib; sourceTree = "<group>"; };
@@ -242,7 +249,6 @@
 		2878097F2E105CD6003D5F1D /* InvitationFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationFieldType.swift; sourceTree = "<group>"; };
 		287A88DC2DFD9F3800EBAEA1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		288112A32E40EC3600DA49E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/swiftdevelopergmail.com/Desktop/Upwook Clients App/Saudi Clints/QR App 5/QR App/Resources/Info.plist"; sourceTree = "<absolute>"; };
-		288A17E52E40F8C10071883E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		288A17E72E40F9BB0071883E /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		289A10712E37B856003133DC /* QRScanViewNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewNib.swift; sourceTree = "<group>"; };
 		289A10742E37B87D003133DC /* QRScanViewNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScanViewNib.xib; sourceTree = "<group>"; };
@@ -262,6 +268,8 @@
 		28B3B6642DEC6F6A00FBA89C /* newCardTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCardTVC.swift; sourceTree = "<group>"; };
 		28B3B6652DEC6F6A00FBA89C /* newCardTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = newCardTVC.xib; sourceTree = "<group>"; };
 		28B3B6692DEC75F800FBA89C /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
+		28B67ACC2E5EEA6200C0D6B4 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
+		28B67ACE2E5EF16400C0D6B4 /* CouponField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponField.swift; sourceTree = "<group>"; };
 		28B8B0762DE98A5D00157274 /* QR App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B8B09F2DE98A8F00157274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28B8B0A02DE98A8F00157274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -683,8 +691,9 @@
 		288A17E32E40F8830071883E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				28B67ACC2E5EEA6200C0D6B4 /* WalletManager.swift */,
+				285D0DDB2E5B9C190067D383 /* pass_1756062840.pkpass */,
 				288A17E72E40F9BB0071883E /* URL+Extension.swift */,
-				288A17E52E40F8C10071883E /* NetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -795,6 +804,9 @@
 		28B3B6682DEC75F400FBA89C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				28B67ACE2E5EF16400C0D6B4 /* CouponField.swift */,
+				285D0DBF2E5B47B80067D383 /* WalletResponse.swift */,
+				285D0DBD2E5B3DE90067D383 /* WalletPassRequest.swift */,
 				2878097F2E105CD6003D5F1D /* InvitationFieldType.swift */,
 				2878097A2E105269003D5F1D /* InvitationModel.swift */,
 				282C372C2DFFFC69004E9245 /* UserBusinessCardModel.swift */,
@@ -1347,6 +1359,7 @@
 				28A630D92E55B1920069FC89 /* ViewAnalysisViewNib.xib in Resources */,
 				285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */,
 				28540C762DF0660C00399270 /* Template2CVC.xib in Resources */,
+				285D0DDC2E5B9C190067D383 /* pass_1756062840.pkpass in Resources */,
 				28540C852DF0667300399270 /* Template5CVC.xib in Resources */,
 				289A10752E37B87D003133DC /* QRScanViewNib.xib in Resources */,
 				28540C892DF066D000399270 /* Template6CVC.xib in Resources */,
@@ -1411,6 +1424,7 @@
 				282C37232DFFE7B4004E9245 /* SheetTVC.swift in Sources */,
 				282C37202DFFE6AF004E9245 /* SheetVC.swift in Sources */,
 				282C37262DFFE7D2004E9245 /* SheetMenuModel.swift in Sources */,
+				28B67ACF2E5EF16400C0D6B4 /* CouponField.swift in Sources */,
 				28B8B0B32DE998C800157274 /* DesignableView.swift in Sources */,
 				28DE34272E13E5A4002456B9 /* InvitationTemplatesCVC2.swift in Sources */,
 				28F322012DECD9B700544477 /* ProfileVC.swift in Sources */,
@@ -1427,6 +1441,7 @@
 				28DE34212E13C323002456B9 /* InvitationTemplatesCVC1.swift in Sources */,
 				287809802E105CD6003D5F1D /* InvitationFieldType.swift in Sources */,
 				D030F9B22E3A14A6001D513F /* ViewAsVC.swift in Sources */,
+				285D0DC02E5B47B80067D383 /* WalletResponse.swift in Sources */,
 				D030F9B82E3A2B6B001D513F /* SuccessVC.swift in Sources */,
 				286541AB2DEDA28B001342D9 /* ProgressAlertView.swift in Sources */,
 				28B8B0CC2DE9C20300157274 /* EmailVC.swift in Sources */,
@@ -1456,7 +1471,6 @@
 				D01EE6AC2E3B9FF300E2FC7E /* FirebaseManager+Extension.swift in Sources */,
 				28B3B6622DEC493900FBA89C /* CreatteCardView.swift in Sources */,
 				28B8B0A92DE98A8F00157274 /* AppDelegate.swift in Sources */,
-				288A17E62E40F8C10071883E /* NetworkManager.swift in Sources */,
 				28B8B0C42DE9C13300157274 /* PhoneVC.swift in Sources */,
 				28BD298A2E0E7C3B0096DB5F /* PreViewVC.swift in Sources */,
 				28B8B0AA2DE98A8F00157274 /* SceneDelegate.swift in Sources */,
@@ -1470,6 +1484,7 @@
 				28F577CB2E2B871100BEC5AB /* SavedCardViewNib.swift in Sources */,
 				28B3B6552DEC3A2300FBA89C /* CardSelectedVC.swift in Sources */,
 				28540C7F2DF0665800399270 /* Template4CVC.swift in Sources */,
+				285D0DBE2E5B3DE90067D383 /* WalletPassRequest.swift in Sources */,
 				D0FC30AE2E38F973003ED08E /* InteroVC.swift in Sources */,
 				28F322042DECDD5900544477 /* CreateLogoVC.swift in Sources */,
 				28EB51FE2DFF116500D583CF /* SocialLinkType.swift in Sources */,
@@ -1485,6 +1500,7 @@
 				28B8B0B52DE9B3FA00157274 /* LoginVC.swift in Sources */,
 				D0FC30A92E38F85C003ED08E /* VideoView.swift in Sources */,
 				D030F9CF2E3A3400001D513F /* UserProfileVC.swift in Sources */,
+				28B67ACD2E5EEA6200C0D6B4 /* WalletManager.swift in Sources */,
 				D030F9CD2E3A2E50001D513F /* UserProfileViews.swift in Sources */,
 				D030F9B52E3A2B10001D513F /* AccountVC.swift in Sources */,
 				282B56522E22456900BFCC1B /* IndividualPremiumVC.swift in Sources */,

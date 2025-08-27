@@ -27,7 +27,6 @@ class InvitationPreViewVC: UIViewController {
     var cardKey = ""
     
     var checkUSerScanVC = false
-
     let templateInvitationIdentifiers = [
         "InvitationTemplatesCVC1",
         "InvitationTemplatesCVC2",

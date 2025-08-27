@@ -24,8 +24,19 @@ class Template2CVC: UICollectionViewCell {
     @IBOutlet weak var twitterBtn: UIButton!
     @IBOutlet weak var tiktokbtn: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
+    
+    // MARK: - Extracted color
+       var extractedCardColor: UIColor?
+       
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        if let defaultColor = cardView.backgroundColor {
+               print("🎨 Default MainView Color: \(defaultColor)")
+               extractedCardColor = defaultColor
+           } else {
+               print("⚠️ MainView has no default background color")
+           }
         setupUI()
         
     }
@@ -51,6 +62,8 @@ class Template2CVC: UICollectionViewCell {
         if !card.additionalBgColor.isEmpty {
             if let bgColor = UIColor(hex: card.additionalBgColor) {
                 self.cardView.backgroundColor = bgColor
+                self.extractedCardColor = bgColor
+
             }
         }
         if !card.additionalFont.isEmpty {

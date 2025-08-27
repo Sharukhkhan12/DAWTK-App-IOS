@@ -15,14 +15,13 @@ enum CheckImagee {
     case bothImages
 }
 
-class ViewAsVC: UIViewController {
+class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
     // MARK: - @IBOutlet
     @IBOutlet weak var updateView: UIView!
     @IBOutlet weak var updatelbl: UILabel!
     @IBOutlet weak var selectedTemplateView: UIView!
     @IBOutlet weak var toplbl: UILabel!
     @IBOutlet weak var updateAndShareStackView: UIStackView!
-    
     @IBOutlet weak var rejectedlbl: UILabel!
     @IBOutlet weak var accpetedlbl: UILabel!
     @IBOutlet weak var addToWalletView: DesignableView!
@@ -85,6 +84,7 @@ class ViewAsVC: UIViewController {
         if let userVC = storyboard.instantiateViewController(withIdentifier: "NewPassVC") as? NewPassVC {
             userVC.modalPresentationStyle = .overCurrentContext
             userVC.modalTransitionStyle = .crossDissolve
+            userVC.cardInfo = cardInfo
             present(userVC, animated: true, completion: nil)
         }
     }
@@ -499,6 +499,27 @@ class ViewAsVC: UIViewController {
                 navigateToTabBarScreen()
             } else {
                 self.goToPass()
+                // Look for pkpass in bundle
+//                  if let passURL = Bundle.main.url(forResource: "pass_1756062840", withExtension: "pkpass") {
+//                      do {
+//                          let passData = try Data(contentsOf: passURL)
+//                          
+//                          if let pass = try? PKPass(data: passData) {
+//                              if let addPassVC = PKAddPassesViewController(pass: pass) {
+//                                  addPassVC.delegate = self
+//                                  self.present(addPassVC, animated: true, completion: nil)
+//                              }
+//                          } else {
+//                              print("❌ Could not initialize PKPass object")
+//                          }
+//                          
+//                      } catch {
+//                          print("❌ Error reading pkpass file: \(error.localizedDescription)")
+//                      }
+//                  } else {
+//                      print("❌ pkpass file not found in bundle")
+//                  }
+            
             }
         }
         
