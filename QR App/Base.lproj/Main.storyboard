@@ -3900,7 +3900,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="P59-g8-I5M">
-                                        <rect key="frame" x="20" y="766.66666666666663" width="400" height="67"/>
+                                        <rect key="frame" x="20" y="781.66666666666663" width="400" height="67"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0K-ho-D7F" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="190" height="67"/>
@@ -3968,6 +3968,12 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.81176470590000005" green="0.99215686270000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
@@ -4012,7 +4018,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAY-Oc-1TS" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
-                                        <rect key="frame" x="27" y="848.66666666666663" width="385.33333333333331" height="57.333333333333371"/>
+                                        <rect key="frame" x="27" y="863.66666666666663" width="385.33333333333331" height="57.333333333333371"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wLp-IC-Pci">
                                                 <rect key="frame" x="9.6666666666666572" y="0.33333333333337123" width="366" height="56.333333333333336"/>
@@ -4062,7 +4068,7 @@
                                     <constraint firstItem="wzQ-AJ-ire" firstAttribute="height" secondItem="2Rt-2t-CAS" secondAttribute="height" multiplier="0.133891" id="RVu-os-oWj"/>
                                     <constraint firstItem="wOq-yM-Rey" firstAttribute="leading" secondItem="2Rt-2t-CAS" secondAttribute="leading" constant="20" id="TUA-sR-NFN"/>
                                     <constraint firstItem="G4t-3h-JEZ" firstAttribute="height" secondItem="2Rt-2t-CAS" secondAttribute="height" multiplier="0.06" id="YPH-43-upz"/>
-                                    <constraint firstItem="P59-g8-I5M" firstAttribute="top" secondItem="wOq-yM-Rey" secondAttribute="bottom" constant="35" id="dW6-P8-bRu"/>
+                                    <constraint firstItem="P59-g8-I5M" firstAttribute="top" secondItem="wOq-yM-Rey" secondAttribute="bottom" constant="50" id="dW6-P8-bRu"/>
                                     <constraint firstAttribute="trailing" secondItem="G4t-3h-JEZ" secondAttribute="trailing" constant="27.670000000000002" id="klW-1a-Eks"/>
                                     <constraint firstItem="G4t-3h-JEZ" firstAttribute="top" secondItem="wOq-yM-Rey" secondAttribute="bottom" constant="40" id="nop-E3-NO8"/>
                                     <constraint firstAttribute="trailing" secondItem="wzQ-AJ-ire" secondAttribute="trailing" id="ovn-cS-zWs"/>
@@ -4140,7 +4146,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oPk-Pd-pCD">
-                                        <rect key="frame" x="20" y="766.66666666666663" width="400" height="67"/>
+                                        <rect key="frame" x="20" y="776.66666666666663" width="400" height="67"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g71-R5-GTM" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="190" height="67"/>
@@ -4208,6 +4214,12 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.81176470590000005" green="0.99215686270000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
@@ -4252,7 +4264,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQ0-km-QEv" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
-                                        <rect key="frame" x="27" y="848.66666666666663" width="385.33333333333331" height="57.333333333333371"/>
+                                        <rect key="frame" x="27" y="858.66666666666663" width="385.33333333333331" height="57.333333333333371"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-d4-SvR">
                                                 <rect key="frame" x="9.6666666666666572" y="0.33333333333337123" width="366" height="56.333333333333336"/>
@@ -4292,7 +4304,7 @@
                                     <constraint firstItem="oPk-Pd-pCD" firstAttribute="height" secondItem="ra2-gV-NvN" secondAttribute="height" multiplier="0.07" id="2mH-lL-KRH"/>
                                     <constraint firstItem="TyK-yu-i06" firstAttribute="leading" secondItem="ra2-gV-NvN" secondAttribute="leading" constant="27" id="432-4g-UsA"/>
                                     <constraint firstItem="8mn-0h-9VK" firstAttribute="leading" secondItem="ra2-gV-NvN" secondAttribute="leading" constant="20" id="7rb-Mh-nEf"/>
-                                    <constraint firstItem="oPk-Pd-pCD" firstAttribute="top" secondItem="8mn-0h-9VK" secondAttribute="bottom" constant="35" id="C4q-HZ-42G"/>
+                                    <constraint firstItem="oPk-Pd-pCD" firstAttribute="top" secondItem="8mn-0h-9VK" secondAttribute="bottom" constant="45" id="C4q-HZ-42G"/>
                                     <constraint firstAttribute="trailing" secondItem="hQ0-km-QEv" secondAttribute="trailing" constant="27.670000000000002" id="CPS-G3-uky"/>
                                     <constraint firstAttribute="trailing" secondItem="TyK-yu-i06" secondAttribute="trailing" constant="27.670000000000002" id="EAT-Xa-OFj"/>
                                     <constraint firstItem="GPs-gX-vXB" firstAttribute="height" secondItem="ra2-gV-NvN" secondAttribute="height" multiplier="0.133891" id="Gbt-gL-wC0"/>

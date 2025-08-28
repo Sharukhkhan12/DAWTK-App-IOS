@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -64,13 +64,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="1044"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osl-b1-9GH">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="1100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="1120"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="it0-lQ-F7b" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="0.0" width="373" height="550"/>
+                                                    <rect key="frame" x="10" y="0.0" width="373" height="593.66666666666663"/>
                                                     <subviews>
                                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="azT-Af-4py">
-                                                            <rect key="frame" x="15" y="20" width="343" height="520"/>
+                                                            <rect key="frame" x="15" y="20" width="343" height="563.66666666666663"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         </tableView>
                                                     </subviews>
@@ -94,10 +94,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-av-A38" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="570" width="373" height="429"/>
+                                                    <rect key="frame" x="10" y="613.66666666666663" width="373" height="436.66666666666663"/>
                                                     <subviews>
                                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SKk-td-64d">
-                                                            <rect key="frame" x="15" y="20" width="343" height="409"/>
+                                                            <rect key="frame" x="15" y="20" width="343" height="416.66666666666669"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         </tableView>
                                                     </subviews>
@@ -124,14 +124,14 @@
                                             <color key="backgroundColor" red="0.97647058823529409" green="0.98039215686274506" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="JfW-av-A38" secondAttribute="trailing" constant="10" id="BJg-vA-Kqv"/>
-                                                <constraint firstItem="it0-lQ-F7b" firstAttribute="height" secondItem="osl-b1-9GH" secondAttribute="height" multiplier="0.5" id="E6U-T4-1g6"/>
+                                                <constraint firstItem="it0-lQ-F7b" firstAttribute="height" secondItem="osl-b1-9GH" secondAttribute="height" multiplier="0.53" id="E6U-T4-1g6"/>
                                                 <constraint firstItem="JfW-av-A38" firstAttribute="leading" secondItem="osl-b1-9GH" secondAttribute="leading" constant="10" id="LsV-Rr-QvM"/>
                                                 <constraint firstItem="it0-lQ-F7b" firstAttribute="leading" secondItem="osl-b1-9GH" secondAttribute="leading" constant="10" id="RUH-9m-z5m"/>
                                                 <constraint firstItem="JfW-av-A38" firstAttribute="height" secondItem="osl-b1-9GH" secondAttribute="height" multiplier="0.39" id="iz1-3r-hEP"/>
                                                 <constraint firstItem="JfW-av-A38" firstAttribute="top" secondItem="it0-lQ-F7b" secondAttribute="bottom" constant="20" id="k1t-of-HQW"/>
                                                 <constraint firstAttribute="trailing" secondItem="it0-lQ-F7b" secondAttribute="trailing" constant="10" id="ohk-1I-aAh"/>
                                                 <constraint firstItem="it0-lQ-F7b" firstAttribute="top" secondItem="osl-b1-9GH" secondAttribute="top" id="r29-xN-yvA"/>
-                                                <constraint firstAttribute="height" constant="1100" id="xXB-00-ir9"/>
+                                                <constraint firstAttribute="height" constant="1120" id="xXB-00-ir9"/>
                                             </constraints>
                                         </view>
                                     </subviews>

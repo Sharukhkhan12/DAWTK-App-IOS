@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseDatabase
+import Malert
 
 class CreatteCardVC: UIViewController, UIScrollViewDelegate {
     // MARK: - @IBOutlet
@@ -19,6 +20,7 @@ class CreatteCardVC: UIViewController, UIScrollViewDelegate {
     // MARK: - Declation
     var selectedImageURLFromProfile: URL?
     var selectedImageURLFromLogo: URL?
+    
 
     var lastContentOffset: CGFloat = 0.0
     var totalScrolledHeight: CGFloat = 0.0
@@ -138,7 +140,22 @@ class CreatteCardVC: UIViewController, UIScrollViewDelegate {
         } else {
             self.updateUserCardFromVisibleCells()
             if validateForm() {
-                print("All fields valid ✅")
+                print("All fields valid ✅", userCard)
+                
+//                do {
+//                    let encoder = JSONEncoder()
+//                    encoder.outputFormatting = .prettyPrinted // For readable JSON
+//                    let jsonData = try encoder.encode(userCard)
+//                    
+//                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+//                        print("All fields valid ✅")
+//                        print(jsonString)
+//                    }
+//                } catch {
+//                    print("❌ Failed to serialize userCard to JSON:", error)
+//                }
+                
+                
                 self.navigateToPreVieeScreen(buisnessCard: userCard)
             }
         }
@@ -172,6 +189,7 @@ class CreatteCardVC: UIViewController, UIScrollViewDelegate {
             case 4: userCard.companyName = text
             case 5: userCard.jobTitle = text
             case 6: userCard.websiteUrl = text
+            case 7: userCard.locationLink = text
             default: break
             }
         }
@@ -505,6 +523,7 @@ class CreatteCardVC: UIViewController, UIScrollViewDelegate {
             return false
         }
         
+        
         if logoImage == nil {
             showAlert(title: "Missing Logo Image", message: "Please upload your logo image.")
             return false
@@ -545,52 +564,43 @@ extension CreatteCardVC: UITableViewDataSource, UITableViewDelegate {
             cell.uploadIcon.isHidden = !type.showsUploadIcon
             cell.inputTxtField.delegate = self
             cell.inputTxtField.tag = indexPath.row
-
-            if indexPath.row == 1 || indexPath.row == 7 {
-                // These are profile & logo image rows
+            
+            if indexPath.row == CardFieldType.profilePicture.rawValue ||
+               indexPath.row == CardFieldType.logo.rawValue ||
+               indexPath.row == CardFieldType.location.rawValue {
+                
+                // 🔒 Non-editable rows (Profile, Logo, Location)
                 cell.inputTxtField.isUserInteractionEnabled = false
-                cell.inputTxtField.text = "" // So placeholder appears
+                cell.inputTxtField.text = ""
                 cell.placeholderLabel.isHidden = false
                 cell.inputTxtField.backgroundColor = .clear
                 cell.inputTxtField.textColor = .black
                 
-                if indexPath.row == 1, let selectedImage = self.profileImage {
+                // Profile Image
+                if indexPath.row == CardFieldType.profilePicture.rawValue,
+                   let selectedImage = self.profileImage {
                     cell.uploadIcon.image = selectedImage
                     cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
                     cell.uploadIcon.clipsToBounds = true
                     cell.uploadIcon.contentMode = .scaleAspectFill
-                } else if indexPath.row == 7, let selectedImage = self.logoImage {
+                }
+                
+                // Logo Image
+                if indexPath.row == CardFieldType.logo.rawValue,
+                   let selectedImage = self.logoImage {
                     cell.uploadIcon.image = selectedImage
                     cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
                     cell.uploadIcon.clipsToBounds = true
                     cell.uploadIcon.contentMode = .scaleAspectFill
+                }
+                
+                // Location (will be set on tap)
+                if indexPath.row == CardFieldType.location.rawValue {
+                    cell.inputTxtField.text = userCard.linkedinLink
                 }
             } else {
-                // Text input rows
-                cell.inputTxtField.isUserInteractionEnabled = true
-                cell.inputTxtField.backgroundColor = .white
-                cell.inputTxtField.textColor = .black
-                addDoneButtonOnKeyboard(for: cell.inputTxtField)
-
-                // ✅ Set saved value from userCard
-                switch type {
-                case .fullName:
-                    cell.inputTxtField.text = userCard.fullName
-                case .email:
-                    cell.inputTxtField.text = userCard.email
-                case .mobileNumber:
-                    cell.inputTxtField.text = userCard.phoneNo
-                case .companyName:
-                    cell.inputTxtField.text = userCard.companyName
-                case .jobTitle:
-                    cell.inputTxtField.text = userCard.jobTitle
-                case .websiteURL:
-                    cell.inputTxtField.text = userCard.websiteUrl
-                default:
-                    cell.inputTxtField.text = ""
-                }
-
-                cell.placeholderLabel.isHidden = !(cell.inputTxtField.text?.isEmpty ?? true)
+                // ✏️ Editable rows (text input)
+                
             }
         } else if tableView == sociallinksTV {
             let type = SocialLinkType.allCases[indexPath.row]
@@ -637,6 +647,13 @@ extension CreatteCardVC: UITableViewDataSource, UITableViewDelegate {
             } else if indexPath.row == 7 {
                 print("Tapped on row 7 — perform action here.")
                 navigateToCreateLogoScreen()
+            }
+            if let type = CardFieldType(rawValue: indexPath.row) {
+                
+                if type == .location {
+                    print("📍 Location cell tapped")
+                    showCostumAlert()
+                }
             }
         }
       
@@ -689,6 +706,37 @@ extension CreatteCardVC: UITableViewDataSource, UITableViewDelegate {
             present(profileVC, animated: true)
         }
     }
+    
+    func showCostumAlert() {
+        let customAlert = CostumAlertForLocationn.instantiateFromNib()
+        
+        // Wrap the alert in Malert
+        let malert = Malert(customView: customAlert)
+        
+        // Configure closure actions
+        customAlert.pasteAction = { [weak self] in
+            guard let self = self else { return }
+            if let clipboard = UIPasteboard.general.string {
+                customAlert.editLinkTxtView.text = clipboard
+            }
+        }
+        
+        customAlert.verifyAction = { [weak self] link in
+            guard let self = self else { return }
+            print("User wants to verify: \(link)")
+            
+            // ✅ Dismiss after verify
+            self.dismiss(animated: true) {
+                self.userCard.location = link
+                self.creadCardInfoTV.reloadData()
+            }
+        }
+        
+        // Present the alert
+        present(malert, animated: true)
+    }
+    
+    
 }
 extension CreatteCardVC: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {

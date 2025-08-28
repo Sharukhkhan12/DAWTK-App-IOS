@@ -35,23 +35,7 @@ class QRScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImag
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
         guard let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice) else { return }
         
-        if captureSession.canAddInput(videoInput) {
-            captureSession.addInput(videoInput)
-        }
-        
-        // Setup metadata output
-        metadataOutput = AVCaptureMetadataOutput()
-        if captureSession.canAddOutput(metadataOutput) {
-            captureSession.addOutput(metadataOutput)
-            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.qr]
-        }
-        
-        // Setup preview layer
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = preView.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
-        preView.layer.addSublayer(previewLayer)
+        setupCamera()
         
         // Draw the rectangle (center scan area)
         drawCenterRectangle()
@@ -59,9 +43,22 @@ class QRScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImag
         // Set scanning area
         setRectOfInterest()
         
-        // Start scanning
-        captureSession.startRunning()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !(captureSession?.isRunning ?? false) {
+            captureSession.startRunning()
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+        }
+    }
+
     
     // MARK: - Open gallery
     @IBAction func didTapGalleryOpen(_ sender: Any) {
@@ -180,39 +177,76 @@ class QRScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImag
         if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
            let qrValue = metadataObject.stringValue {
             
-            print("QR Code: \(qrValue)")
+            print("👍QR Code: \(qrValue)")
             captureSession.stopRunning()
-            self.progressAlertv.show()
-            FirebaseManager.shared.fetchCard(cardKey: qrValue) { result in
-                switch result {
-                case .success(let model):
-                    if let invitationCard = model as? InvitationModel {
-                        print("🎉 Found Invitation Card: \(invitationCard)")
-                        self.navigateToPreVieeScreen(invitationCard: invitationCard)
-                    } else if let businessCard = model as? UserBusinessCardModel {
-                        print(" ✅ Business Card fetched:", businessCard)
-                        self.dismiss(animated: true) {
+            
+            DispatchQueue.main.async {
+                self.progressAlertv.show()
+                FirebaseManager.shared.fetchCard(cardKey: qrValue) { result in
+                    switch result {
+                    case .success(let model):
+                        print("👍QR Code: \(qrValue)")
+                        
+                         print(" ✅ Business Card fetched:")
+
+                        if let invitationCard = model as? InvitationModel {
+                            print("🎉 Found Invitation Card: \(invitationCard)")
+                            self.progressAlertv.dismiss()
+                            self.navigateToPreVieeScreen(invitationCard: invitationCard)
+                          
+                        } else if let businessCard = model as? UserBusinessCardModel {
+                            print(" ✅ Business Card fetched:", businessCard)
+                            self.progressAlertv.dismiss()
                             self.navigateToViewCardScreen(card: businessCard)
+                            print("🎉 Found Business Card: \(businessCard)")
                         }
-                        print("🎉 Found Business Card: \(businessCard)")
+                    case .failure(let error):
+                        self.progressAlertv.dismiss()
+                        self.showAlert(message: "Invalid QR") {
+                            self.captureSession.startRunning()
+                        }
+                        print("❌ Error: \(error.localizedDescription)")
                     }
-                case .failure(let error):
-                    self.progressAlertv.dismiss()
-                    self.showAlert(message: "Invalid QR") {
-                        self.captureSession.startRunning()
-                    }
-                    print("❌ Error: \(error.localizedDescription)")
                 }
             }
+           
         }
+    }
+    
+    private func setupCamera() {
+        captureSession = AVCaptureSession()
+        
+        // Setup the camera input
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        guard let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice) else { return }
+        
+        if captureSession.canAddInput(videoInput) {
+            captureSession.addInput(videoInput)
+        }
+        
+        // Setup metadata output
+        metadataOutput = AVCaptureMetadataOutput()
+        if captureSession.canAddOutput(metadataOutput) {
+            captureSession.addOutput(metadataOutput)
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.qr]
+        }
+        
+        // Setup preview layer
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = preView.layer.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        preView.layer.addSublayer(previewLayer)
     }
     
     
     // MARK: - Navigate to View Card Screen
     private func navigateToViewCardScreen(card: UserBusinessCardModel) {
+        
+        
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let viewAsVC = storyboard.instantiateViewController(withIdentifier: "ViewAsVC") as? ViewAsVC {
-            print()
             viewAsVC.cardInfo = card
             viewAsVC.checkUSerScanVC = true
             viewAsVC.modalTransitionStyle = .crossDissolve
@@ -244,11 +278,6 @@ class QRScanVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImag
         present(alert, animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if captureSession.isRunning {
-            captureSession.stopRunning()
-        }
-    }
+   
 }
 

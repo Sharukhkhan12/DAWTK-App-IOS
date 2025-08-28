@@ -115,7 +115,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SeD-xD-cFx">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyProfile" translatesAutoresizingMaskIntoConstraints="NO" id="SeD-xD-cFx">
                                         <rect key="frame" x="231" y="15" width="90" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="82h-ci-PTH"/>
@@ -203,17 +203,25 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz8-4E-pHv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="249" height="25.333333333333332"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="uX8-c1-Nh2" firstAttribute="centerY" secondItem="D2q-Sv-tn1" secondAttribute="centerY" id="19T-DI-VUA"/>
                                                     <constraint firstItem="uX8-c1-Nh2" firstAttribute="width" secondItem="D2q-Sv-tn1" secondAttribute="width" multiplier="0.18" id="5UE-pB-uzO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Hz8-4E-pHv" secondAttribute="bottom" id="CO3-ll-LIQ"/>
+                                                    <constraint firstItem="Hz8-4E-pHv" firstAttribute="leading" secondItem="D2q-Sv-tn1" secondAttribute="leading" id="F9G-JF-VYA"/>
                                                     <constraint firstItem="IHd-sF-0Kk" firstAttribute="leading" secondItem="uX8-c1-Nh2" secondAttribute="trailing" id="Gm5-I5-bEu"/>
                                                     <constraint firstAttribute="trailing" secondItem="IHd-sF-0Kk" secondAttribute="trailing" id="a6j-C3-twO"/>
                                                     <constraint firstItem="uX8-c1-Nh2" firstAttribute="height" secondItem="D2q-Sv-tn1" secondAttribute="height" multiplier="0.8" id="aIu-Wu-BAy"/>
                                                     <constraint firstItem="uX8-c1-Nh2" firstAttribute="leading" secondItem="D2q-Sv-tn1" secondAttribute="leading" constant="10" id="eK9-X5-IWc"/>
                                                     <constraint firstItem="IHd-sF-0Kk" firstAttribute="top" secondItem="D2q-Sv-tn1" secondAttribute="top" id="f9w-Hs-htt"/>
                                                     <constraint firstAttribute="bottom" secondItem="IHd-sF-0Kk" secondAttribute="bottom" id="kwV-Zt-v9s"/>
+                                                    <constraint firstItem="Hz8-4E-pHv" firstAttribute="top" secondItem="D2q-Sv-tn1" secondAttribute="top" id="xJI-n2-QmY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hz8-4E-pHv" secondAttribute="trailing" id="xb9-qh-mqp"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhu-xZ-gPm">
@@ -336,10 +344,12 @@
             <connections>
                 <outlet property="buianesslbl" destination="uEM-ej-C6w" id="GUC-FR-09h"/>
                 <outlet property="buismesslogo" destination="fgO-B7-ck3" id="Jke-gv-EPf"/>
+                <outlet property="derectorlbl" destination="0wy-Rw-Kbd" id="Pd6-gX-VDx"/>
                 <outlet property="emailllbl" destination="5XB-A6-FBk" id="84a-O5-Bzb"/>
                 <outlet property="facebookbtn" destination="cAR-pp-lb5" id="qaB-2K-8Mo"/>
                 <outlet property="instagrambtn" destination="JGg-Ag-Qxe" id="JPk-ZK-j3S"/>
                 <outlet property="linkldenbtn" destination="Xnk-KS-4bX" id="gp0-u7-jgR"/>
+                <outlet property="locationBtn" destination="Hz8-4E-pHv" id="PuQ-YI-wER"/>
                 <outlet property="locationlbl" destination="IHd-sF-0Kk" id="rEL-nk-Rf5"/>
                 <outlet property="mainView" destination="MIf-QT-tNw" id="8ia-CS-Zxh"/>
                 <outlet property="phonenlbl" destination="ETP-vk-YH9" id="edT-sl-rpy"/>
@@ -355,6 +365,7 @@
     <resources>
         <image name="Vector" width="12.333333015441895" height="21.333333969116211"/>
         <image name="applePay" width="25" height="18"/>
+        <image name="dummyProfile" width="70" height="70"/>
         <image name="dummyScan" width="104" height="104"/>
         <image name="globe" width="18" height="18"/>
         <image name="instagram" width="24" height="24"/>

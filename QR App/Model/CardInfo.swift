@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct CardInfo {
     var fullName: String = ""
     var profilePicture: String = "" // Could be a URL or file path later
@@ -15,8 +16,8 @@ struct CardInfo {
     var jobTitle: String = ""
     var websiteURL: String = ""
     var logo: String = "" // Could be a URL or file path later
+    var location: String = "" // 🆕 Added field
 }
-
 
 enum CardFieldType: Int, CaseIterable {
     case fullName = 0
@@ -27,6 +28,7 @@ enum CardFieldType: Int, CaseIterable {
     case jobTitle
     case websiteURL
     case logo
+    case location // 🆕 Added case
 
     var placeholder: String {
         switch self {
@@ -38,6 +40,7 @@ enum CardFieldType: Int, CaseIterable {
         case .jobTitle: return "Job title"
         case .websiteURL: return "Website URL"
         case .logo: return "Upload logo"
+        case .location: return "Location"
         }
     }
 

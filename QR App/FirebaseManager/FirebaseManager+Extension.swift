@@ -110,7 +110,7 @@ extension FirebaseManager {
                                 decoder.keyDecodingStrategy = .convertFromSnakeCase // optional agar snake_case keys aati hain
                                 let model = try decoder.decode(UserBusinessCardModel.self, from: data)
                                 
-                                completion(.success(model)) // ✅ return UserBusinessCardModel
+                               
                                 
                                 // 🔹 Step 2: Add "Scanned" field under this card
                                 let scannedRef = businessRef.child(cardKey).child("Scanned").child(model.ownerId)
@@ -130,9 +130,10 @@ extension FirebaseManager {
                                         print("⚠️ Failed to mark as scanned: \(error.localizedDescription)")
                                     } else {
                                         print("✅ Card marked as Scanned successfully at \(currentDateStr)!")
+                                        
                                     }
                                 }
-                                
+                                completion(.success(model)) // ✅ return UserBusinessCardModel
                                 return
                             } catch {
                                 print("⚠️ Decode error: \(error.localizedDescription)")
@@ -182,7 +183,7 @@ extension FirebaseManager {
                                         }
                                     }
                                     
-                                    
+                                    completion(.success(model)) // ✅ return InvitationModel
                                     return
                                 } catch {
                                     completion(.failure(error))

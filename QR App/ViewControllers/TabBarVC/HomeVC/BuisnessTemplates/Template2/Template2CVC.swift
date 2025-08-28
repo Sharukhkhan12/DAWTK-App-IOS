@@ -24,10 +24,18 @@ class Template2CVC: UICollectionViewCell {
     @IBOutlet weak var twitterBtn: UIButton!
     @IBOutlet weak var tiktokbtn: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
-    
+    @IBOutlet weak var locationBtn: UIButton!
+
     // MARK: - Extracted color
        var extractedCardColor: UIColor?
-       
+    // MARK: - Button action closures
+     var whatsappAction: (() -> Void)?
+     var snapchatAction: (() -> Void)?
+     var facebookAction: (() -> Void)?
+     var twitterAction: (() -> Void)?
+     var tiktokAction: (() -> Void)?
+    var locationAction: (() -> Void)?
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +46,43 @@ class Template2CVC: UICollectionViewCell {
                print("⚠️ MainView has no default background color")
            }
         setupUI()
+        setupButtonTargets()
+    }
+    
+    
+    private func setupButtonTargets() {
+            whatsappbtn.addTarget(self, action: #selector(whatsappButtonTapped), for: .touchUpInside)
+            snapchatbtn.addTarget(self, action: #selector(snapchatButtonTapped), for: .touchUpInside)
+            facebookbtn.addTarget(self, action: #selector(facebookButtonTapped), for: .touchUpInside)
+            twitterBtn.addTarget(self, action: #selector(twitterButtonTapped), for: .touchUpInside)
+            tiktokbtn.addTarget(self, action: #selector(tiktokButtonTapped), for: .touchUpInside)
+        locationBtn.addTarget(self, action: #selector(LocationButtonTapped), for: .touchUpInside)
+
+        }
         
+        // MARK: - Button Actions
+        @objc private func whatsappButtonTapped() {
+            whatsappAction?()
+        }
+        
+        @objc private func snapchatButtonTapped() {
+            snapchatAction?()
+        }
+        
+        @objc private func facebookButtonTapped() {
+            facebookAction?()
+        }
+        
+        @objc private func twitterButtonTapped() {
+            twitterAction?()
+        }
+        
+        @objc private func tiktokButtonTapped() {
+            tiktokAction?()
+        }
+    
+    @objc private func LocationButtonTapped() {
+        locationAction?()
     }
 
     private func setupUI() {

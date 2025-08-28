@@ -129,8 +129,12 @@ class InvitationPreViewVC: UIViewController {
         
         if userfromViewAs == true {
             guard let key = userCard?.qrCode else { return }
-               let shareURL = "https://hamzaoffi.github.io/QR-Card/index.html?key=\(key)"
+            let shareURL = "https://app-redirection-page.vercel.app/?key=\(key)"
                
+            
+            print("🔗 ", shareURL)
+
+          
                let activityVC = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
                
                // for iPad support

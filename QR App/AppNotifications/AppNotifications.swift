@@ -24,5 +24,6 @@ extension Notification.Name {
 
     static let reloadViewAnalysisData = Notification.Name("reloadViewAnalysisData")
 
+    static let againStartQR = Notification.Name("againStartQR")
     
 }

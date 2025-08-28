@@ -245,15 +245,23 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab3-vJ-iPx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30.666666666666668"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Ab3-vJ-iPx" secondAttribute="trailing" id="5F6-yL-tGu"/>
                                                     <constraint firstItem="AOy-Bo-mph" firstAttribute="leading" secondItem="gJz-ku-2DF" secondAttribute="leading" constant="5" id="Bbf-gY-Him"/>
                                                     <constraint firstAttribute="bottom" secondItem="Y2z-XJ-OJe" secondAttribute="bottom" id="Lcy-Pz-BtI"/>
                                                     <constraint firstItem="Y2z-XJ-OJe" firstAttribute="leading" secondItem="AOy-Bo-mph" secondAttribute="trailing" constant="5" id="OhW-BF-hjn"/>
                                                     <constraint firstItem="AOy-Bo-mph" firstAttribute="width" secondItem="gJz-ku-2DF" secondAttribute="width" multiplier="0.18" constant="-8" id="RTs-pi-owk"/>
+                                                    <constraint firstItem="Ab3-vJ-iPx" firstAttribute="leading" secondItem="gJz-ku-2DF" secondAttribute="leading" id="SdQ-H9-Uha"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ab3-vJ-iPx" secondAttribute="bottom" id="agg-Yl-h00"/>
                                                     <constraint firstAttribute="trailing" secondItem="Y2z-XJ-OJe" secondAttribute="trailing" id="aqc-lp-cou"/>
                                                     <constraint firstItem="Y2z-XJ-OJe" firstAttribute="top" secondItem="gJz-ku-2DF" secondAttribute="top" id="ee3-Zt-k8o"/>
                                                     <constraint firstItem="AOy-Bo-mph" firstAttribute="height" secondItem="gJz-ku-2DF" secondAttribute="height" multiplier="0.8" constant="-4.5333333333333314" id="ii5-ep-wIF"/>
+                                                    <constraint firstItem="Ab3-vJ-iPx" firstAttribute="top" secondItem="gJz-ku-2DF" secondAttribute="top" id="mmJ-CF-rUK"/>
                                                     <constraint firstItem="AOy-Bo-mph" firstAttribute="centerY" secondItem="gJz-ku-2DF" secondAttribute="centerY" constant="-2.3333333333333321" id="vn8-K0-Mx5"/>
                                                 </constraints>
                                             </view>
@@ -352,6 +360,7 @@
                 <outlet property="cardView" destination="DRy-sH-Vpi" id="MRK-qb-Y4z"/>
                 <outlet property="emailllbl" destination="t8l-8E-Bee" id="oY5-kk-NeN"/>
                 <outlet property="facebookbtn" destination="Aeb-i3-OyO" id="SBg-wV-hHj"/>
+                <outlet property="locationBtn" destination="Ab3-vJ-iPx" id="XnF-6N-Djh"/>
                 <outlet property="locationlbl" destination="Y2z-XJ-OJe" id="Wl1-yr-CIE"/>
                 <outlet property="phonenlbl" destination="lzb-5O-Ik0" id="aPe-Ky-Y1R"/>
                 <outlet property="profileImage" destination="314-F2-xvB" id="WDS-ib-MZn"/>

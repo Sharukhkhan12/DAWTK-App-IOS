@@ -49,9 +49,23 @@ class TabBarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Add observer
+          NotificationCenter.default.addObserver(self,
+                                                 selector: #selector(handleAgainStartQR),
+                                                 name: .againStartQR,
+                                                 object: nil)
         self.addChildViewController(child: homeVC)
         // Do any additional setup after loading the view.
     }
+    
+    
+    // The function that will be called when the notification is posted
+    @objc func handleAgainStartQR() {
+        print("Notification received: Start QR again")
+        // Add your custom logic here
+        self.addChildViewController(child: qrScanVC)
+    }
+    
     
     
     @IBAction func didTapScanner(_ sender: Any) {

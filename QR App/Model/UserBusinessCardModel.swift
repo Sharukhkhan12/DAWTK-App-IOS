@@ -36,6 +36,7 @@ struct UserBusinessCardModel: Codable {
     var whatsappLink: String = ""
     var additionalFont: String = ""
     var additionalBgColor: String = ""
+    var xlink: String = ""
 
     // ✅ Default memberwise initializer
     init(
@@ -67,7 +68,8 @@ struct UserBusinessCardModel: Codable {
         websiteUrl: String = "",
         whatsappLink: String = "",
         additionalFont: String = "",
-        additionalBgColor: String = ""
+        additionalBgColor: String = "",
+        xlink: String = ""
     ) {
         self.applePay = applePay
         self.companyLogoPath = companyLogoPath
@@ -98,6 +100,7 @@ struct UserBusinessCardModel: Codable {
         self.whatsappLink = whatsappLink
         self.additionalFont = additionalFont
         self.additionalBgColor = additionalBgColor
+        self.xlink = xlink
     }
 
     // ✅ toDictionary stays as-is

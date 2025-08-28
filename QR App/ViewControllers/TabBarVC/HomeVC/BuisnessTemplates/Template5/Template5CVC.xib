@@ -194,6 +194,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="732-dv-hNs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="19"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="Lnj-UQ-3WO" firstAttribute="centerY" secondItem="BK8-W1-tMq" secondAttribute="centerY" id="1a2-fO-s5R"/>
@@ -201,9 +205,13 @@
                                                     <constraint firstItem="Lnj-UQ-3WO" firstAttribute="height" secondItem="BK8-W1-tMq" secondAttribute="height" multiplier="0.8" id="4Vr-Xw-RsH"/>
                                                     <constraint firstAttribute="bottom" secondItem="whi-iQ-H8H" secondAttribute="bottom" id="4Zx-tm-mhf"/>
                                                     <constraint firstItem="Lnj-UQ-3WO" firstAttribute="width" secondItem="BK8-W1-tMq" secondAttribute="width" multiplier="0.18" id="Nh1-R1-bgJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="732-dv-hNs" secondAttribute="trailing" id="Psg-IV-IGD"/>
+                                                    <constraint firstAttribute="bottom" secondItem="732-dv-hNs" secondAttribute="bottom" id="Qs1-0L-MqH"/>
+                                                    <constraint firstItem="732-dv-hNs" firstAttribute="leading" secondItem="BK8-W1-tMq" secondAttribute="leading" id="VdO-An-LvK"/>
                                                     <constraint firstItem="whi-iQ-H8H" firstAttribute="top" secondItem="BK8-W1-tMq" secondAttribute="top" id="i5R-eh-NSV"/>
                                                     <constraint firstAttribute="trailing" secondItem="whi-iQ-H8H" secondAttribute="trailing" id="j70-BP-8sB"/>
                                                     <constraint firstItem="Lnj-UQ-3WO" firstAttribute="leading" secondItem="BK8-W1-tMq" secondAttribute="leading" id="uch-h4-Klg"/>
+                                                    <constraint firstItem="732-dv-hNs" firstAttribute="top" secondItem="BK8-W1-tMq" secondAttribute="top" id="xXM-bR-eRh"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qej-bh-Wr1">
@@ -328,10 +336,12 @@
                 <outlet property="buianesslbl" destination="3Zv-01-Gvc" id="2oa-ka-axE"/>
                 <outlet property="buismesslogo" destination="QR2-xs-fhw" id="0Xd-Jd-zNH"/>
                 <outlet property="cardView" destination="nn1-DD-Yzb" id="iwq-GN-tI9"/>
+                <outlet property="derectorlbl" destination="fwi-cT-nzO" id="Kff-Tv-3xy"/>
                 <outlet property="emailllbl" destination="tKd-N7-qzh" id="yUO-em-51y"/>
                 <outlet property="facebookbtn" destination="lJj-af-C6K" id="x2K-Oo-VPU"/>
                 <outlet property="instagrambtn" destination="UVv-2R-htX" id="31g-ID-34G"/>
                 <outlet property="linkldenbtn" destination="Jjc-XW-KQ6" id="cTS-dT-0S1"/>
+                <outlet property="locationBtn" destination="732-dv-hNs" id="Ckx-9M-pKq"/>
                 <outlet property="locationlbl" destination="whi-iQ-H8H" id="O7Z-2d-omK"/>
                 <outlet property="phonenlbl" destination="FDK-xJ-L9P" id="Lgj-bN-9Iw"/>
                 <outlet property="profileImage" destination="5NH-DF-ZJ0" id="KcG-Za-ih2"/>

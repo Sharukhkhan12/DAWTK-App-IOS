@@ -110,7 +110,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-X1-r3u">
                                 <rect key="frame" x="10" y="135.33333333333334" width="291" height="118.33333333333334"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-ia-ggv">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyProfile" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-ia-ggv">
                                         <rect key="frame" x="5" y="11.666666666666657" width="95" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="95" id="CMN-XE-YEo"/>
@@ -208,12 +208,20 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfO-oe-gaJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="27.333333333333332"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="YbC-AG-eBo" firstAttribute="height" secondItem="fSQ-SX-DrY" secondAttribute="height" multiplier="0.8" id="BLA-BB-KE5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XfO-oe-gaJ" secondAttribute="trailing" id="KiW-GC-RQ0"/>
                                                     <constraint firstItem="YbC-AG-eBo" firstAttribute="centerY" secondItem="fSQ-SX-DrY" secondAttribute="centerY" id="PeH-Cg-i3r"/>
+                                                    <constraint firstAttribute="bottom" secondItem="XfO-oe-gaJ" secondAttribute="bottom" id="U0U-XS-3mq"/>
                                                     <constraint firstItem="YbC-AG-eBo" firstAttribute="width" secondItem="fSQ-SX-DrY" secondAttribute="width" multiplier="0.18" id="Z2P-fE-zLb"/>
+                                                    <constraint firstItem="XfO-oe-gaJ" firstAttribute="leading" secondItem="fSQ-SX-DrY" secondAttribute="leading" id="aCl-QC-VYB"/>
                                                     <constraint firstItem="Ucx-F4-GjV" firstAttribute="top" secondItem="fSQ-SX-DrY" secondAttribute="top" id="b74-3d-Kx4"/>
+                                                    <constraint firstItem="XfO-oe-gaJ" firstAttribute="top" secondItem="fSQ-SX-DrY" secondAttribute="top" id="b8b-7q-PQA"/>
                                                     <constraint firstItem="Ucx-F4-GjV" firstAttribute="leading" secondItem="YbC-AG-eBo" secondAttribute="trailing" constant="10" id="bh4-Au-EUh"/>
                                                     <constraint firstItem="YbC-AG-eBo" firstAttribute="leading" secondItem="fSQ-SX-DrY" secondAttribute="leading" constant="5" id="hcl-CV-4GB"/>
                                                     <constraint firstAttribute="bottom" secondItem="Ucx-F4-GjV" secondAttribute="bottom" id="qBF-yt-2Lw"/>
@@ -338,10 +346,12 @@
                 <outlet property="buianesslbl" destination="Wti-ZV-XcU" id="FU5-lZ-V89"/>
                 <outlet property="buismesslogo" destination="dtL-2P-6Kk" id="oIe-Qn-hcS"/>
                 <outlet property="cardView" destination="AQR-Zr-yQY" id="VAC-rn-aaL"/>
+                <outlet property="derectorlbl" destination="hay-rc-qwG" id="syN-rA-5dt"/>
                 <outlet property="emailllbl" destination="hm7-xW-g4a" id="vEf-Vd-G4L"/>
                 <outlet property="facebookbtn" destination="4Ei-18-M8c" id="q1L-gq-cTy"/>
                 <outlet property="instagrambtn" destination="A6J-1F-tah" id="h8D-hZ-adx"/>
                 <outlet property="linkldenbtn" destination="qEF-8p-CL4" id="AaL-n1-lSD"/>
+                <outlet property="locationBtn" destination="XfO-oe-gaJ" id="EN5-cq-eTQ"/>
                 <outlet property="locationlbl" destination="Ucx-F4-GjV" id="SqT-sj-NER"/>
                 <outlet property="phonenlbl" destination="ge8-JY-AXb" id="4dE-zL-WxC"/>
                 <outlet property="profileImage" destination="jfS-ia-ggv" id="rkM-6C-W8Z"/>
@@ -356,6 +366,7 @@
     <resources>
         <image name="VectorWhite" width="26" height="26"/>
         <image name="applePay White" width="25" height="18"/>
+        <image name="dummyProfile" width="70" height="70"/>
         <image name="dummyScan2" width="104" height="104"/>
         <image name="globe White" width="18" height="18"/>
         <image name="instagramWhite" width="26" height="26"/>

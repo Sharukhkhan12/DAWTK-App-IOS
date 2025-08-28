@@ -429,6 +429,86 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
                     cell.buismesslogo.image = logoImage
                     cell.profileImage.image = profileImage
                     cell.qrimageofCard.image = qrCodeFilePath
+                    cell.instagramAction = {
+                        let urlString = self.cardInfo?.linkedinLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This instagram Action URL is not valid")
+                           }
+                    }
+                    cell.twitterAction = {
+                        let urlString = self.cardInfo?.tiktokLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This twitter Action URL is not valid")
+                           }
+                    }
+
+                    cell.linkedinAction = {
+                        let urlString = self.cardInfo?.instagramLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This Lindldenn Action URL is not valid")
+                           }
+                    }
+
+                    cell.facebookAction = {
+                        let urlString = self.cardInfo?.facebookLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This facebook Action URL is not valid")
+                           }
+                    }
+                    
+                    cell.locationAction = {
+                        guard let locationString = self.cardInfo?.locationLink else {
+                            self.view.showToast(message: "No location available")
+                            return
+                        }
+
+                        // Try to detect if it looks like coordinates (lat,lng)
+                        if locationString.contains(",") {
+                            let components = locationString.split(separator: ",")
+                            if components.count == 2,
+                               let lat = Double(components[0]),
+                               let lng = Double(components[1]) {
+                                
+                                // Open in Apple Maps
+                                if let url = URL(string: "http://maps.apple.com/?ll=\(lat),\(lng)") {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                return
+                            }
+                        }
+
+                        // Otherwise treat it as address string
+                        if let encoded = locationString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                           let url = URL(string: "http://maps.apple.com/?q=\(encoded)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            self.view.showToast(message: "This location is not valid")
+                        }
+                    }
+
+                    
+                    
+                    
                     view = cell
                 }
             case "2":
@@ -437,6 +517,85 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
                     cell.buismesslogo.image = logoImage
                     cell.profileImage.image = profileImage
                     cell.qrimageofCard.image = qrCodeFilePath
+                    
+                    cell.instagramAction = {
+                        let urlString = self.cardInfo?.linkedinLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This instagram Action URL is not valid")
+                           }
+                    }
+                    cell.twitterAction = {
+                        let urlString = self.cardInfo?.tiktokLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This twitter Action URL is not valid")
+                           }
+                    }
+
+                    cell.linkedinAction = {
+                        let urlString = self.cardInfo?.instagramLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This Lindldenn Action URL is not valid")
+                           }
+                    }
+                    cell.facebookAction = {
+                        let urlString = self.cardInfo?.facebookLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This facebook Action URL is not valid")
+                           }
+                    }
+                    
+                    cell.locationAction = {
+                        guard let locationString = self.cardInfo?.locationLink else {
+                            self.view.showToast(message: "No location available")
+                            return
+                        }
+
+                        // Try to detect if it looks like coordinates (lat,lng)
+                        if locationString.contains(",") {
+                            let components = locationString.split(separator: ",")
+                            if components.count == 2,
+                               let lat = Double(components[0]),
+                               let lng = Double(components[1]) {
+                                
+                                // Open in Apple Maps
+                                if let url = URL(string: "http://maps.apple.com/?ll=\(lat),\(lng)") {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                return
+                            }
+                        }
+
+                        // Otherwise treat it as address string
+                        if let encoded = locationString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                           let url = URL(string: "http://maps.apple.com/?q=\(encoded)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            self.view.showToast(message: "This location is not valid")
+                        }
+                    }
+
+                    
+                    
                     view = cell
                 }
             case "3":
@@ -445,6 +604,87 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
                     cell.buismesslogo.image = logoImage
                     cell.profileImage.image = profileImage
                     cell.qrimageofCard.image = qrCodeFilePath
+                    
+                    cell.instagramAction = {
+                        let urlString = self.cardInfo?.linkedinLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This instagram Action URL is not valid")
+                           }
+                    }
+                    cell.twitterAction = {
+                        let urlString = self.cardInfo?.tiktokLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This twitter Action URL is not valid")
+                           }
+                    }
+
+                    cell.linkedinAction = {
+                        let urlString = self.cardInfo?.instagramLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This Lindldenn Action URL is not valid")
+                           }
+                    }
+
+                    cell.facebookAction = {
+                        let urlString = self.cardInfo?.facebookLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This facebook Action URL is not valid")
+                           }
+                    }
+                    
+                    cell.locationAction = {
+                        guard let locationString = self.cardInfo?.locationLink else {
+                            self.view.showToast(message: "No location available")
+                            return
+                        }
+
+                        // Try to detect if it looks like coordinates (lat,lng)
+                        if locationString.contains(",") {
+                            let components = locationString.split(separator: ",")
+                            if components.count == 2,
+                               let lat = Double(components[0]),
+                               let lng = Double(components[1]) {
+                                
+                                // Open in Apple Maps
+                                if let url = URL(string: "http://maps.apple.com/?ll=\(lat),\(lng)") {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                return
+                            }
+                        }
+
+                        // Otherwise treat it as address string
+                        if let encoded = locationString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                           let url = URL(string: "http://maps.apple.com/?q=\(encoded)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            self.view.showToast(message: "This location is not valid")
+                        }
+                    }
+
+                    
+                    
+                    
                     view = cell
                 }
             case "4":
@@ -453,6 +693,87 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
                     cell.buismesslogo.image = logoImage
                     cell.profileImage.image = profileImage
                     cell.qrimageofCard.image = qrCodeFilePath
+                    
+                    
+                    cell.instagramAction = {
+                        let urlString = self.cardInfo?.linkedinLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This instagram Action URL is not valid")
+                           }
+                    }
+                    cell.twitterAction = {
+                        let urlString = self.cardInfo?.tiktokLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This twitter Action URL is not valid")
+                           }
+                    }
+
+                    cell.linkedinAction = {
+                        let urlString = self.cardInfo?.instagramLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This Lindldenn Action URL is not valid")
+                           }
+                    }
+
+                    cell.facebookAction = {
+                        let urlString = self.cardInfo?.facebookLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This facebook Action URL is not valid")
+                           }
+                    }
+                    
+                    cell.locationAction = {
+                        guard let locationString = self.cardInfo?.locationLink else {
+                            self.view.showToast(message: "No location available")
+                            return
+                        }
+
+                        // Try to detect if it looks like coordinates (lat,lng)
+                        if locationString.contains(",") {
+                            let components = locationString.split(separator: ",")
+                            if components.count == 2,
+                               let lat = Double(components[0]),
+                               let lng = Double(components[1]) {
+                                
+                                // Open in Apple Maps
+                                if let url = URL(string: "http://maps.apple.com/?ll=\(lat),\(lng)") {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                return
+                            }
+                        }
+
+                        // Otherwise treat it as address string
+                        if let encoded = locationString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                           let url = URL(string: "http://maps.apple.com/?q=\(encoded)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            self.view.showToast(message: "This location is not valid")
+                        }
+                    }
+
+                    
+                    
                     view = cell
                 }
             case "5":
@@ -461,16 +782,247 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
                     cell.buismesslogo.image = logoImage
                     cell.profileImage.image = profileImage
                     cell.qrimageofCard.image = qrCodeFilePath
+                    
+                    cell.instagramAction = {
+                        let urlString = self.cardInfo?.linkedinLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This instagram Action URL is not valid")
+                           }
+                    }
+                    cell.twitterAction = {
+                        let urlString = self.cardInfo?.tiktokLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This twitter Action URL is not valid")
+                           }
+                    }
+
+                    cell.linkedinAction = {
+                        let urlString = self.cardInfo?.instagramLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This Lindldenn Action URL is not valid")
+                           }
+                    }
+
+                    cell.facebookAction = {
+                        let urlString = self.cardInfo?.facebookLink
+
+                        if self.isValidURL(urlString!) {
+                            if let url = URL(string: urlString!) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                           } else {
+                               self.view.showToast(message: "This facebook Action URL is not valid")
+                           }
+                    }
+                    
+                    cell.locationAction = {
+                        guard let locationString = self.cardInfo?.locationLink else {
+                            self.view.showToast(message: "No location available")
+                            return
+                        }
+
+                        // Try to detect if it looks like coordinates (lat,lng)
+                        if locationString.contains(",") {
+                            let components = locationString.split(separator: ",")
+                            if components.count == 2,
+                               let lat = Double(components[0]),
+                               let lng = Double(components[1]) {
+                                
+                                // Open in Apple Maps
+                                if let url = URL(string: "http://maps.apple.com/?ll=\(lat),\(lng)") {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                return
+                            }
+                        }
+
+                        // Otherwise treat it as address string
+                        if let encoded = locationString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                           let url = URL(string: "http://maps.apple.com/?q=\(encoded)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            self.view.showToast(message: "This location is not valid")
+                        }
+                    }
+
+                    
+                    
                     view = cell
                 }
             case "6":
                 if let cell = Bundle.main.loadNibNamed("Template3CVC", owner: nil, options: nil)?.first as? Template3CVC {
                     cell.configure(with: self.cardInfo!)
+                    cell.whatsappAction = {
+                        print("WhatsApp tapped for card \(self.cardInfo!.fullName)")
+                       }
+                       
+                       cell.snapchatAction = {
+                           print("Snapchat tapped for card \(self.cardInfo!.fullName)")
+                       }
+                       
+                       cell.facebookAction = { [weak self] in
+                           guard let self = self else { return }
+                           let urlString = cardInfo!.facebookLink
+                           if self.isValidURL(urlString) {
+                               if let url = URL(string: urlString) {
+                                   UIApplication.shared.open(url)
+                               }
+                           } else {
+                               self.view.showToast(message: "This URL is not valid")
+                           }
+                       }
+                       
+                       cell.twitterAction = { [weak self] in
+                           guard let self = self else { return }
+                           let urlString = cardInfo!.xlink
+                           if self.isValidURL(urlString) {
+                               if let url = URL(string: urlString) {
+                                   UIApplication.shared.open(url)
+                               }
+                           } else {
+                               self.view.showToast(message: "This URL is not valid")
+                           }
+                       }
+                       
+                       cell.tiktokAction = { [weak self] in
+                           guard let self = self else { return }
+                           let urlString = cardInfo!.tiktokLink
+                           if self.isValidURL(urlString) {
+                               if let url = URL(string: urlString) {
+                                   UIApplication.shared.open(url)
+                               }
+                           } else {
+                               self.view.showToast(message: "This URL is not valid")
+                           }
+                       }
+                    
+                    cell.locationAction = {
+                        guard let locationString = self.cardInfo?.locationLink else {
+                            self.view.showToast(message: "No location available")
+                            return
+                        }
+
+                        // Try to detect if it looks like coordinates (lat,lng)
+                        if locationString.contains(",") {
+                            let components = locationString.split(separator: ",")
+                            if components.count == 2,
+                               let lat = Double(components[0]),
+                               let lng = Double(components[1]) {
+                                
+                                // Open in Apple Maps
+                                if let url = URL(string: "http://maps.apple.com/?ll=\(lat),\(lng)") {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                return
+                            }
+                        }
+
+                        // Otherwise treat it as address string
+                        if let encoded = locationString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                           let url = URL(string: "http://maps.apple.com/?q=\(encoded)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            self.view.showToast(message: "This location is not valid")
+                        }
+                    }
+
+                    
                     view = cell
                 }
             case "7":
                 if let cell = Bundle.main.loadNibNamed("Template2CVC", owner: nil, options: nil)?.first as? Template2CVC {
                     cell.configure(with: self.cardInfo!)
+                    cell.whatsappAction = {
+                        print("WhatsApp tapped for card \(self.cardInfo!.fullName)")
+                       }
+                       
+                       cell.snapchatAction = {
+                           print("Snapchat tapped for card \(self.cardInfo!.fullName)")
+                       }
+                       
+                       cell.facebookAction = { [weak self] in
+                           guard let self = self else { return }
+                           let urlString = cardInfo!.facebookLink
+                           if self.isValidURL(urlString) {
+                               if let url = URL(string: urlString) {
+                                   UIApplication.shared.open(url)
+                               }
+                           } else {
+                               self.view.showToast(message: "This URL is not valid")
+                           }
+                       }
+                       
+                       cell.twitterAction = { [weak self] in
+                           guard let self = self else { return }
+                           let urlString = cardInfo!.xlink
+                           if self.isValidURL(urlString) {
+                               if let url = URL(string: urlString) {
+                                   UIApplication.shared.open(url)
+                               }
+                           } else {
+                               self.view.showToast(message: "This URL is not valid")
+                           }
+                       }
+                       
+                       cell.tiktokAction = { [weak self] in
+                           guard let self = self else { return }
+                           let urlString = cardInfo!.tiktokLink
+                           if self.isValidURL(urlString) {
+                               if let url = URL(string: urlString) {
+                                   UIApplication.shared.open(url)
+                               }
+                           } else {
+                               self.view.showToast(message: "This URL is not valid")
+                           }
+                       }
+                    
+                    cell.locationAction = {
+                        guard let locationString = self.cardInfo?.locationLink else {
+                            self.view.showToast(message: "No location available")
+                            return
+                        }
+
+                        // Try to detect if it looks like coordinates (lat,lng)
+                        if locationString.contains(",") {
+                            let components = locationString.split(separator: ",")
+                            if components.count == 2,
+                               let lat = Double(components[0]),
+                               let lng = Double(components[1]) {
+                                
+                                // Open in Apple Maps
+                                if let url = URL(string: "http://maps.apple.com/?ll=\(lat),\(lng)") {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                                return
+                            }
+                        }
+
+                        // Otherwise treat it as address string
+                        if let encoded = locationString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                           let url = URL(string: "http://maps.apple.com/?q=\(encoded)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        } else {
+                            self.view.showToast(message: "This location is not valid")
+                        }
+                    }
+
+                    
+                    
                     view = cell
                 }
             default:
@@ -482,12 +1034,31 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
     }
 
 
+    func isValidURL(_ urlString: String) -> Bool {
+        // Try to create a URL object
+        guard let url = URL(string: urlString) else {
+            return false
+        }
+        
+        // Check if the URL has a valid scheme and host
+        return url.scheme != nil && url.host != nil
+    }
     
     
     
 
     @IBAction func didTapBack(_ sender: Any) {
-        self.dismiss(animated: true)
+        
+        if checkUSerScanVC == true {
+            self.dismiss(animated: true) {
+                   // Post the notification after the view controller is dismissed
+                NotificationCenter.default.post(name: .againStartQR, object: nil)
+               }
+        } else {
+            self.dismiss(animated: true)
+        }
+        
+      
     }
     
     
@@ -530,8 +1101,14 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
             FirebaseManager.shared.addStatusToCard(cardKey: cardInfo!.qrCode, ownerId: cardInfo!.ownerId, status: "Rejected")
             navigateToTabBarScreen()
         } else {
+            
+           
+            
             guard let key = cardInfo?.qrCode else { return }
-               let shareURL = "https://hamzaoffi.github.io/QR-Card/index.html?key=\(key)"
+            let shareURL = "https://app-redirection-page.vercel.app/?key=\(key)"
+               
+            
+                print("🔗 ", shareURL)
                
                let activityVC = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
                

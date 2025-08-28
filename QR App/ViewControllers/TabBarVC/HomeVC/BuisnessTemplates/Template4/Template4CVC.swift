@@ -23,11 +23,19 @@ class Template4CVC: UICollectionViewCell {
     @IBOutlet weak var instagrambtn: UIButton!
     @IBOutlet weak var facebookbtn: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
-    
+    @IBOutlet weak var locationBtn: UIButton!
+
+    @IBOutlet weak var derectorlbl: UILabel!
     // MARK: - Extracted color
        var extractedCardColor: UIColor?
        
-    
+    // MARK: - Button Action Closures
+        var linkedinAction: (() -> Void)?
+        var twitterAction: (() -> Void)?
+        var instagramAction: (() -> Void)?
+        var facebookAction: (() -> Void)?
+         var locationAction: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,9 +45,42 @@ class Template4CVC: UICollectionViewCell {
            } else {
                print("⚠️ MainView has no default background color")
            }
+        
+        setupButtonTargets()
         setupUI()
         
     }
+    
+    
+    private func setupButtonTargets() {
+          linkldenbtn.addTarget(self, action: #selector(linkedinButtonTapped), for: .touchUpInside)
+          twiterXbtn.addTarget(self, action: #selector(twitterButtonTapped), for: .touchUpInside)
+          instagrambtn.addTarget(self, action: #selector(instagramButtonTapped), for: .touchUpInside)
+          facebookbtn.addTarget(self, action: #selector(facebookButtonTapped), for: .touchUpInside)
+        locationBtn.addTarget(self, action: #selector(LocationButtonTapped), for: .touchUpInside)
+      }
+      
+      // MARK: - Button Actions
+      @objc private func linkedinButtonTapped() {
+          linkedinAction?()
+      }
+      
+      @objc private func twitterButtonTapped() {
+          twitterAction?()
+      }
+      
+      @objc private func instagramButtonTapped() {
+          instagramAction?()
+      }
+      
+      @objc private func facebookButtonTapped() {
+          facebookAction?()
+      }
+    
+    @objc private func LocationButtonTapped() {
+        locationAction?()
+    }
+
 
     private func setupUI() {
         // Corner Radius
@@ -82,6 +123,7 @@ class Template4CVC: UICollectionViewCell {
         locationlbl.text = card.locationLink
         phonenlbl.text = card.phoneNo
         emailllbl.text = card.email
+        derectorlbl.text = card.jobTitle
         // Load Images (you can use SDWebImage or similar libraries for async)
         if let profileURL = URL(string: card.profilePhotoPath) {
             DispatchQueue.global().async {

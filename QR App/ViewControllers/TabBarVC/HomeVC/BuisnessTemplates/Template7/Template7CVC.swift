@@ -27,12 +27,18 @@ class Template7CVC: UICollectionViewCell {
     @IBOutlet weak var instagrambtn: UIButton!
     @IBOutlet weak var facebookbtn: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
-    
+    @IBOutlet weak var derectorlbl: UILabel!
+    @IBOutlet weak var locationBtn: UIButton!
+
     
     // MARK: - Extracted color
        var extractedCardColor: UIColor?
-       
-    
+    // MARK: - Button Action Closures
+       var linkedinAction: (() -> Void)?
+       var twitterAction: (() -> Void)?
+       var instagramAction: (() -> Void)?
+       var facebookAction: (() -> Void)?
+       var locationAction: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,6 +49,7 @@ class Template7CVC: UICollectionViewCell {
                print("⚠️ MainView has no default background color")
            }
         setupUI()
+        setupButtonTargets()
         
     }
 
@@ -60,6 +67,38 @@ class Template7CVC: UICollectionViewCell {
         // Shadow path (for performance)
         cardView.layer.shadowPath = UIBezierPath(roundedRect:cardView.bounds, cornerRadius: 12).cgPath
     }
+    
+    private func setupButtonTargets() {
+           linkldenbtn.addTarget(self, action: #selector(linkedinButtonTapped), for: .touchUpInside)
+           twiterXbtn.addTarget(self, action: #selector(twitterButtonTapped), for: .touchUpInside)
+           instagrambtn.addTarget(self, action: #selector(instagramButtonTapped), for: .touchUpInside)
+           facebookbtn.addTarget(self, action: #selector(facebookButtonTapped), for: .touchUpInside)
+        locationBtn.addTarget(self, action: #selector(LocationButtonTapped), for: .touchUpInside)
+
+       }
+       
+       // MARK: - Button Actions
+       @objc private func linkedinButtonTapped() {
+           linkedinAction?()
+       }
+       
+       @objc private func twitterButtonTapped() {
+           twitterAction?()
+       }
+       
+       @objc private func instagramButtonTapped() {
+           instagramAction?()
+       }
+       
+       @objc private func facebookButtonTapped() {
+           facebookAction?()
+       }
+       
+    @objc private func LocationButtonTapped() {
+        locationAction?()
+    }
+    
+    
     
     func configure(with card: UserBusinessCardModel) {
         
@@ -84,6 +123,7 @@ class Template7CVC: UICollectionViewCell {
         locationlbl.text = card.locationLink
         phonenlbl.text = card.phoneNo
         emailllbl.text = card.email
+        derectorlbl.text = card.jobTitle
 
         // Load Images (you can use SDWebImage or similar libraries for async)
         if let profileURL = URL(string: card.profilePhotoPath) {

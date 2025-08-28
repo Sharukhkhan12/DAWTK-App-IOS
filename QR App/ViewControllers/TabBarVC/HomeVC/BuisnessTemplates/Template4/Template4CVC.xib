@@ -197,15 +197,23 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEF-4a-Vmf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="27.333333333333332"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="tr7-Ue-AQd" firstAttribute="height" secondItem="aqT-8r-ws7" secondAttribute="height" multiplier="0.8" id="36E-AN-xbQ"/>
                                                     <constraint firstItem="WEq-4O-nLX" firstAttribute="leading" secondItem="tr7-Ue-AQd" secondAttribute="trailing" constant="10" id="4GK-mc-F6d"/>
                                                     <constraint firstItem="tr7-Ue-AQd" firstAttribute="width" secondItem="aqT-8r-ws7" secondAttribute="width" multiplier="0.18" id="4lz-UB-GgV"/>
+                                                    <constraint firstItem="IEF-4a-Vmf" firstAttribute="top" secondItem="aqT-8r-ws7" secondAttribute="top" id="9a3-Xu-opN"/>
                                                     <constraint firstItem="tr7-Ue-AQd" firstAttribute="leading" secondItem="aqT-8r-ws7" secondAttribute="leading" constant="5" id="I4T-30-jzx"/>
                                                     <constraint firstAttribute="bottom" secondItem="WEq-4O-nLX" secondAttribute="bottom" id="MKh-la-JYF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IEF-4a-Vmf" secondAttribute="trailing" id="QdF-lp-Djo"/>
                                                     <constraint firstItem="tr7-Ue-AQd" firstAttribute="centerY" secondItem="aqT-8r-ws7" secondAttribute="centerY" id="RkB-Sc-QAM"/>
+                                                    <constraint firstItem="IEF-4a-Vmf" firstAttribute="leading" secondItem="aqT-8r-ws7" secondAttribute="leading" id="Sx0-Ee-QPG"/>
                                                     <constraint firstItem="WEq-4O-nLX" firstAttribute="top" secondItem="aqT-8r-ws7" secondAttribute="top" id="Y6B-fH-CWz"/>
+                                                    <constraint firstAttribute="bottom" secondItem="IEF-4a-Vmf" secondAttribute="bottom" id="dJS-2g-afA"/>
                                                     <constraint firstAttribute="trailing" secondItem="WEq-4O-nLX" secondAttribute="trailing" id="p8v-qQ-Wbt"/>
                                                 </constraints>
                                             </view>
@@ -327,10 +335,12 @@
                 <outlet property="buianesslbl" destination="wMh-d4-7WY" id="R5K-Ff-Oqd"/>
                 <outlet property="buismesslogo" destination="BC2-3O-Fq3" id="P4A-nQ-gsS"/>
                 <outlet property="cardView" destination="i2o-wB-g3h" id="T6y-OA-7l3"/>
+                <outlet property="derectorlbl" destination="PRq-wB-WWb" id="4uU-3t-mjY"/>
                 <outlet property="emailllbl" destination="7Wl-1W-knW" id="Zuz-xp-pVQ"/>
                 <outlet property="facebookbtn" destination="NZp-Of-0Xo" id="Qnd-Ln-b3m"/>
                 <outlet property="instagrambtn" destination="u7a-PT-XnL" id="Qbm-Gu-waC"/>
                 <outlet property="linkldenbtn" destination="7uB-1K-bqj" id="bcq-Vv-1pc"/>
+                <outlet property="locationBtn" destination="IEF-4a-Vmf" id="fIf-wZ-vgn"/>
                 <outlet property="locationlbl" destination="WEq-4O-nLX" id="hSf-B0-lS4"/>
                 <outlet property="phonenlbl" destination="COs-qh-dgu" id="s8c-3L-pZK"/>
                 <outlet property="profileImage" destination="B8W-1Q-ZYV" id="CLf-FR-hdE"/>
