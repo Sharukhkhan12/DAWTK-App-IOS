@@ -20,7 +20,14 @@ class EmailVC: UIViewController {
         
         // Enable interaction on the label
         forgetlbl.isUserInteractionEnabled = true
-        
+        // Email keyboard
+            emailTxtField.keyboardType = .emailAddress
+            emailTxtField.autocapitalizationType = .none
+            emailTxtField.autocorrectionType = .no
+            
+            // Password keyboard (default secure input)
+            passwordTxtField.isSecureTextEntry = true
+            passwordTxtField.keyboardType = .default
         // Add tap gesture
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapForgetPassword))
         forgetlbl.addGestureRecognizer(tapGesture)

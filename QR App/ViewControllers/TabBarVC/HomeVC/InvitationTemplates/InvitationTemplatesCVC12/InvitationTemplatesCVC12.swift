@@ -27,6 +27,11 @@ class InvitationTemplatesCVC12: UICollectionViewCell {
     var onWeddingTimeTap: (() -> Void)?
     var onLocationTap: (() -> Void)?
     
+    // MARK: - Extracted color
+       var extractedCardColor: UIColor?
+       
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
        
@@ -84,6 +89,8 @@ class InvitationTemplatesCVC12: UICollectionViewCell {
         if !invitation.additionalBgColor.isEmpty {
             if let bgColor = UIColor(hex: invitation.additionalBgColor) {
                 self.cardView.backgroundColor = bgColor
+                self.extractedCardColor = bgColor
+
             }
         }
         

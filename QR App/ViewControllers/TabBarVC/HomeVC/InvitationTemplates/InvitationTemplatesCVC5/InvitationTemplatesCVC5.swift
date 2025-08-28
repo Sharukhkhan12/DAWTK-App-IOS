@@ -34,10 +34,19 @@ class InvitationTemplatesCVC5: UICollectionViewCell {
     var onDinnerTimeTap: (() -> Void)?
     var onWeddingTimeTap: (() -> Void)?
     var onLocationTap: (() -> Void)?
+    // MARK: - Extracted color
+       var extractedCardColor: UIColor?
+       
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        if let defaultColor = cardView.backgroundColor {
+               print("🎨 Default MainView Color: \(defaultColor)")
+               extractedCardColor = defaultColor
+           } else {
+               print("⚠️ MainView has no default background color")
+           }
         
         childesBtnn.addTarget(self, action: #selector(handleChildesTap), for: .touchUpInside)
         cameraBtn.addTarget(self, action: #selector(handleCameraTap), for: .touchUpInside)
@@ -114,6 +123,8 @@ extension InvitationTemplatesCVC5 {
         if !invitation.additionalBgColor.isEmpty {
             if let bgColor = UIColor(hex: invitation.additionalBgColor) {
                 self.cardView.backgroundColor = bgColor
+                self.extractedCardColor = bgColor
+
             }
         }
         

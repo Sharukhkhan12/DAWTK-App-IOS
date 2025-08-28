@@ -268,17 +268,20 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMd-Z8-Hrk" customClass="DesignableView" customModule="QR_App" customModuleProvider="target">
-                            <rect key="frame" x="15" y="414.66666666666669" width="363" height="63.666666666666686"/>
+                            <rect key="frame" x="15" y="414.66666666666669" width="363" height="72.333333333333314"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuO-Yy-eZV">
-                                    <rect key="frame" x="0.0" y="0.0" width="363" height="63.666666666666664"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuO-Yy-eZV">
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="72.333333333333329"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXq-be-wEl">
-                                    <rect key="frame" x="0.0" y="0.0" width="363" height="63.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="72.333333333333329"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="didTapStart:" destination="-1" eventType="touchUpInside" id="85I-HO-RmQ"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.81176470590000005" green="0.99215686270000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -304,11 +307,10 @@
                         <constraint firstItem="PbS-1A-MW2" firstAttribute="height" secondItem="7kr-gP-mdh" secondAttribute="height" multiplier="0.14" id="11R-L5-g47"/>
                         <constraint firstAttribute="trailing" secondItem="PbS-1A-MW2" secondAttribute="trailing" constant="15" id="1lq-Fu-S7Y"/>
                         <constraint firstItem="bMd-Z8-Hrk" firstAttribute="leading" secondItem="7kr-gP-mdh" secondAttribute="leading" constant="15" id="87a-Of-cOP"/>
-                        <constraint firstItem="bMd-Z8-Hrk" firstAttribute="height" secondItem="PbS-1A-MW2" secondAttribute="height" multiplier="0.9" id="9fn-tc-eK7"/>
                         <constraint firstItem="bMd-Z8-Hrk" firstAttribute="top" secondItem="PbS-1A-MW2" secondAttribute="bottom" constant="25" id="CTt-A4-UMC"/>
                         <constraint firstItem="rs5-wf-Rnh" firstAttribute="height" secondItem="7kr-gP-mdh" secondAttribute="height" multiplier="0.43" id="EnV-ak-Prv"/>
                         <constraint firstItem="PbS-1A-MW2" firstAttribute="leading" secondItem="7kr-gP-mdh" secondAttribute="leading" constant="15" id="Icu-Ii-HxE"/>
-                        <constraint firstAttribute="bottom" secondItem="bMd-Z8-Hrk" secondAttribute="bottom" constant="15" id="KtE-qZ-Djn"/>
+                        <constraint firstAttribute="bottom" secondItem="bMd-Z8-Hrk" secondAttribute="bottom" constant="20" id="KtE-qZ-Djn"/>
                         <constraint firstItem="E40-xf-8MF" firstAttribute="leading" secondItem="7kr-gP-mdh" secondAttribute="leading" constant="16" id="OkZ-sa-y7G"/>
                         <constraint firstAttribute="trailing" secondItem="E40-xf-8MF" secondAttribute="trailing" constant="17" id="Ot2-3i-WTH"/>
                         <constraint firstItem="PbS-1A-MW2" firstAttribute="top" secondItem="rs5-wf-Rnh" secondAttribute="bottom" constant="20" id="eGd-08-sjm"/>

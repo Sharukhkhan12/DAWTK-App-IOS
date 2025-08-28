@@ -404,6 +404,7 @@ extension CardVC: PremiumAlertDelegate {
         if let invitationPreViewVC = storyboard.instantiateViewController(withIdentifier: "InvitationPreViewVC") as? InvitationPreViewVC {
             invitationPreViewVC.modalTransitionStyle = .crossDissolve
             invitationPreViewVC.userCard = invitationCard
+            invitationPreViewVC.segmeentsSelected = .inviationCard
             invitationPreViewVC.userfromViewAs = true
             invitationPreViewVC.modalPresentationStyle = .fullScreen
             present(invitationPreViewVC, animated: true)

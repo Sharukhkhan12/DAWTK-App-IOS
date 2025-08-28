@@ -24,19 +24,23 @@ class SuccessVC: UIViewController {
 
    
     @IBAction func gotoStyle(_ sender: Any) {
-        print("StyleOpen")
-        let storyboard =  UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "StyleVC") as? StyleVC {
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
-        }
-        
+        self.navigateToTabBarScreen()
     }
     
     
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        fontsixe() 
+       
+    }
+    
+    
+    private func navigateToTabBarScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as? TabBarVC {
+            tabBarVC.modalTransitionStyle = .crossDissolve
+            tabBarVC.modalPresentationStyle = .fullScreen
+            present(tabBarVC, animated: true)
+        }
     }
     func secondboarderView()
     {

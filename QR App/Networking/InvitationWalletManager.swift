@@ -1,32 +1,33 @@
 //
-//  WalletManager.swift
+//  InvitationWalletManager.swift
 //  QR App
 //
-//  Created by Touheed khan on 27/08/2025.
+//  Created by Touheed khan on 28/08/2025.
 //
 
-
+import Foundation
 import Foundation
 import UIKit
-class WalletManager {
+class InvitationWalletManager {
     
-    static let shared = WalletManager()
+    static let shared = InvitationWalletManager()
     private init() {}
     
     // MARK: - Add To Wallet with Completion
-    func addToWalletForCoupnn(card: UserBusinessCardModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func addToWalletForCoupnn(card: InvitationModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
 
         print("🎨 Background color: \(background)")
 
+        
         let parameters: [[String: Any]] = [
             ["key": "strip_image_url", "value": "https://samples.fileformat.info/format/png/sample/40a6e65ed7fb44bc91a8a52aab47fdd4/MARBLE8.PNG", "type": "text"],
             ["key": "header_label", "value": "DAWTK | دعوتك", "type": "text"],
             ["key": "ID header_value", "value": "000000", "type": "text"],
-            ["key": "secondary_label", "value": "Email", "type": "text"],
-            ["key": "secondary_value", "value": card.email, "type": "text"],
+            ["key": "secondary_label", "value": "Islamic Date", "type": "text"],
+            ["key": "secondary_value", "value": "\(card.islamicDate)", "type": "text"],
             ["key": "back_label", "value": "Terms", "type": "text"],
             ["key": "back_value", "value": "Valid 360", "type": "text"],
-            ["key": "logo_text", "value": "\( card.companyName)", "type": "text"],
+            ["key": "logo_text", "value": "Invitation Card", "type": "text"],
             ["key": "description", "value": "This is a sample description for the pass.", "type": "text"],
             ["key": "background_color", "value": background, "type": "text"],
             ["key": "foreground_color", "value": "rgb(0, 0, 0)", "type": "text"],
@@ -35,13 +36,15 @@ class WalletManager {
             ["key": "card_type", "value": "coupon", "type": "text"],
             ["key": "image_type", "value": "thumbnail", "type": "text"],
             ["key": "barcode_type", "value": "PDF417", "type": "text"],
-            ["key": "primary_label", "value": "Director", "type": "text"],
-            ["key": "primary_value", "value": card.fullName, "type": "text"],
-            ["key": "auxiliary_label", "value": card.phoneNo, "type": "text"],
-            ["key": "auxiliary_value", "value": "Phone No", "type": "text"],
+            ["key": "primary_label", "value": "Bride Name \(card.brideName)", "type": "text"],
+            ["key": "primary_value", "value": card.photography, "type": "text"],
+            ["key": "auxiliary_label", "value": "Groom Name \(card.groomName)", "type": "text"],
+            ["key": "auxiliary_value", "value": "Date \((card.date))", "type": "text"],
             ["key": "icon", "type": "file", "assetName": "AppLogo"],
             ["key": "logo", "type": "file", "assetName": "AppLogo"]
         ]
+        
+        
 
         let boundary = "Boundary-\(UUID().uuidString)"
         var body = Data()
@@ -137,19 +140,19 @@ class WalletManager {
     
     
     
-    func addToWalletForGeneric(card: UserBusinessCardModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func addToWalletForGeneric(card: InvitationModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
 
         print("🎨 Background color: \(background)")
-
+        
         let parameters: [[String: Any]] = [
-            ["key": "strip_image_url", "value": "\(card.companyLogoPath)", "type": "text"],
+            ["key": "strip_image_url", "value": "\(card.profilePhotoPath)", "type": "text"],
             ["key": "header_label", "value": "DAWTK | دعوتك", "type": "text"],
             ["key": "ID header_value", "value": "000000", "type": "text"],
-            ["key": "secondary_label", "value": "Email", "type": "text"],
-            ["key": "secondary_value", "value": card.email, "type": "text"],
+            ["key": "secondary_label", "value": "Islamic Date", "type": "text"],
+            ["key": "secondary_value", "value": card.islamicDate, "type": "text"],
             ["key": "back_label", "value": "Terms", "type": "text"],
             ["key": "back_value", "value": "Valid 360", "type": "text"],
-            ["key": "logo_text", "value": "\( card.companyName)", "type": "text"],
+            ["key": "logo_text", "value": "Invitation Card", "type": "text"],
             ["key": "description", "value": "This is a sample description for the pass.", "type": "text"],
             ["key": "background_color", "value": background, "type": "text"],
             ["key": "foreground_color", "value": "rgb(0, 0, 0)", "type": "text"],
@@ -158,13 +161,14 @@ class WalletManager {
             ["key": "card_type", "value": "generic", "type": "text"],
             ["key": "image_type", "value": "thumbnail", "type": "text"],
             ["key": "barcode_type", "value": "QR", "type": "text"],
-            ["key": "primary_label", "value": "Director", "type": "text"],
-            ["key": "primary_value", "value": card.fullName, "type": "text"],
-            ["key": "auxiliary_label", "value": card.phoneNo, "type": "text"],
-            ["key": "auxiliary_value", "value": "Phone No", "type": "text"],
+            ["key": "primary_label", "value": "Bride Name \(card.brideName)", "type": "text"],
+            ["key": "primary_value", "value": card.photography, "type": "text"],
+            ["key": "auxiliary_label", "value": "Groom Name \(card.groomName)", "type": "text"],
+            ["key": "auxiliary_value", "value": "Date\((card.date))", "type": "text"],
             ["key": "icon", "type": "file", "assetName": "AppLogo"],
             ["key": "logo", "type": "file", "assetName": "AppLogo"]
         ]
+        
 
         let boundary = "Boundary-\(UUID().uuidString)"
         var body = Data()
@@ -246,19 +250,19 @@ class WalletManager {
     
     
     
-    func addToWalletForEventTicket(card: UserBusinessCardModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func addToWalletForEventTicket(card: InvitationModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
 
         print("🎨 Background color: \(background)")
-
+        
         let parameters: [[String: Any]] = [
-            ["key": "strip_image_url", "value": "\(card.companyLogoPath)", "type": "text"],
+            ["key": "strip_image_url", "value": "\(card.profilePhotoPath)", "type": "text"],
             ["key": "header_label", "value": "DAWTK | دعوتك", "type": "text"],
             ["key": "ID header_value", "value": "000000", "type": "text"],
-            ["key": "secondary_label", "value": "Email", "type": "text"],
-            ["key": "secondary_value", "value": card.email, "type": "text"],
-            ["key": "back_label", "value": "Terms", "type": "text"],
+            ["key": "secondary_label", "value": "Groom Name \(card.groomName)", "type": "text"],
+            ["key": "secondary_value", "value": "Bride Name \(card.brideName)", "type": "text"],
+             ["key": "back_label", "value": "Terms", "type": "text"],
             ["key": "back_value", "value": "Valid 360", "type": "text"],
-            ["key": "logo_text", "value": "\( card.companyName)", "type": "text"],
+            ["key": "logo_text", "value": "Invitation Card", "type": "text"],
             ["key": "description", "value": "This is a sample description for the pass.", "type": "text"],
             ["key": "background_color", "value": background, "type": "text"],
             ["key": "foreground_color", "value": "rgb(0, 0, 0)", "type": "text"],
@@ -268,12 +272,14 @@ class WalletManager {
             ["key": "image_type", "value": "strip", "type": "text"],
             ["key": "barcode_type", "value": "PDF417", "type": "text"],
             ["key": "primary_label", "value": "Director", "type": "text"],
-            ["key": "primary_value", "value": card.fullName, "type": "text"],
-            ["key": "auxiliary_label", "value": card.phoneNo, "type": "text"],
-            ["key": "auxiliary_value", "value": "Phone No", "type": "text"],
+            ["key": "primary_value", "value": "", "type": "text"],
+            ["key": "auxiliary_label", "value": "(Islamic Date \(card.islamicDate)", "type": "text"],
+            ["key": "auxiliary_value", "value": "Date \(card.date)", "type": "text"],
             ["key": "icon", "type": "file", "assetName": "AppLogo"],
             ["key": "logo", "type": "file", "assetName": "AppLogo"]
         ]
+        
+        
 
         let boundary = "Boundary-\(UUID().uuidString)"
         var body = Data()
@@ -353,19 +359,19 @@ class WalletManager {
     
     
     
-    func addToWalletForStoreCard(card: UserBusinessCardModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func addToWalletForStoreCard(card: InvitationModel, background: String, completion: @escaping (Result<String, Error>) -> Void) {
 
         print("🎨 Background color: \(background)")
 
         let parameters: [[String: Any]] = [
-            ["key": "strip_image_url", "value": "\(card.companyLogoPath)", "type": "text"],
+            ["key": "strip_image_url", "value": "\(card.profilePhotoPath)", "type": "text"],
             ["key": "header_label", "value": "DAWTK | دعوتك", "type": "text"],
             ["key": "ID header_value", "value": "000000", "type": "text"],
-            ["key": "secondary_label", "value": "Email", "type": "text"],
-            ["key": "secondary_value", "value": card.email, "type": "text"],
+            ["key": "secondary_label", "value": "Groom Name", "type": "text"],
+            ["key": "secondary_value", "value": card.groomName, "type": "text"],
             ["key": "back_label", "value": "Terms", "type": "text"],
             ["key": "back_value", "value": "Valid 360", "type": "text"],
-            ["key": "logo_text", "value": "\( card.companyName)", "type": "text"],
+            ["key": "logo_text", "value": "Invitation Card", "type": "text"],
             ["key": "description", "value": "This is a sample description for the pass.", "type": "text"],
             ["key": "background_color", "value": background, "type": "text"],
             ["key": "foreground_color", "value": "rgb(0, 0, 0)", "type": "text"],
@@ -374,10 +380,10 @@ class WalletManager {
             ["key": "card_type", "value": "storecard", "type": "text"],
             ["key": "image_type", "value": "strip", "type": "text"],
             ["key": "barcode_type", "value": "PDF417", "type": "text"],
-            ["key": "primary_label", "value": "Director", "type": "text"],
-            ["key": "primary_value", "value": card.fullName, "type": "text"],
-            ["key": "auxiliary_label", "value": card.phoneNo, "type": "text"],
-            ["key": "auxiliary_value", "value": "Phone No", "type": "text"],
+            ["key": "primary_label", "value": "Bride Name \(card.brideName)", "type": "text"],
+            ["key": "primary_value", "value": card.photography, "type": "text"],
+            ["key": "auxiliary_label", "value": "Islamic Date\(card.islamicDate)", "type": "text"],
+            ["key": "auxiliary_value", "value": "Date\((card.date))", "type": "text"],
             ["key": "icon", "type": "file", "assetName": "AppLogo"],
             ["key": "logo", "type": "file", "assetName": "AppLogo"]
         ]
@@ -459,11 +465,4 @@ class WalletManager {
     }
     
 }
-// MARK: - Helper (Data append)
-extension Data {
-    mutating func append(_ string: String) {
-        if let data = string.data(using: .utf8) {
-            append(data)
-        }
-    }
-}
+

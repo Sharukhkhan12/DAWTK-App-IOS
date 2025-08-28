@@ -26,11 +26,12 @@ class PremiumVC: UIViewController {
         return teamPremiumVC
     }()
     
+    var progressAlert =  ProgressAlertView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.addChildViewController(child: individualPremiumVC)
         
+        self.addChildViewController(child: individualPremiumVC)
         // Do any additional setup after loading the view.
     }
     
@@ -41,16 +42,23 @@ class PremiumVC: UIViewController {
     
     @IBAction func didTapIndividual(_ sender: Any) {
         self.addChildViewController(child: individualPremiumVC)
-        updateConstraintsForIpad(constant: 0.75)
+        updateConstraintsForIpad(constant: 0.8)
         animateSelection(selected: individualView, deselected: temaView)
     }
     
     
     @IBAction func didTapTeam(_ sender: Any) {
         self.addChildViewController(child: teamPremiumVC)
-        self.updateConstraintsForIpad(constant: 0.85)
+        self.updateConstraintsForIpad(constant: 0.95)
         self.animateSelection(selected: temaView, deselected: individualView)
     }
+    
+    
+    
+    
+    
+    
+   
     
     
     // MARK: - Update Constraints For Ipad

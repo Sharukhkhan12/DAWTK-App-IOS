@@ -85,6 +85,7 @@ class ViewAsVC: UIViewController, PKAddPassesViewControllerDelegate {
             userVC.modalPresentationStyle = .overCurrentContext
             userVC.modalTransitionStyle = .crossDissolve
             userVC.cardInfo = cardInfo
+            userVC.segmeentsSelected = .BusinessCard
             present(userVC, animated: true, completion: nil)
         }
     }

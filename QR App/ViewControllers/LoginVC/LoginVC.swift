@@ -31,7 +31,18 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         self.addChildViewController(child: phoneLoginCard)
         applyInitialSegmentState()
+        hideKeyboardWhenTappedAround()
     }
+    
+    func hideKeyboardWhenTappedAround() {
+           let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+           tap.cancelsTouchesInView = false   // ✅ allows button taps etc.
+           view.addGestureRecognizer(tap)
+       }
+
+       @objc private func dismissKeyboard() {
+           view.endEditing(true)
+       }
     
     
     @IBAction func didTapPhone(_ sender: Any) {

@@ -71,7 +71,6 @@
 		285CA6172E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */; };
 		285D0DBE2E5B3DE90067D383 /* WalletPassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D0DBD2E5B3DE90067D383 /* WalletPassRequest.swift */; };
 		285D0DC02E5B47B80067D383 /* WalletResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D0DBF2E5B47B80067D383 /* WalletResponse.swift */; };
-		285D0DDC2E5B9C190067D383 /* pass_1756062840.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 285D0DDB2E5B9C190067D383 /* pass_1756062840.pkpass */; };
 		285DD8B92E4F464E008D7E01 /* InvitationPreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */; };
 		285DD8BC2E5066E0008D7E01 /* CostumAlertForLocationn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285DD8BB2E5066E0008D7E01 /* CostumAlertForLocationn.swift */; };
 		285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285DD8BD2E5066ED008D7E01 /* CostumAlertForLocationn.xib */; };
@@ -113,6 +112,11 @@
 		28B3B66A2DEC75F800FBA89C /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3B6692DEC75F800FBA89C /* CardInfo.swift */; };
 		28B67ACD2E5EEA6200C0D6B4 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67ACC2E5EEA6200C0D6B4 /* WalletManager.swift */; };
 		28B67ACF2E5EF16400C0D6B4 /* CouponField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67ACE2E5EF16400C0D6B4 /* CouponField.swift */; };
+		28B67AD12E5F4FD500C0D6B4 /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67AD02E5F4FD500C0D6B4 /* Checkout.swift */; };
+		28B67AD32E5F507000C0D6B4 /* PaymentNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67AD22E5F507000C0D6B4 /* PaymentNetworkManager.swift */; };
+		28B67AD72E5F868900C0D6B4 /* CheckoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67AD62E5F868900C0D6B4 /* CheckoutRequest.swift */; };
+		28B67ADC2E601CE800C0D6B4 /* InvitationWalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67ADB2E601CE700C0D6B4 /* InvitationWalletManager.swift */; };
+		28B67ADF2E60513E00C0D6B4 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B67ADE2E60513E00C0D6B4 /* WebViewVC.swift */; };
 		28B8B0A92DE98A8F00157274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B09F2DE98A8F00157274 /* AppDelegate.swift */; };
 		28B8B0AA2DE98A8F00157274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B0A62DE98A8F00157274 /* SceneDelegate.swift */; };
 		28B8B0AB2DE98A8F00157274 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8B0A72DE98A8F00157274 /* SplashVC.swift */; };
@@ -229,7 +233,6 @@
 		285CA6152E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationTemplatesCVC11.xib; sourceTree = "<group>"; };
 		285D0DBD2E5B3DE90067D383 /* WalletPassRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPassRequest.swift; sourceTree = "<group>"; };
 		285D0DBF2E5B47B80067D383 /* WalletResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletResponse.swift; sourceTree = "<group>"; };
-		285D0DDB2E5B9C190067D383 /* pass_1756062840.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = pass_1756062840.pkpass; sourceTree = "<group>"; };
 		285DD8B82E4F464E008D7E01 /* InvitationPreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationPreViewVC.swift; sourceTree = "<group>"; };
 		285DD8BB2E5066E0008D7E01 /* CostumAlertForLocationn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumAlertForLocationn.swift; sourceTree = "<group>"; };
 		285DD8BD2E5066ED008D7E01 /* CostumAlertForLocationn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostumAlertForLocationn.xib; sourceTree = "<group>"; };
@@ -270,6 +273,11 @@
 		28B3B6692DEC75F800FBA89C /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		28B67ACC2E5EEA6200C0D6B4 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		28B67ACE2E5EF16400C0D6B4 /* CouponField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponField.swift; sourceTree = "<group>"; };
+		28B67AD02E5F4FD500C0D6B4 /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
+		28B67AD22E5F507000C0D6B4 /* PaymentNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentNetworkManager.swift; sourceTree = "<group>"; };
+		28B67AD62E5F868900C0D6B4 /* CheckoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRequest.swift; sourceTree = "<group>"; };
+		28B67ADB2E601CE700C0D6B4 /* InvitationWalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationWalletManager.swift; sourceTree = "<group>"; };
+		28B67ADE2E60513E00C0D6B4 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		28B8B0762DE98A5D00157274 /* QR App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B8B09F2DE98A8F00157274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28B8B0A02DE98A8F00157274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -691,9 +699,10 @@
 		288A17E32E40F8830071883E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				28B67AD22E5F507000C0D6B4 /* PaymentNetworkManager.swift */,
 				28B67ACC2E5EEA6200C0D6B4 /* WalletManager.swift */,
-				285D0DDB2E5B9C190067D383 /* pass_1756062840.pkpass */,
 				288A17E72E40F9BB0071883E /* URL+Extension.swift */,
+				28B67ADB2E601CE700C0D6B4 /* InvitationWalletManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -804,6 +813,8 @@
 		28B3B6682DEC75F400FBA89C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				28B67AD62E5F868900C0D6B4 /* CheckoutRequest.swift */,
+				28B67AD02E5F4FD500C0D6B4 /* Checkout.swift */,
 				28B67ACE2E5EF16400C0D6B4 /* CouponField.swift */,
 				285D0DBF2E5B47B80067D383 /* WalletResponse.swift */,
 				285D0DBD2E5B3DE90067D383 /* WalletPassRequest.swift */,
@@ -816,6 +827,14 @@
 				282C37252DFFE7D2004E9245 /* SheetMenuModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		28B67ADD2E60512500C0D6B4 /* WebViewVC */ = {
+			isa = PBXGroup;
+			children = (
+				28B67ADE2E60513E00C0D6B4 /* WebViewVC.swift */,
+			);
+			path = WebViewVC;
 			sourceTree = "<group>";
 		};
 		28B8B06D2DE98A5D00157274 = {
@@ -860,6 +879,7 @@
 		28B8B0B02DE9909100157274 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				28B67ADD2E60512500C0D6B4 /* WebViewVC */,
 				28BBCA2F2E5708CA00FDA651 /* NewPassVC */,
 				285DD8B72E4F461A008D7E01 /* InvitationPreViewVC */,
 				D030F9B92E3A2B98001D513F /* StyleVC */,
@@ -1359,7 +1379,6 @@
 				28A630D92E55B1920069FC89 /* ViewAnalysisViewNib.xib in Resources */,
 				285DD8BE2E5066ED008D7E01 /* CostumAlertForLocationn.xib in Resources */,
 				28540C762DF0660C00399270 /* Template2CVC.xib in Resources */,
-				285D0DDC2E5B9C190067D383 /* pass_1756062840.pkpass in Resources */,
 				28540C852DF0667300399270 /* Template5CVC.xib in Resources */,
 				289A10752E37B87D003133DC /* QRScanViewNib.xib in Resources */,
 				28540C892DF066D000399270 /* Template6CVC.xib in Resources */,
@@ -1425,6 +1444,7 @@
 				282C37202DFFE6AF004E9245 /* SheetVC.swift in Sources */,
 				282C37262DFFE7D2004E9245 /* SheetMenuModel.swift in Sources */,
 				28B67ACF2E5EF16400C0D6B4 /* CouponField.swift in Sources */,
+				28B67AD72E5F868900C0D6B4 /* CheckoutRequest.swift in Sources */,
 				28B8B0B32DE998C800157274 /* DesignableView.swift in Sources */,
 				28DE34272E13E5A4002456B9 /* InvitationTemplatesCVC2.swift in Sources */,
 				28F322012DECD9B700544477 /* ProfileVC.swift in Sources */,
@@ -1438,11 +1458,13 @@
 				28B3B6522DEC38D000FBA89C /* VerifiedEmailVC.swift in Sources */,
 				28A630D52E55B16D0069FC89 /* ViewAnalysisVC.swift in Sources */,
 				282F164A2E1590C400D01113 /* InvitationTemplatesCVC6.swift in Sources */,
+				28B67ADC2E601CE800C0D6B4 /* InvitationWalletManager.swift in Sources */,
 				28DE34212E13C323002456B9 /* InvitationTemplatesCVC1.swift in Sources */,
 				287809802E105CD6003D5F1D /* InvitationFieldType.swift in Sources */,
 				D030F9B22E3A14A6001D513F /* ViewAsVC.swift in Sources */,
 				285D0DC02E5B47B80067D383 /* WalletResponse.swift in Sources */,
 				D030F9B82E3A2B6B001D513F /* SuccessVC.swift in Sources */,
+				28B67AD12E5F4FD500C0D6B4 /* Checkout.swift in Sources */,
 				286541AB2DEDA28B001342D9 /* ProgressAlertView.swift in Sources */,
 				28B8B0CC2DE9C20300157274 /* EmailVC.swift in Sources */,
 				28540C842DF0667300399270 /* Template5CVC.swift in Sources */,
@@ -1464,6 +1486,7 @@
 				28DE34752E1413F4002456B9 /* InvitationTemplatesCVC3.swift in Sources */,
 				285CA6162E4CB7AE001BB7E8 /* InvitationTemplatesCVC11.swift in Sources */,
 				28B8B1122DE9F07300157274 /* SignUpVC.swift in Sources */,
+				28B67AD32E5F507000C0D6B4 /* PaymentNetworkManager.swift in Sources */,
 				28540C882DF066D000399270 /* Template6CVC.swift in Sources */,
 				28F2B2302E39FF1D0089EBE4 /* PremiumAlert.swift in Sources */,
 				285DD8CA2E50DA0A008D7E01 /* InvitationTemplatesCVC14.swift in Sources */,
@@ -1508,6 +1531,7 @@
 				28B8B0CE2DE9CD0C00157274 /* CardView.swift in Sources */,
 				28DE347A2E141743002456B9 /* InvitationTemplatesCVC4.swift in Sources */,
 				28A630CE2E558E870069FC89 /* Protocols.swift in Sources */,
+				28B67ADF2E60513E00C0D6B4 /* WebViewVC.swift in Sources */,
 				287A88DD2DFD9F3800EBAEA1 /* UserModel.swift in Sources */,
 				28A630D72E55B1840069FC89 /* ViewAnalysisViewNib.swift in Sources */,
 				282F16612E1591AA00D01113 /* InvitationTemplatesCVC10.swift in Sources */,
@@ -1555,7 +1579,7 @@
 				DEVELOPMENT_TEAM = 6N26ZXPY3B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/swiftdevelopergmail.com/Desktop/Upwook Clients App/Saudi Clints/QR App 5/QR App/Resources/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "QR Card";
+				INFOPLIST_KEY_CFBundleDisplayName = DAWTK;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1587,7 +1611,7 @@
 				DEVELOPMENT_TEAM = 6N26ZXPY3B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/swiftdevelopergmail.com/Desktop/Upwook Clients App/Saudi Clints/QR App 5/QR App/Resources/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "QR Card";
+				INFOPLIST_KEY_CFBundleDisplayName = DAWTK;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

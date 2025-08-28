@@ -27,10 +27,19 @@ class InvitationTemplatesCVC14: UICollectionViewCell {
     var onWeddingTimeTap: (() -> Void)?
     var onLocationTap: (() -> Void)?
     
+    // MARK: - Extracted color
+       var extractedCardColor: UIColor?
+       
+    
     override func awakeFromNib() {
         super.awakeFromNib()
        
-        
+        if let defaultColor = cardView.backgroundColor {
+               print("🎨 Default MainView Color: \(defaultColor)")
+               extractedCardColor = defaultColor
+           } else {
+               print("⚠️ MainView has no default background color")
+           }
         dinnerTimebtn.addTarget(self, action: #selector(handleDinnerTimeTap), for: .touchUpInside)
         weddingTimeBtn.addTarget(self, action: #selector(handleWeddingTimeTap), for: .touchUpInside)
         locationBtn.addTarget(self, action: #selector(handleLocationTap), for: .touchUpInside)
@@ -84,6 +93,8 @@ class InvitationTemplatesCVC14: UICollectionViewCell {
         if !invitation.additionalBgColor.isEmpty {
             if let bgColor = UIColor(hex: invitation.additionalBgColor) {
                 self.cardView.backgroundColor = bgColor
+                self.extractedCardColor = bgColor
+
             }
         }
         

@@ -14,10 +14,11 @@ class InvitationPreViewVC: UIViewController {
     @IBOutlet weak var previewCardslbl: UILabel!
     @IBOutlet weak var previewInvitation: UIView!
     @IBOutlet weak var updateView: DesignableView!
-    
     @IBOutlet weak var rejectedlbl: UILabel!
     @IBOutlet weak var accpetedlbl: UILabel!
     @IBOutlet weak var addToWalletView: DesignableView!
+    var segmeentsSelected: SegmentsSelected = .inviationCard
+
     
     
     var userCard: InvitationModel!
@@ -169,6 +170,8 @@ class InvitationPreViewVC: UIViewController {
         if let userVC = storyboard.instantiateViewController(withIdentifier: "NewPassVC") as? NewPassVC {
             userVC.modalPresentationStyle = .overCurrentContext
             userVC.modalTransitionStyle = .crossDissolve
+            userVC.segmeentsSelected = segmeentsSelected
+            userVC.userInvitationCard = userCard
             present(userVC, animated: true, completion: nil)
         }
     }
