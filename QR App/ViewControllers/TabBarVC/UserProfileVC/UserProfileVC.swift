@@ -20,6 +20,21 @@ class UserProfileVC: UIViewController {
         loop()
     }
     
+    
+    
+    @IBAction func ddiTapChengeLanguage(_ sender: Any) {
+        if UIView.appearance().semanticContentAttribute == .forceLeftToRight {
+            // Switch to Right-to-Left
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
+        } else {
+            // Switch back to Left-to-Right
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        }
+
+        // Reload the root view to apply layout changes
+        navigateToTabBarScreen()
+    }
+    
     @IBAction func AccountButn(_ sender: UIButton) {
         print("AccountOpen")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -41,6 +56,14 @@ class UserProfileVC: UIViewController {
         }}
 
 
+    private func navigateToTabBarScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as? TabBarVC {
+            tabBarVC.modalTransitionStyle = .crossDissolve
+            tabBarVC.modalPresentationStyle = .fullScreen
+            present(tabBarVC, animated: true)
+        }
+    }
    
 
 }

@@ -11,6 +11,7 @@ target 'QR App' do
     pod 'lottie-ios'
     pod 'Malert'
     pod 'DGCharts'
+    pod 'Localize-Swift'
 
 
 end

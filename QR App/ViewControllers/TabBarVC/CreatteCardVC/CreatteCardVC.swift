@@ -20,7 +20,7 @@ class CreatteCardVC: UIViewController, UIScrollViewDelegate {
     // MARK: - Declation
     var selectedImageURLFromProfile: URL?
     var selectedImageURLFromLogo: URL?
-    
+    var link: String?
 
     var lastContentOffset: CGFloat = 0.0
     var totalScrolledHeight: CGFloat = 0.0
@@ -189,7 +189,7 @@ class CreatteCardVC: UIViewController, UIScrollViewDelegate {
             case 4: userCard.companyName = text
             case 5: userCard.jobTitle = text
             case 6: userCard.websiteUrl = text
-            case 7: userCard.locationLink = text
+            case 8: userCard.locationLink = text
             default: break
             }
         }
@@ -559,45 +559,42 @@ extension CreatteCardVC: UITableViewDataSource, UITableViewDelegate {
 
         if tableView == creadCardInfoTV {
             guard let type = CardFieldType(rawValue: indexPath.row) else { return cell }
-            
-            cell.configurePlaceholder(type.placeholder)
-            cell.uploadIcon.isHidden = !type.showsUploadIcon
-            cell.inputTxtField.delegate = self
-            cell.inputTxtField.tag = indexPath.row
-            
-            if indexPath.row == CardFieldType.profilePicture.rawValue ||
-               indexPath.row == CardFieldType.logo.rawValue ||
-               indexPath.row == CardFieldType.location.rawValue {
-                
-                // 🔒 Non-editable rows (Profile, Logo, Location)
-                cell.inputTxtField.isUserInteractionEnabled = false
-                cell.inputTxtField.text = ""
-                cell.placeholderLabel.isHidden = false
-                cell.inputTxtField.backgroundColor = .clear
-                cell.inputTxtField.textColor = .black
-                
-                // Profile Image
-                if indexPath.row == CardFieldType.profilePicture.rawValue,
-                   let selectedImage = self.profileImage {
-                    cell.uploadIcon.image = selectedImage
-                    cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
-                    cell.uploadIcon.clipsToBounds = true
-                    cell.uploadIcon.contentMode = .scaleAspectFill
-                }
-                
-                // Logo Image
-                if indexPath.row == CardFieldType.logo.rawValue,
-                   let selectedImage = self.logoImage {
-                    cell.uploadIcon.image = selectedImage
-                    cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
-                    cell.uploadIcon.clipsToBounds = true
-                    cell.uploadIcon.contentMode = .scaleAspectFill
-                }
-                
-                // Location (will be set on tap)
-                if indexPath.row == CardFieldType.location.rawValue {
-                    cell.inputTxtField.text = userCard.linkedinLink
-                }
+               
+               cell.configurePlaceholder(type.placeholder)
+               cell.uploadIcon.isHidden = !type.showsUploadIcon
+               cell.inputTxtField.delegate = self
+               cell.inputTxtField.tag = indexPath.row
+               
+               if type == .profilePicture || type == .logo || type == .location {
+                   // 🔒 Non-editable rows
+                   cell.inputTxtField.isUserInteractionEnabled = false
+                   cell.inputTxtField.text = ""
+                   cell.placeholderLabel.isHidden = false
+                   cell.inputTxtField.backgroundColor = .clear
+                   cell.inputTxtField.textColor = .black
+                   
+                   // Profile Image
+                   if type == .profilePicture, let selectedImage = self.profileImage {
+                       cell.uploadIcon.image = selectedImage
+                       cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
+                       cell.uploadIcon.clipsToBounds = true
+                       cell.uploadIcon.contentMode = .scaleAspectFill
+                   }
+                   
+                   // Logo Image
+                   if type == .logo, let selectedImage = self.logoImage {
+                       cell.uploadIcon.image = selectedImage
+                       cell.uploadIcon.layer.cornerRadius = cell.uploadIcon.frame.width / 2
+                       cell.uploadIcon.clipsToBounds = true
+                       cell.uploadIcon.contentMode = .scaleAspectFill
+                   }
+                   
+                   // Location
+                   if type == .location {
+                       cell.inputTxtField.text = userCard.location
+                       cell.placeholderLabel.isHidden = !(userCard.location.isEmpty)
+                   }
+                   
             } else {
                 // ✏️ Editable rows (text input)
                 
@@ -726,10 +723,13 @@ extension CreatteCardVC: UITableViewDataSource, UITableViewDelegate {
             print("User wants to verify: \(link)")
             
             // ✅ Dismiss after verify
-            self.dismiss(animated: true) {
-                self.userCard.location = link
-                self.creadCardInfoTV.reloadData()
-            }
+               self.dismiss(animated: true) {
+                   self.userCard.location = link
+                   self.link = link
+                   
+                   let indexPath = IndexPath(row: CardFieldType.location.rawValue, section: 0)
+                   self.creadCardInfoTV.reloadRows(at: [indexPath], with: .automatic)
+               }
         }
         
         // Present the alert
@@ -752,6 +752,7 @@ extension CreatteCardVC: UITextFieldDelegate {
             case 5: userCard.jobTitle = text
             case 6: userCard.websiteUrl = text
             case 7: break // logo handled via image
+            case 8: break
             default: break
             }
         } else {

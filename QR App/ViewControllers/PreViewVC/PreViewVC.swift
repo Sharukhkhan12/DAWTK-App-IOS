@@ -28,6 +28,7 @@ class PreViewVC: UIViewController {
         "Template2CVC"
     ]
     var selectedIndexPath: IndexPath?
+    var userTapAddorWallet = false
 
     var profileImage: UIImage?
     var logoImage: UIImage?
@@ -65,7 +66,10 @@ class PreViewVC: UIViewController {
     
     
     @IBAction func didTapAddWallet(_ sender: Any) {
-        self.goToPass()
+        DispatchQueue.main.async {
+            self.userTapAddorWallet = true
+            self.savedCard()
+        }
     }
    
     func goToPass() {
@@ -73,6 +77,8 @@ class PreViewVC: UIViewController {
         if let userVC = storyboard.instantiateViewController(withIdentifier: "NewPassVC") as? NewPassVC {
             userVC.modalPresentationStyle = .overCurrentContext
             userVC.modalTransitionStyle = .crossDissolve
+            userVC.cardInfo = self.userCard
+            userVC.segmeentsSelected = .BusinessCard
             present(userVC, animated: true, completion: nil)
         }
     }
@@ -100,6 +106,9 @@ class PreViewVC: UIViewController {
                         self.qrCodeTransparentImage = qrImage
                     }
                     self.progressAllert.dismiss()
+                    let firstIndexPath = IndexPath(item: 0, section: 0)
+                    self.templatesCV.scrollToItem(at: firstIndexPath, at: .centeredHorizontally, animated: false)
+                    self.templatesCV.reloadData()
                     // Step 2: Upload profile image
                 case .failure(let error):
                     self.progressAllert.dismiss()
@@ -425,10 +434,15 @@ class PreViewVC: UIViewController {
         print("- Owner ID: \(userCard.ownerId)")
         print("- Location: \(userCard.locationLink)")
         print("- Template Name: \(userCard.templateName)")
+        print("✅ Card saved successfully.")
 
         // 🔄 Optional: Upload to Firebase after preview
-        print("✅ Card saved successfully.")
-        self.navigateToTabBarScreen()
+        if userTapAddorWallet == true {
+            self.goToPass()
+        } else {
+            self.navigateToTabBarScreen()
+        }
+       
     }
     
     
@@ -486,9 +500,7 @@ class PreViewVC: UIViewController {
         DispatchQueue.main.async {
             self.progressAllert.show()
             self.setCardInitialInFirebase()
-            let firstIndexPath = IndexPath(item: 0, section: 0)
-            self.templatesCV.scrollToItem(at: firstIndexPath, at: .centeredHorizontally, animated: false)
-            self.templatesCV.reloadData()
+           
         }
         
     }
